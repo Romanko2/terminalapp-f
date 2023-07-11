@@ -1,0 +1,326 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "../node_modules/ngx-toastr/toastr.css";
+@import "../node_modules/intl-tel-input/build/css/intlTelInput.css";
+
+.pointer{
+    cursor: pointer;
+}
+
+.mainPannel{
+    &.isFull{
+        .mainSidebar{
+            width: 70px;
+        }
+        .mainContent{
+            width: calc(100% - 70px);
+        }
+        article.sidebarNav a {
+            background-color: white;
+            color: #0f172a !important;
+            font-size: 25px !important;
+            padding: 7px 7px !important;
+        }
+        .mainSidebar {
+            height: calc(100vh);
+            position: fixed;
+            transition: 1.2s;
+            z-index: 9 !important;
+        }
+        .hidemin{
+            display: none;
+        }
+    }
+}
+
+.inputWrapper{
+    position: relative;
+    > i{
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        right: 10px;
+        color: #000;
+    }
+}
+
+ngx-intl-tel-input{
+    width: 100%;
+    .iti{
+        width: 100%;
+    }
+    .iti--allow-dropdown{
+        > input{
+            width: 100%;
+            font-size: 14px;
+            list-style: none;
+            height: auto;
+            padding: 10px 20px;
+            border: 1px solid #ced4da;
+        }
+    }
+}
+
+body{
+    font-size: 14px;
+}
+
+.modal{
+    z-index: 9999;
+    >*{
+        position: relative;
+    }
+
+    .modal-overlay{
+        background-color: #000;
+        opacity: .3;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top:0;
+    }
+}
+
+.form-control{
+    font-size:14px;
+    list-style: none;
+    height: auto !important;
+    padding:10px 20px;
+}
+
+.btn{
+    background: #CBA773;
+    border-radius: 26.5px;
+ 
+    border: none;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    color: #FFFFFF;
+}
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #CBA773;
+    border-color: #CBA773 !important;
+}
+.edit-profile-input i {
+    font-size: 18px;
+    position: absolute;
+    right: 0;
+    bottom: 17px;
+    background-color: white;
+    color: #000;
+    padding: 5px 4px !important;
+    border-radius: 50px;
+}
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: none !important;
+}
+// .listTableWapper{
+//     height: calc(100vh - 225px);
+// }
+.btn-primary:hover {
+    color: #fff;
+    background-color: #907e64;
+    border-color: #907e64;
+}
+a.last-back:hover {
+    color: #fff;
+    background-color: #907e64;
+    border-color: #907e64;
+}
+.listTable{
+    thead{
+        background-color: #f8fafc;
+        th{
+            font-weight: 600;
+        }
+    }
+
+    .action{
+        > *{
+            font-size: 16px;
+            display: inline-block;
+            margin: 3px;
+            cursor: pointer;
+        }
+    }
+
+    tbody{
+        td{
+            height: 60px;
+            vertical-align: middle;
+        }
+    }
+}
+
+
+
+.loginWrapper{
+    background-color: #2a2ae129;
+    
+    .card{
+     
+        color: #000000;
+        text-decoration: none;
+
+    background-color: #ffffff00 !important;
+
+        .forgotpassword{
+            color: #000000;
+        }
+    }
+}
+
+.loaderDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffffb8;
+    z-index: 9999;
+
+    mat-spinner{
+        width: 50px !important;
+        height: 50px !important;
+        > svg{
+            height: 100% !important;
+            width: 100% !important;
+        }
+    }
+}
+
+.invalid-feedback{
+    display: block;
+}
+
+.mat-icon{
+    height: auto !important;
+    width: auto !important;
+    font-size: inherit;
+}
+
+.listHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    h2{
+        font-weight: 700;
+    }
+}
+
+
+.lhSaerchFrom{
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    display: inline-block;
+
+    > .form-control{
+        padding: 10px 30px;
+        border-radius: 20px;
+    }
+
+    > .mat-icon{
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: 16px;
+
+        &.search{
+            left: 10px;
+        }
+
+        &.clear{
+            right: 10px;
+        }
+    }
+}
+
+
+.lhBtn, .aeBtn{
+    border-radius: 20px;
+    padding: 10px 25px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.aedBtn{
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.addEditForm{
+    height: calc(100vh - 240px);
+    overflow: auto;
+    align-items: flex-start;
+    .required{
+        &::after{
+            content: "*";
+            margin-left: 3px;
+        }
+    }
+}
+button.btn.btn-primary {
+    border-radius: 50px;
+}
+.text-light {
+    color: #000000 !important;
+}
+// .image-login {
+//     background-color: #beddff;
+//     border-radius: 50px 0px 0px 50px;
+// }
+a.last-back {
+    background-color: #cba773;
+    padding: 9px 22px;
+    color: white !important;
+    font-weight: 400;
+    border-radius: 50px;
+}
+
+// a.text-light.logo-place {
+//     font-size: 55px;
+//     font-family: sans-serif;
+//     font-weight: 600;
+//     font-style: oblique;
+
+//     color: #529ff3c2 !important;
+// }
+.bg-main {
+    background: #fff;
+    padding: 20px;
+    margin-top: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px -10px #000;
+}
+p.text {
+    background-color: #2d2d2e1c;
+    padding: 6px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #424242;
+}
+label.profile-label {
+    font-size: 15px;
+    font-weight: 500;
+}
+.dropdown-menu.country-dropdown.show {
+    width: 300px;
+}
+select.form-control {
+    border-radius: 50px !important;
+}
+.mat-paginator {
+    background: #0f172a;
+}

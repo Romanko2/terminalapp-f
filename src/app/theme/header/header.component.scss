@@ -1,0 +1,38 @@
+.mainHeader{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    align-items: center;
+    width: calc(100% - 280px);
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: #fff;
+
+    border-bottom: 1px solid #b8b6b6;
+    &.isFull{
+        width: calc(100% - 70px);
+    }
+}
+
+.headerProfile{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+
+.userDropdown{
+    .btn{
+        padding: 0;
+        border:0;
+        background-color: transparent;
+        box-shadow: none !important;
+        &::after{
+            content: none;
+        }
+    }
+}

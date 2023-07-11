@@ -1,0 +1,36 @@
+.loginWrapper{
+    display: flex;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    min-height: 100vh;
+
+
+}
+
+.container.shadow {
+    background-image: url('/assets/img/loginbg.png');
+    background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        background-color: white;
+}
+h5.login-heading{
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+}
+.image-login {
+    float: right;
+    position: relative;
+    top: -93px;
+    left: 85px;
+}
+article.card.border-0.p-3.border-top {
+    width: 400px;
+    margin: auto;
+}
