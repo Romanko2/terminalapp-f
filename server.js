@@ -1,9 +1,9 @@
 /*
 Put content of angular2 build into 'public' folder.
 */
-const html = './dist/angular12/';
+const html = './dist/Fundraising_admin/';
 
-const port = 7018;
+const port = 7032;
 const apiUrl = '/api';
 // Express
 const bodyParser = require('body-parser');
@@ -18,7 +18,7 @@ app
     .use(express.static(html))
     // Default route
     .use(function (req, res) {
-        res.sendFile(__dirname + '/dist/angular12/index.html');
+        res.sendFile(__dirname + '/dist/Fundraising_admin/index.html');
     })
     // Start server
     .listen(port, function () {
