@@ -1,7 +1,7 @@
 /*
 Put content of angular2 build into 'public' folder.
 */
-const html = './dist/new-grow-n-help-admin/';
+const html = './dist/new-grow-n-help-frontend/';
 
 const port = 7033;
 const apiUrl = '/api';
@@ -18,7 +18,7 @@ app
     .use(express.static(html))
     // Default route
     .use(function (req, res) {
-        res.sendFile(__dirname + '/dist/new-grow-n-help-admin/index.html');
+        res.sendFile(__dirname + '/dist/new-grow-n-help-frontend/index.html');
     })
     // Start server
     .listen(port, function () {
