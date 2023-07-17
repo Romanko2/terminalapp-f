@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'marketplace-rpf-admin'`, () => {
+  it(`should have as title 'new-grow-n-help-admin'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('marketplace-rpf-admin');
+    expect(app.title).toEqual('new-grow-n-help-admin');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('marketplace-rpf-admin app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('new-grow-n-help-admin app is running!');
   });
 });

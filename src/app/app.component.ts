@@ -8,7 +8,7 @@ import { BehaviorService } from './shared/behavior.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Marketplace Rpf Admin';
+  title = 'Grow and Help Admin';
 
   constructor(private router:Router,
     private _bs:BehaviorService){

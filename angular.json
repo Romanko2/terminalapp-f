@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "marketplace-rpf-admin": {
+    "new-grow-n-help-admin": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/marketplace-rpf-admin",
+            "outputPath": "dist/new-grow-n-help-admin",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -76,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "marketplace-rpf-admin:build:production"
+              "browserTarget": "new-grow-n-help-admin:build:production"
             },
             "development": {
-              "browserTarget": "marketplace-rpf-admin:build:development"
+              "browserTarget": "new-grow-n-help-admin:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "marketplace-rpf-admin:build"
+            "browserTarget": "new-grow-n-help-admin:build"
           }
         },
         "test": {
@@ -112,5 +112,5 @@
       }
     }
   },
-  "defaultProject": "marketplace-rpf-admin"
+  "defaultProject": "new-grow-n-help-admin"
 }
