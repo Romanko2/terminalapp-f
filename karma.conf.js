@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/Fundraising_admin'),
+      dir: require('path').join(__dirname, './coverage/marketplace-rpf-admin'),
       subdir: '.',
       reporters: [
         { type: 'html' },

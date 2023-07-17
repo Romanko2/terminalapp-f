@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Fundraising_admin": {
+    "marketplace-rpf-admin": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Fundraising_admin",
+            "outputPath": "dist/marketplace-rpf-admin",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -76,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Fundraising_admin:build:production"
+              "browserTarget": "marketplace-rpf-admin:build:production"
             },
             "development": {
-              "browserTarget": "Fundraising_admin:build:development"
+              "browserTarget": "marketplace-rpf-admin:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Fundraising_admin:build"
+            "browserTarget": "marketplace-rpf-admin:build"
           }
         },
         "test": {
@@ -112,5 +112,5 @@
       }
     }
   },
-  "defaultProject": "Fundraising_admin"
+  "defaultProject": "marketplace-rpf-admin"
 }

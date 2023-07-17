@@ -1,9 +1,9 @@
 /*
 Put content of angular2 build into 'public' folder.
 */
-const html = './dist/Fundraising_admin/';
+const html = './dist/marketplace-rpf-admin/';
 
-const port = 7032;
+const port = 7033;
 const apiUrl = '/api';
 // Express
 const bodyParser = require('body-parser');
@@ -18,7 +18,7 @@ app
     .use(express.static(html))
     // Default route
     .use(function (req, res) {
-        res.sendFile(__dirname + '/dist/Fundraising_admin/index.html');
+        res.sendFile(__dirname + '/dist/marketplace-rpf-admin/index.html');
     })
     // Start server
     .listen(port, function () {
