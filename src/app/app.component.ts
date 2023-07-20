@@ -8,7 +8,7 @@ import { BehaviorService } from './shared/behavior.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Grow and Help Frontend';
+  title = 'Financial App Frontend';
 
   constructor(private router:Router,
     private _bs:BehaviorService){

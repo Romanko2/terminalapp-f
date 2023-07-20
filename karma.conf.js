@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/new-grow-n-help-frontend'),
+      dir: require('path').join(__dirname, './coverage/financial-app-frontend'),
       subdir: '.',
       reporters: [
         { type: 'html' },
