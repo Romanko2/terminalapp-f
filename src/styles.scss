@@ -41,7 +41,8 @@
         top:50%;
         transform: translateY(-50%);
         right: 10px;
-        color: #000;
+        color: #fff;
+        cursor: pointer;
     }
 }
 
@@ -87,11 +88,11 @@ body{
     font-size:14px;
     list-style: none;
     height: auto !important;
-    padding:10px 20px;
+    padding: 10px 10px;
+    padding-right: 30px;
 }
 
 .btn{
-    background: #CBA773;
     border-radius: 26.5px;
  
     border: none;
@@ -101,11 +102,11 @@ body{
     font-size: 15px;
     color: #FFFFFF;
 }
-.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
-    color: #fff;
-    background-color: #CBA773;
-    border-color: #CBA773 !important;
-}
+// .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+//     color: #fff;
+//     background-color: #CBA773;
+//     border-color: #CBA773 !important;
+// }
 .edit-profile-input i {
     font-size: 18px;
     position: absolute;
@@ -122,16 +123,16 @@ body{
 // .listTableWapper{
 //     height: calc(100vh - 225px);
 // }
-.btn-primary:hover {
-    color: #fff;
-    background-color: #907e64;
-    border-color: #907e64;
-}
-a.last-back:hover {
-    color: #fff;
-    background-color: #907e64;
-    border-color: #907e64;
-}
+// .btn-primary:hover {
+//     color: #fff;
+//     background-color: #907e64;
+//     border-color: #907e64;
+// }
+// a.last-back:hover {
+//     color: #fff;
+//     background-color: #907e64;
+//     border-color: #907e64;
+// }
 .listTable{
     thead{
         background-color: #f8fafc;
@@ -158,21 +159,13 @@ a.last-back:hover {
 }
 
 
-
+.loginWrapper {
+    background-image: url(/assets/img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
 .loginWrapper{
-    background-color: #2a2ae129;
-    
-    .card{
-     
-        color: #000000;
-        text-decoration: none;
-
-    background-color: #ffffff00 !important;
-
-        .forgotpassword{
-            color: #000000;
-        }
-    }
+    background-image:url('/assets/img/background.jpg');
 }
 
 .loaderDiv{
@@ -200,6 +193,7 @@ a.last-back:hover {
 .invalid-feedback{
     display: block;
 }
+
 
 .mat-icon{
     height: auto !important;
@@ -281,13 +275,7 @@ button.btn.btn-primary {
 //     background-color: #beddff;
 //     border-radius: 50px 0px 0px 50px;
 // }
-a.last-back {
-    background-color: #cba773;
-    padding: 9px 22px;
-    color: white !important;
-    font-weight: 400;
-    border-radius: 50px;
-}
+
 
 // a.text-light.logo-place {
 //     font-size: 55px;
@@ -324,3 +312,57 @@ select.form-control {
 .mat-paginator {
     background: #0f172a;
 }
+
+
+
+// ################ Login ##############//////////////
+
+.card_div {
+    background: #0000005e;
+    padding: 2rem;
+    box-shadow: 0px 0px 15px -6px #000;
+    border-radius: 10px;
+}
+.card_div input {
+    background: none;
+    border: 0px;
+    border-bottom: 1px solid #fff;
+    border-radius: 0px;
+    color: #fff;
+}
+.card_div input:focus{
+    background: none;
+    border-radius: 0px;
+    box-shadow: none;
+}
+.btn_main {
+    width: 200px;
+    line-height: 42px;
+    border-radius: 0px !important;
+    background: #00000073;
+}
+.btn_main:focus{
+    border-radius: 0px !important;
+    background: #00000073;
+    box-shadow: none;
+}
+.btn_main:hover{
+    border-radius: 0px !important;
+    background: #00000073;
+    box-shadow: none;
+}
+.btn_main:active{
+    border-radius: 0px !important;
+    background: #00000073 !important;
+    box-shadow: none;
+}
+a.last-back {
+    background-color: #00000073;
+    padding: 9px 22px;
+    color: #fff;
+    text-align: center;
+    border-radius: 50px;
+}
+
+
+// ################ Login end ##############//////////////

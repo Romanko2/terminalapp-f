@@ -8,13 +8,13 @@
 
 }
 
-.container.shadow {
-    background-image: url('/assets/img/loginbg.png');
-    background-repeat: no-repeat;
-        background-size: cover;
-        height: 100%;
-        background-color: white;
-}
+// .container.shadow {
+//     background-image: url('/assets/img/loginbg.png');
+//     background-repeat: no-repeat;
+//         background-size: cover;
+//         height: 100%;
+//         background-color: white;
+// }
 h5.login-heading{
     font-family: sans-serif;
     font-style: normal;
@@ -22,7 +22,7 @@ h5.login-heading{
     font-size: 18px;
     line-height: 22px;
     text-align: center;
-    color: #000000;
+    color: #fff;
 }
 .image-login {
     float: right;
@@ -34,3 +34,12 @@ article.card.border-0.p-3.border-top {
     width: 400px;
     margin: auto;
 }
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 1; /* Firefox */
+  }
+  .form-control:focus {
+    color: #fff;
+  }

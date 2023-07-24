@@ -5,13 +5,13 @@
     padding-bottom: 30px;
     min-height: 100vh;
 }
-.container.shadow {
-background-image: url('/assets/img/loginbg.png');
-background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    background-color: white;
-}
+// .container.shadow {
+// background-image: url('/assets/img/loginbg.png');
+// background-repeat: no-repeat;
+//     background-size: cover;
+//     height: 100%;
+//     background-color: white;
+// }
 input.form-control.ng-untouched.ng-pristine.ng-invalid {
     border: none;
     border-bottom: 1px solid #a1a1a1;
@@ -30,7 +30,7 @@ h5.login-heading {
     font-size: 18px;
     line-height: 22px;
     text-align: center;
-    color: #000000;
+    color: #fff;
 }
 label.form-check-label.rem {
     font-family: sans-serif;
@@ -38,21 +38,32 @@ label.form-check-label.rem {
     font-weight: 400;
     font-size: 10px;
     line-height: 12px;
-    color: #858585;
+    color: #fff;
 }
-button.btn.btn-primary {
-    width: 132px;
-    height: 36px;
-}
+// button.btn.btn-primary {
+//     width: 132px;
+//     height: 36px;
+// }
 a.forgotpassword {
     font-family: sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 10px;
     line-height: 12px;
-    color: #858585 !important;
+    color: #fff;
 }
 article.card.border-0.p-3.border-top {
     width: 400px;
     margin: auto;
 }
+
+
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 1; /* Firefox */
+  }
+  .form-control:focus {
+    color: #fff;
+  }
