@@ -3,6 +3,8 @@ import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http'
 import { map, catchError, } from 'rxjs/operators';
 import { throwError, Observable, BehaviorSubject, of } from 'rxjs';
 import { environment } from '../environments/environment';
+import { LOGIN, REGISTER } from './utils/interface/auth-interface';
+import { API_CONSTANTS } from './utils/constants/api.const';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +12,7 @@ import { environment } from '../environments/environment';
 export class AppService {
 
   private _baseUrl = environment.apiUrl;
+  private baseUrl = environment.apiUrl
   rootUrl: any;
   http: any;
 
@@ -17,15 +20,24 @@ export class AppService {
     private httpClient: HttpClient) {
   }
 
+  //Login//
+  userLogin(body: LOGIN): Observable<any> {
+    return this.httpClient.post<LOGIN>(`${this.baseUrl}${API_CONSTANTS.login_url}`, body)
+  }
 
-  uploadImage(url:any,fdata:any) {
+  register(body: REGISTER): Observable<any> {
+    return this.httpClient.post<REGISTER>(`${this.baseUrl}${API_CONSTANTS.signup_url}`, body)
+  }
+
+  
+  uploadImage(url: any, fdata: any) {
     const formData: FormData = new FormData();
     // formData.append('data', fileToUpload, fileToUpload.name);
-    let oarr=Object.keys(fdata)
-    oarr.map(itm=>{
-      formData.append(itm,fdata[itm])
+    let oarr = Object.keys(fdata)
+    oarr.map(itm => {
+      formData.append(itm, fdata[itm])
     })
-    return this.httpClient.post(this._baseUrl + url,formData).pipe(
+    return this.httpClient.post(this._baseUrl + url, formData).pipe(
       map((response: any) => {
         return response;
       }),
@@ -46,7 +58,7 @@ export class AppService {
   //   );
   // }
 
-  getNotification(url:any){
+  getNotification(url: any) {
     return this.httpClient.get(this._baseUrl + 'notifications').pipe(
       map((response: any) => {
         return response;
@@ -54,7 +66,7 @@ export class AppService {
       catchError(this.handleError)
     )
   }
-  deleteNoti(param?:any) {
+  deleteNoti(param?: any) {
     let params = new HttpParams();
     if (param) {
       for (let key of Object.keys(param)) {
@@ -80,18 +92,18 @@ export class AppService {
   getAuthorizationHeader() {
     throw new Error("Method not implemented.");
   }
-  allApi(url:any = '',context:any = {}, method:any = 'get'){
-    if(method == 'post'){
-     return this.add(context, url)
-    }else if(method == 'put'){
+  allApi(url: any = '', context: any = {}, method: any = 'get') {
+    if (method == 'post') {
+      return this.add(context, url)
+    } else if (method == 'put') {
       return this.update(context, url)
-    }else if(method == 'delete'){
+    } else if (method == 'delete') {
       return this.deleteRecord(context, url)
     }
     return this.getAll(url, context);
   }
 
-  add(context:any, url:any) {
+  add(context: any, url: any) {
     return this.httpClient.post(this._baseUrl + url, context).pipe(
       map((response: any) => {
         return response;
@@ -100,7 +112,7 @@ export class AppService {
     );
   }
 
-  update(context:any, url:any) {
+  update(context: any, url: any) {
     return this.httpClient.put(this._baseUrl + url, context).pipe(
       map((response: any) => {
         return response;
@@ -109,9 +121,9 @@ export class AppService {
     );
   }
 
-  getAll(url:any, param?:any, baseUrl:any = '') {
+  getAll(url: any, param?: any, baseUrl: any = '') {
     let params = new HttpParams();
-    let _baseUrl = baseUrl?baseUrl:this._baseUrl;
+    let _baseUrl = baseUrl ? baseUrl : this._baseUrl;
     if (param) {
       for (let key of Object.keys(param)) {
         params = params.set(key, param[key])
@@ -125,7 +137,7 @@ export class AppService {
     )
   }
 
-  getAllAmenities(url:any){
+  getAllAmenities(url: any) {
     return this.httpClient.get(this._baseUrl + url).pipe(
       map((response: any) => {
         return response;
@@ -134,7 +146,7 @@ export class AppService {
     )
   }
 
-  status(id:any, model:any, status:any) {
+  status(id: any, model: any, status: any) {
     let url = this._baseUrl + 'changeStatus?id=' + id + '&model=' + model + '&status=' + status;
 
     return this.httpClient.put(url, {}).pipe(
@@ -146,7 +158,7 @@ export class AppService {
   }
 
 
-  deleteRecord(param?:any, url:any = 'delete') {
+  deleteRecord(param?: any, url: any = 'delete') {
     let params = new HttpParams();
     if (param) {
       for (let key of Object.keys(param)) {
@@ -161,7 +173,7 @@ export class AppService {
     )
   }
 
-  deleteRecordPermanent(param?:any) {
+  deleteRecordPermanent(param?: any) {
     let params = new HttpParams();
     if (param) {
       for (let key of Object.keys(param)) {
@@ -176,7 +188,7 @@ export class AppService {
     )
   }
 
-  moveBackRecord(param?:any) {
+  moveBackRecord(param?: any) {
     let params = new HttpParams();
     if (param) {
       for (let key of Object.keys(param)) {
@@ -191,7 +203,7 @@ export class AppService {
     )
   }
 
-  getTotalCount(url:any){
+  getTotalCount(url: any) {
     return this.httpClient.get(this._baseUrl + url).pipe(
       map((response: any) => {
         return response;
@@ -201,8 +213,8 @@ export class AppService {
   }
 
 
-  markRead(url:any) {
-    return this.httpClient.put(this._baseUrl + url,'').pipe(
+  markRead(url: any) {
+    return this.httpClient.put(this._baseUrl + url, '').pipe(
       map((response: any) => {
         return response;
       }),
@@ -210,7 +222,7 @@ export class AppService {
     );
   }
 
-  getParams(parameters:any) {
+  getParams(parameters: any) {
     let params = new HttpParams();
     Object.keys(parameters).map((key) => {
       params = params.set(key, parameters[key]);
@@ -225,7 +237,7 @@ export class AppService {
     let message = '';
     if (error.error.code == 401) {
       iserror = true;
-      message = error.error.message=='authorization'?"Your session has been expired":error.error.message
+      message = error.error.message == 'authorization' ? "Your session has been expired" : error.error.message
       // message = error.error.message;
     } else if (error.error.code == 404) {
       iserror = true;
@@ -233,7 +245,7 @@ export class AppService {
     } else if (error.error.code == 400) {
       iserror = true;
       message = error.error.message;
-    }else if (error.error.code == 500) {
+    } else if (error.error.code == 500) {
       iserror = true;
       message = error.error.message;
     }
@@ -242,7 +254,7 @@ export class AppService {
       message = 'You entered invalid Email';
     }
 
-    return throwError(message?message:'Something bad happened; please try again later.');
+    return throwError(message ? message : 'Something bad happened; please try again later.');
 
   }
 }
