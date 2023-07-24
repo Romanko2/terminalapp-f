@@ -336,29 +336,26 @@ select.form-control {
     box-shadow: none;
 }
 .btn_main {
-    width: 200px;
-    line-height: 42px;
-    border-radius: 0px !important;
+    width: 150px;
+    line-height: 30px;
+    border-radius: 30px !important;
     background: #00000073;
 }
 .btn_main:focus{
-    border-radius: 0px !important;
     background: #00000073;
     box-shadow: none;
 }
-.btn_main:hover{
-    border-radius: 0px !important;
+.btn_main:hover{ 
     background: #00000073;
     box-shadow: none;
 }
 .btn_main:active{
-    border-radius: 0px !important;
     background: #00000073 !important;
     box-shadow: none;
 }
 a.last-back {
     background-color: #00000073;
-    padding: 9px 22px;
+    padding: 6px 22px;
     color: #fff;
     text-align: center;
     border-radius: 50px;
