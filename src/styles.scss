@@ -313,7 +313,16 @@ select.form-control {
     background: #0f172a;
 }
 
-
+.btn-primary{
+    background: #0f172a;
+}
+.btn-primary:hover{
+    background: #0f172a;
+}
+.btn-primary:focus{
+    background: #0f172a !important;
+    box-shadow: none;
+}
 
 // ################ Login ##############//////////////
 
