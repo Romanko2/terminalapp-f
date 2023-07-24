@@ -296,6 +296,7 @@ p.text {
     background-color: #2d2d2e1c;
     padding: 6px;
     border-radius: 5px;
+    min-height: 32px;
     font-size: 14px;
     color: #424242;
 }
@@ -322,6 +323,9 @@ select.form-control {
 .btn-primary:focus{
     background: #0f172a !important;
     box-shadow: none;
+}
+.btn {
+    padding: 6px 20px;
 }
 
 // ################ Login ##############//////////////
