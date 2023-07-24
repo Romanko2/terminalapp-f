@@ -3,7 +3,7 @@ import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http'
 import { map, catchError, } from 'rxjs/operators';
 import { throwError, Observable, BehaviorSubject, of } from 'rxjs';
 import { environment } from '../environments/environment';
-import { LOGIN, REGISTER } from './utils/interface/auth-interface';
+import { FORGOTPASSWORD, LOGIN, REGISTER } from './utils/interface/auth-interface';
 import { API_CONSTANTS } from './utils/constants/api.const';
 
 @Injectable({
@@ -25,10 +25,15 @@ export class AppService {
     return this.httpClient.post<LOGIN>(`${this.baseUrl}${API_CONSTANTS.login_url}`, body)
   }
 
+  //REGISTER//
   register(body: REGISTER): Observable<any> {
     return this.httpClient.post<REGISTER>(`${this.baseUrl}${API_CONSTANTS.signup_url}`, body)
   }
 
+  //FORGOT PASSWORD//
+  forgotPassword(body:FORGOTPASSWORD):Observable<any>{
+    return this.httpClient.post<FORGOTPASSWORD>(`${this.baseUrl}${API_CONSTANTS.forgotpassword_url}`, body)
+  }
   
   uploadImage(url: any, fdata: any) {
     const formData: FormData = new FormData();

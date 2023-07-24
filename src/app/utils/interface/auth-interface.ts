@@ -9,3 +9,7 @@ export interface REGISTER {
     email: string;
     password: string;
 }
+
+export interface FORGOTPASSWORD {
+    email:string;
+}
