@@ -11,15 +11,15 @@ import { LayoutComponent } from './theme/layout/layout.component';
 const routes: Routes = [
   {
     path:'',
-    redirectTo:'dashboard',
+    redirectTo:'home',
     pathMatch:'full'
   },
   {
-    path:'',
-    component: LayoutComponent,
-    canActivate:[AuthGuard],
+    path:'home',
+    component: HomeComponent,
+    // canActivate:[AuthGuard],
     children :[
-      { path: '', 
+      { path: 'home', 
         component: HomeComponent,
       },
       {
