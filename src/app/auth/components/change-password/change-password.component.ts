@@ -28,9 +28,9 @@ export class ChangePasswordComponent implements OnInit {
     private router:Router,
     private toastr:ToastrService) {
 
-    if(_bs.getLocalUser()==null){
-      router.navigateByUrl('/')
-    }
+    // if(_bs.getLocalUser()==null){
+    //   router.navigateByUrl('/')
+    // }
 
     this.loginForm = this.fb.group({
       currentPassword: ["", [Validators.required, Validators.minLength(9)]],

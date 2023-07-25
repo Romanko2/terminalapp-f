@@ -35,6 +35,8 @@ export class EditProfileComponent implements OnInit {
     // this.getData()
   }
 
+  updateUser(){}
+
   getData(){
     this._bs.load(true)
     this.appService.getAll('profile').subscribe(res=>{

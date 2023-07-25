@@ -27,11 +27,11 @@
             <div class="form-group  has-required">
                 <label for="nf-name"> Name<span class="text-danger">*</span></label>
                 <section>
-                    <input type="text" maxlength="50" autocomplete="off" placeholder="" formControlName="fullName"
-                        class="form-control titlecase" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }"
+                    <input type="text" maxlength="50" autocomplete="off" placeholder="" formControlName="firstName"
+                        class="form-control titlecase" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
                         required="">
-                    <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
-                        <div *ngIf="f.fullName.errors.required"> Name is required</div>
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required"> Name is required</div>
                     </div>
                 </section>
             </div>
@@ -40,17 +40,17 @@
             <div class="setinput">
                 <label class="required d-block ">Contact Number<span class="text-danger">*</span></label>
                 <app-tel-input [control]="f.mobileNo"></app-tel-input>
-                <div *ngIf="submitted && f.mobileNo.errors" class="invalid-feedback">
+                <!-- <div *ngIf="submitted && f.mobileNo.errors" class="invalid-feedback">
                     <div *ngIf="f.mobileNo.errors.required">Contact Number is required</div>
                     <div *ngIf="!f.mobileNo.errors.required">Contact Number is invalid</div>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="col-sm-6">
             <div class="form-group  has-required">
                 <label for="nf-name">Email<span class="text-danger">*</span></label>
                 <section>
-                    <input formControlName="email" [readonly]="true" type="email" class="form-control" required>
+                    <input formControlName="email" [readonly]="true" type="email" class="form-control" required readonly>
                     <div *ngIf="submitted && (f.email.errors)" class="invalid-feedback">
                         <div *ngIf="f.email.errors?.required">Email is required</div>
                         <div *ngIf="f.email.value&&f.email.errors.email">Please Enter Valid Email</div>
@@ -60,7 +60,7 @@
         </div>
 
         <div class="col-md-12 text-right">
-            <button class="btn btn-primary" [disabled]="updating">Update <i class="fa fa-spinner fa-spin" *ngIf="updating"></i></button>
+            <button class="btn btn-primary" [disabled]="updating" (click)="updateUser()">Update <i class="fa fa-spinner fa-spin" *ngIf="updating"></i></button>
         </div>
     </div>
 </form>

@@ -14,6 +14,13 @@ export interface FORGOTPASSWORD {
     email:string;
 }
 
-export interface VIEWPROFILE {
-    
+export interface EDITPROFILE {
+    id:any;
+    firstName:any;
+}
+
+export interface CHANGEPASSWORD {
+    newPassword:any;
+    confirmPassword:any;
+    currentPassword:any;
 }
