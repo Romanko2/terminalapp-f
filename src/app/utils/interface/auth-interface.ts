@@ -13,3 +13,7 @@ export interface REGISTER {
 export interface FORGOTPASSWORD {
     email:string;
 }
+
+export interface VIEWPROFILE {
+    
+}

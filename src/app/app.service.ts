@@ -35,6 +35,15 @@ export class AppService {
     return this.httpClient.post<FORGOTPASSWORD>(`${this.baseUrl}${API_CONSTANTS.forgotpassword_url}`, body)
   }
   
+  //VIEW-PROFILE//
+  viewProfile(){
+    return this.httpClient.get(`${this.baseUrl}${API_CONSTANTS.viewprofile_url}${'64be50bba6b08c6acaa14b19'}`)
+  }
+
+  //EDIT-PROFILE//
+  editProfile(body:any){
+    return this.httpClient.put(`${this.baseUrl}${API_CONSTANTS}` , body)
+  }
   uploadImage(url: any, fdata: any) {
     const formData: FormData = new FormData();
     // formData.append('data', fileToUpload, fileToUpload.name);

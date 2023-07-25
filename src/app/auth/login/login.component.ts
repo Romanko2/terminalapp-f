@@ -50,7 +50,9 @@ export class LoginComponent implements OnInit {
       this.appService.userLogin(this.loginForm.value).subscribe({
         next: (res) => {
           this.toaster.success(res.message)
-
+          localStorage.setItem('user:session' , JSON.stringify(res))
+          localStorage.setItem('id' , res.data.id)
+          this.router.navigate(['/profile/view-profile'])
         },
         error: (err) => {
           this.toaster.error(err.message)

@@ -9,15 +9,23 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./view-profile.component.scss']
 })
 export class ViewProfileComponent implements OnInit {
-
+  public userDetails:any;
   user:any
   _host:any=environment.apiUrl
   constructor(private appService:AppService,private _bs:BehaviorService) { }
 
   ngOnInit(): void {
-    // this.getData()
+    this.getUserData()
   }
 
+  getUserData(){
+    this.appService.viewProfile().subscribe({
+      next:(res)=>{
+        this.userDetails = res
+        console.log(res)
+      }
+    })
+  }
   getData(){
     this._bs.load(true)
     this.appService.getAll('profile').subscribe(res=>{

@@ -38,7 +38,7 @@ export class SignupComponent implements OnInit {
     if (this.signupForm.valid) {
       this.appService.register(this.signupForm.value).subscribe({
         next: (res) => {
-          localStorage.setItem('userSignup:session' , JSON.stringify(res))
+          localStorage.setItem('user-signup:session' , JSON.stringify(res))
           this.toaster.success(res.message)
           this.router.navigate(['/auth/login'])
         },
