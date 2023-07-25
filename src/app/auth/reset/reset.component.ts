@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AppService } from 'src/app/app.service';
 import { BehaviorService } from 'src/app/shared/behavior.service';
 import { ConfirmMatch } from 'src/app/shared/confirm-match.validator';
+import { AuthService } from 'src/app/utils/services/auth.service';
 
 @Component({
   selector: 'app-reset',
@@ -20,7 +21,7 @@ export class ResetComponent implements OnInit {
 
   constructor(private fb:FormBuilder,
     private _bs:BehaviorService,
-    private appService:AppService,
+    private authService: AuthService,
     private router:Router,
     private toastr:ToastrService) {
 
@@ -43,26 +44,26 @@ export class ResetComponent implements OnInit {
 
   get f() { return this.loginForm.controls;}
 
-  onSubmit(){
-    this.submitted = true;
-    if (this.loginForm.invalid) {
-      return;
-    }
+  // onSubmit(){
+  //   this.submitted = true;
+  //   if (this.loginForm.invalid) {
+  //     return;
+  //   }
 
-    this._bs.load(true);
+  //   this._bs.load(true);
 
-    this.appService.update(this.loginForm.value, 'reset/password').subscribe((res: any) => {
-      if (res.success) {
-        this._bs.load(false);
-        this.router.navigateByUrl('/auth/login');
-        this.toastr.success(res.message)
-      } else {
-        this.toastr.error(res.message)
-      }
-      this._bs.load(false)
-    }, error => {
-      this._bs.load(false)
-    });
+  //   this.authService.update(this.loginForm.value, 'reset/password').subscribe((res: any) => {
+  //     if (res.success) {
+  //       this._bs.load(false);
+  //       this.router.navigateByUrl('/auth/login');
+  //       this.toastr.success(res.message)
+  //     } else {
+  //       this.toastr.error(res.message)
+  //     }
+  //     this._bs.load(false)
+  //   }, error => {
+  //     this._bs.load(false)
+  //   });
 
-  }
+  // }
 }

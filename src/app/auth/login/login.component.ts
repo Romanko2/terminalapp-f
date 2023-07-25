@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { AppService } from 'src/app/app.service';
 import { BehaviorService } from 'src/app/shared/behavior.service';
+import { AuthService } from 'src/app/utils/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private _bs: BehaviorService,
-    private appService: AppService,
+    private authService: AuthService,
     private router: Router,
     private toaster: ToastrService) {
 
@@ -46,13 +47,15 @@ export class LoginComponent implements OnInit {
 
   public login() {
     this.submitted = true
-    if (this.loginForm.valid) {
-      this.appService.userLogin(this.loginForm.value).subscribe({
+    this._bs.load(false);    if (this.loginForm.valid) {
+      this.authService.userLogin(this.loginForm.value).subscribe({
         next: (res) => {
           this.toaster.success(res.message)
           localStorage.setItem('user:session' , JSON.stringify(res))
           localStorage.setItem('id' , res.data.id)
+          localStorage.setItem('access_token' , res.data.access_token)
           this.router.navigate(['/profile/view-profile'])
+          this._bs.load(true);
         },
         error: (err) => {
           this.toaster.error(err.message)
@@ -65,36 +68,36 @@ export class LoginComponent implements OnInit {
   }
   get f() { return this.loginForm.controls; }
 
-  onSubmit() {
-    this.submitted = true;
-    if (this.loginForm.invalid) {
-      return;
-    }
+  // onSubmit() {
+  //   this.submitted = true;
+  //   if (this.loginForm.invalid) {
+  //     return;
+  //   }
 
-    this._bs.load(true);
-    let value = this.loginForm.value
+  //   this._bs.load(true);
+  //   let value = this.loginForm.value
 
-    this.appService.add(value, 'admin/signin').subscribe((res: any) => {
-      if (res.success) {
-        if (this.remember) {
-          localStorage.setItem('remember', JSON.stringify(value))
-        } else {
-          localStorage.removeItem('remember')
-        }
-        const result = res.data;
-        this._bs.load(false);
-        this._bs.setUserData(result)
-        this.loginForm.reset();
-        this.router.navigate(['/']);
+  //   this.appService.add(value, 'admin/signin').subscribe((res: any) => {
+  //     if (res.success) {
+  //       if (this.remember) {
+  //         localStorage.setItem('remember', JSON.stringify(value))
+  //       } else {
+  //         localStorage.removeItem('remember')
+  //       }
+  //       const result = res.data;
+  //       this._bs.load(false);
+  //       this._bs.setUserData(result)
+  //       this.loginForm.reset();
+  //       this.router.navigate(['/']);
 
-      } else {
-        // this.toastr.error(res.message)
-      }
-      this._bs.load(false)
-    }, error => {
-      this._bs.load(false)
-    });
+  //     } else {
+  //       // this.toastr.error(res.message)
+  //     }
+  //     this._bs.load(false)
+  //   }, error => {
+  //     this._bs.load(false)
+  //   });
 
-  }
+  // }
 
 }

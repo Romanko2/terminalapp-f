@@ -15,9 +15,13 @@ export class AppService {
   private baseUrl = environment.apiUrl
   rootUrl: any;
   http: any;
+  headers:any
+  access_token:any
 
-  constructor(
-    private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient) {
+  this.access_token = localStorage.getItem('access_token')
+  
+  console.log(this.access_token)
   }
 
   //Login//
@@ -37,7 +41,8 @@ export class AppService {
   
   //VIEW-PROFILE//
   viewProfile(){
-    return this.httpClient.get(`${this.baseUrl}${API_CONSTANTS.viewprofile_url}${'64be50bba6b08c6acaa14b19'}`)
+    let headers = { 'Authorization': 'Bearer '+this.access_token }
+    return this.httpClient.get(`${this.baseUrl}${API_CONSTANTS.viewprofile_url}${'64be50bba6b08c6acaa14b19'}`, {headers})
   }
 
   //EDIT-PROFILE//

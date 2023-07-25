@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { AppService } from 'src/app/app.service';
 import { BehaviorService } from 'src/app/shared/behavior.service';
 import { environment } from 'src/environments/environment';
@@ -9,30 +10,40 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./view-profile.component.scss']
 })
 export class ViewProfileComponent implements OnInit {
-  public userDetails:any;
-  user:any
+  
+  public user:any
   _host:any=environment.apiUrl
-  constructor(private appService:AppService,private _bs:BehaviorService) { }
+  constructor(private appService:AppService,private _bs:BehaviorService,private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.getUserData()
   }
 
   getUserData(){
+    this._bs.load(true)
     this.appService.viewProfile().subscribe({
-      next:(res)=>{
-        this.userDetails = res
-        console.log(res)
+      next:(res:any)=>{
+        this._bs.load(false)
+        this.user = res.data
+        console.log(this.user)
+
+      },
+      error:(err:any)=>{
+        this.toastr.error(err.message)
       }
     })
   }
+
+  edit(){
+  
+  }
   getData(){
-    this._bs.load(true)
+    
     this.appService.getAll('profile').subscribe(res=>{
       if(res.success){
         this.user=res.data
       }
-      this._bs.load(false)
+   
     })
   }
 

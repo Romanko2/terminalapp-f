@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AppService } from 'src/app/app.service';
 import { BehaviorService } from 'src/app/shared/behavior.service';
+import { AuthService } from 'src/app/utils/services/auth.service';
 
 @Component({
   selector: 'app-forgot',
@@ -18,7 +19,7 @@ export class ForgotComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private _bs: BehaviorService,
-    private appService: AppService,
+    private authService: AuthService,
     private router: Router,
     private toastr: ToastrService
   ) {
@@ -43,7 +44,7 @@ export class ForgotComponent implements OnInit {
   public forgot() {
     this.submitted = true;
     if(this.forgotForm.valid){
-      this.appService.forgotPassword(this.forgotForm.value).subscribe({
+      this.authService.forgotPassword(this.forgotForm.value).subscribe({
         next:(res)=>{
           this.toastr.success(res.message)
           this.router.navigate(['/auth/reset'], { queryParams: { id: res.id } });

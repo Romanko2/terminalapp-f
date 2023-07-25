@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AppService } from 'src/app/app.service';
 import { BehaviorService } from 'src/app/shared/behavior.service';
+import { AuthService } from 'src/app/utils/services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +18,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private _bs: BehaviorService,
     private router: Router,
-    private appService: AppService,
+    private authService: AuthService,
     private fb: FormBuilder,
     private toaster: ToastrService
   ) {
@@ -36,7 +37,7 @@ export class SignupComponent implements OnInit {
   public signup() {
     this.submitted = true
     if (this.signupForm.valid) {
-      this.appService.register(this.signupForm.value).subscribe({
+      this.authService.register(this.signupForm.value).subscribe({
         next: (res) => {
           localStorage.setItem('user-signup:session' , JSON.stringify(res))
           this.toaster.success(res.message)
