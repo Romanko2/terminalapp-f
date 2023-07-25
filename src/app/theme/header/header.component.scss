@@ -8,8 +8,11 @@
     top: 0;
     right: 0;
     z-index: 9999;
-    background-color: #fff;
+    background: linear-gradient(
+        153deg
+        , #12334f 16%, #101023 62%);
     border-bottom: 1px solid #b8b6b6;
+    height: 80px;
 
     &.isFull{
         width: calc(100% - 70px);
@@ -39,4 +42,7 @@
 
 .dropdown_item.show {
     transform: translate3d(-128px, 40px, 0px) !important;
+}
+.logo_img img {
+    width: 70px;
 }
