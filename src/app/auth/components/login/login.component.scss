@@ -25,7 +25,7 @@ h5.login-heading {
     font-family: sans-serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 28px;
+    font-size: 24px;
     line-height: 22px;
     text-align: center;
     color: #fff;
@@ -63,16 +63,13 @@ a.forgotpassword {
     line-height: 12px;
     color: #fff !important;
 }
-article.card.border-0.p-3.border-top {
-    width: 400px;
-    margin: auto;
-}
 
 .main_page {
     margin: auto;
     background: #ffffff38;
     border-radius: 25px;
     padding: 5rem 0px;
+    max-width: 800px !important;
 }
 .check_div {
     display: flex;

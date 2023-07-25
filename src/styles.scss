@@ -65,8 +65,9 @@ ngx-intl-tel-input{
             font-size: 14px;
             list-style: none;
             height: auto;
-            padding: 10px 20px;
+            padding: 8px 20px;
             border: 1px solid #ced4da;
+            border-radius: 4px;
         }
     }
 }
@@ -321,6 +322,7 @@ p.text {
     border-radius: 5px;
     font-size: 14px;
     color: #424242;
+    height: 34px;
 }
 label.profile-label {
     font-size: 15px;
@@ -334,4 +336,7 @@ select.form-control {
 }
 .mat-paginator {
     background: #0f172a;
+}
+.profile {
+    margin-top: 3rem;
 }

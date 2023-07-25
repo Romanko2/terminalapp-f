@@ -12,14 +12,16 @@
       <button ngbDropdownItem (click)="logout()">Logout</button>
     </div>
   </div> -->
-  <div class="dropdown userDropdown" *ngIf="user">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-expanded="false">
+  <div class="dropdown userDropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
       <img src="{{userImg(user?.image)}}" alt="" class="headerProfile"/>
     </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
-      <li><a class="dropdown-item" routerLink="/auth/change-password">Change Password</a></li>
-      <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
-    </ul>
+    <div class="dropdown-menu dropdown_item">
+      <a class="dropdown-item" href="#" routerLink="/profile">Profile</a>
+      <a class="dropdown-item" href="#" routerLink="/auth/change-password">Change Password</a>
+      <a class="dropdown-item" href="#" (click)="logout()">Logout</a>
+    </div>
   </div>
+
+
 </div>
