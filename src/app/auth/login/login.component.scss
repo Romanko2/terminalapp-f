@@ -5,32 +5,43 @@
     padding-bottom: 30px;
     min-height: 100vh;
 }
-.container.shadow {
-background-image: url('/assets/img/loginbg.png');
-background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    background-color: white;
-}
+// .container.shadow {
+// background-image: url('/assets/img/loginbg.png');
+// background-repeat: no-repeat;
+//     background-size: cover;
+//     height: 100%;
+//     background-color: white;
+// }
 input.form-control.ng-untouched.ng-pristine.ng-invalid {
     border: none;
     border-bottom: 1px solid #a1a1a1;
     border-radius: 0px;
 }
-.image-login {
-    float: right;
-    position: relative;
-    top: -93px;
-    left: 85px;
+.image-login img{
+    width: 100%;
+    border-radius: 25px 0px 0px 25px;
 }
 h5.login-heading {
     font-family: sans-serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 28px;
     line-height: 22px;
     text-align: center;
-    color: #000000;
+    color: #fff;
+    margin-bottom: 4rem !important;
+    position: relative;
+}
+h5.login-heading:after {
+    content: '';
+    width: 40px;
+    height: 4px;
+    background: #f55a7e;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: -18px;
 }
 label.form-check-label.rem {
     font-family: sans-serif;
@@ -38,7 +49,7 @@ label.form-check-label.rem {
     font-weight: 400;
     font-size: 10px;
     line-height: 12px;
-    color: #858585;
+    color: #fff;
 }
 button.btn.btn-primary {
     width: 132px;
@@ -50,9 +61,20 @@ a.forgotpassword {
     font-weight: 700;
     font-size: 10px;
     line-height: 12px;
-    color: #858585 !important;
+    color: #fff !important;
 }
 article.card.border-0.p-3.border-top {
     width: 400px;
     margin: auto;
+}
+
+.main_page {
+    margin: auto;
+    background: #ffffff38;
+    border-radius: 25px;
+    padding: 5rem 0px;
+}
+.check_div {
+    display: flex;
+    align-items: end;
 }

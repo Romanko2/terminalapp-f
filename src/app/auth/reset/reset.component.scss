@@ -7,30 +7,59 @@
 
   
 }
-.container.shadow {
-    background-image: url('/assets/img/loginbg.png');
-    background-repeat: no-repeat;
-        background-size: cover;
-        height: 100%;
-        background-color: white;
-}
+// .container.shadow {
+//     background-image: url('/assets/img/loginbg.png');
+//     background-repeat: no-repeat;
+//         background-size: cover;
+//         height: 100%;
+//         background-color: white;
+// }
 
-h5.login-heading.mb-4 {
+h5.login-heading{
     font-family: sans-serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 28px;
     line-height: 22px;
     text-align: center;
-    color: #000000;
-}
-.image-login {
-    float: right;
+    color: #fff;
+    margin-bottom: 4rem !important;
     position: relative;
-    top: -93px;
-    left: 85px;
+}
+h5.login-heading:after {
+    content: '';
+    width: 40px;
+    height: 4px;
+    background: #f55a7e;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: -18px;
+}
+.image-login img{
+    width: 100%;
+    border-radius: 25px 0px 0px 25px;
 }
 article.card.border-0.p-3.border-top {
     width: 400px;
     margin: auto;
+}
+
+
+
+
+button.btn.btn-primary {
+    width: 132px;
+    height: 36px;
+}
+.main_page {
+    margin: auto;
+    background: #ffffff38;
+    border-radius: 25px;
+    padding: 5rem 0px;
+}
+.check_div {
+    display: flex;
+    align-items: end;
 }

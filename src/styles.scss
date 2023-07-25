@@ -96,11 +96,11 @@ body{
     font-size:14px;
     list-style: none;
     height: auto !important;
-    padding:10px 20px;
+    padding:8px 10px;
 }
 
 .btn{
-    background: #CBA773;
+    background: #051f34;
     border-radius: 26.5px;
  
     border: none;
@@ -109,6 +109,7 @@ body{
     font-weight: 600;
     font-size: 15px;
     color: #FFFFFF;
+    padding: 9px 20px;
 }
 // .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
 //     color: #fff;
@@ -131,16 +132,16 @@ body{
 // .listTableWapper{
 //     height: calc(100vh - 225px);
 // }
-.btn-primary:hover {
-    color: #fff;
-    background-color: #907e64;
-    border-color: #907e64;
-}
-a.last-back:hover {
-    color: #fff;
-    background-color: #907e64;
-    border-color: #907e64;
-}
+// .btn-primary:hover {
+//     color: #fff;
+//     background-color: #907e64;
+//     border-color: #907e64;
+// }
+// a.last-back:hover {
+//     color: #fff;
+//     background-color: #907e64;
+//     border-color: #907e64;
+// }
 .listTable{
     thead{
         background-color: #f8fafc;
@@ -169,7 +170,9 @@ a.last-back:hover {
 
 
 .loginWrapper{
-    background-color: #2a2ae129;
+    background-image: url(assets/img/vector-trading.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
     
     .card{
      
@@ -291,7 +294,6 @@ button.btn.btn-primary {
 //     border-radius: 50px 0px 0px 50px;
 // }
 a.last-back {
-    background-color: #cba773;
     padding: 9px 22px;
     color: white !important;
     font-weight: 400;

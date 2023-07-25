@@ -1,9 +1,9 @@
 <div class="loginWrapper">
-    <div class="container shadow">
+    <div class="main_page">
         <div class="row align-items-center">
-            <div class="col-md-6 p-0">
+            <div class="col-md-6">
                 <div class="image-login">
-                    <img src="/assets/img/spa-logo.png" alt="" class="" >
+                    <img src="/assets/img/abc.png" alt="" class="" />
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -11,13 +11,13 @@
  
             <h5 class="login-heading mb-4">Reset Pssword</h5>
             <form [formGroup]="loginForm" novalidate>
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                   
                     <input formControlName="code" type="text" class="form-control" placeholder="Code" required>
                     <div *ngIf="submitted && f.code.errors" class="invalid-feedback">
                         <div *ngIf="f.code.errors.required">Code is required</div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="mb-3">
                     <div class="inputWrapper">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 
-                <div class="mt-3 text-right">
+                <div class="mt-3 text-center">
                     <button type="submit" class="btn btn-primary">
                         Reset
                     </button>
