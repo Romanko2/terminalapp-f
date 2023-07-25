@@ -3,11 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthRoutingModule } from './auth-routing.module';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { ForgotComponent } from './forgot/forgot.component';
-import { ResetComponent } from './reset/reset.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ChangePasswordComponent, ForgotComponent, LoginComponent, ResetComponent, SignupComponent } from './components';
+
 
 
 @NgModule({
