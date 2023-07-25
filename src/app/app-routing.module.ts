@@ -11,7 +11,7 @@ import { LayoutComponent } from './theme/layout/layout.component';
 const routes: Routes = [
 
   {
-    path:'home',
+    path:'',
     component: HomeComponent,
     // canActivate:[AuthGuard],
     children :[     
