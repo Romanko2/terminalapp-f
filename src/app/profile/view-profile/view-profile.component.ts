@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AppService } from 'src/app/app.service';
 import { BehaviorService } from 'src/app/shared/behavior.service';
@@ -13,7 +14,7 @@ export class ViewProfileComponent implements OnInit {
   
   public user:any
   _host:any=environment.apiUrl
-  constructor(private appService:AppService,private _bs:BehaviorService,private toastr:ToastrService) { }
+  constructor(private appService:AppService,private _bs:BehaviorService,private toastr:ToastrService , private router:Router) { }
 
   ngOnInit(): void {
     this.getUserData()
@@ -35,7 +36,7 @@ export class ViewProfileComponent implements OnInit {
   }
 
   edit(){
-  
+  this.router.navigate(['/profile/edit'])
   }
   getData(){
     
