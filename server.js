@@ -3,7 +3,7 @@ Put content of angular2 build into 'public' folder.
 */
 const html = './dist/financial-app-frontend/';
 
-const port = 7033;
+const port = 8035;
 const apiUrl = '/api';
 // Express
 const bodyParser = require('body-parser');

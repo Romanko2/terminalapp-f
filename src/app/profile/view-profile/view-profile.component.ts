@@ -15,7 +15,7 @@ export class ViewProfileComponent implements OnInit {
   constructor(private appService:AppService,private _bs:BehaviorService) { }
 
   ngOnInit(): void {
-    this.getData()
+    // this.getData()
   }
 
   getData(){

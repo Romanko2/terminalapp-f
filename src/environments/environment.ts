@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl : 'http://endpoint.jcsoftwaresolution.com:6032/',
+  apiUrl : 'http://endpoint.jcsoftwaresolution.com:6035/',
 };
 
 /*

@@ -9,28 +9,22 @@ import { AuthGuard } from './shared/auth.guard';
 import { LayoutComponent } from './theme/layout/layout.component';
 
 const routes: Routes = [
-  {
-    path:'',
-    redirectTo:'home',
-    pathMatch:'full'
-  },
+
   {
     path:'home',
     component: HomeComponent,
     // canActivate:[AuthGuard],
-    children :[
-      { path: 'home', 
-        component: HomeComponent,
-      },
-      {
-        path:'profile',
-        loadChildren:()=>ProfileModule
-      },
+    children :[   
+     
       {
         path:'dashboard',
         loadChildren:()=>DashboardModule
       }
     ]
+  },
+  {
+    path:'profile',
+    loadChildren:()=>ProfileModule
   },
   {
     path:'auth',
@@ -39,6 +33,11 @@ const routes: Routes = [
   { path: '**', 
     component: NotFoundComponent,
   },
+  // {
+  //   path:'',
+  //   redirectTo:'home',
+  //   pathMatch:'full'
+  // },
 ];
 
 @NgModule({

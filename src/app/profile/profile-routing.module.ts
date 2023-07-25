@@ -5,7 +5,7 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path:'view-profile',
     component:ViewProfileComponent
   },
   {
