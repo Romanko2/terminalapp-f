@@ -41,7 +41,7 @@ export class SignupComponent implements OnInit {
         next: (res) => {
           localStorage.setItem('user-signup:session' , JSON.stringify(res))
           this.toaster.success(res.message)
-          this.router.navigate(['/auth/login'])
+   
         },
         error: (err) => {
           this.toaster.error(err.message)
