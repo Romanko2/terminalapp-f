@@ -11,7 +11,7 @@ import { LayoutComponent } from './theme/layout/layout.component';
 const routes: Routes = [
 
   {
-    path:'home',
+    path:'',
     component: HomeComponent,
     // canActivate:[AuthGuard],
     children :[     
@@ -32,11 +32,11 @@ const routes: Routes = [
   { path: '**', 
     component: NotFoundComponent,
   },
-  // {
-  //   path:'',
-  //   redirectTo:'home',
-  //   pathMatch:'full'
-  // },
+  {
+    path:'',
+    redirectTo:'home',
+    pathMatch:'full'
+  },
 ];
 
 @NgModule({

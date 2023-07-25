@@ -32,7 +32,7 @@ export class EditProfileComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.getData()
+    // this.getData()
   }
 
   getData(){

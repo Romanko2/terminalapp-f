@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
-import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
+import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 
 const routes: Routes = [
   {

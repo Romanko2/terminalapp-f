@@ -24,31 +24,8 @@ export class AppService {
   console.log(this.access_token)
   }
 
-  //Login//
-  userLogin(body: LOGIN): Observable<any> {
-    return this.httpClient.post<LOGIN>(`${this.baseUrl}${API_CONSTANTS.login_url}`, body)
-  }
-
-  //REGISTER//
-  register(body: REGISTER): Observable<any> {
-    return this.httpClient.post<REGISTER>(`${this.baseUrl}${API_CONSTANTS.signup_url}`, body)
-  }
-
-  //FORGOT PASSWORD//
-  forgotPassword(body:FORGOTPASSWORD):Observable<any>{
-    return this.httpClient.post<FORGOTPASSWORD>(`${this.baseUrl}${API_CONSTANTS.forgotpassword_url}`, body)
-  }
   
-  //VIEW-PROFILE//
-  viewProfile(){
-    let headers = { 'Authorization': 'Bearer '+this.access_token }
-    return this.httpClient.get(`${this.baseUrl}${API_CONSTANTS.viewprofile_url}${'64be50bba6b08c6acaa14b19'}`, {headers})
-  }
 
-  //EDIT-PROFILE//
-  editProfile(body:any){
-    return this.httpClient.put(`${this.baseUrl}${API_CONSTANTS}` , body)
-  }
   uploadImage(url: any, fdata: any) {
     const formData: FormData = new FormData();
     // formData.append('data', fileToUpload, fileToUpload.name);
