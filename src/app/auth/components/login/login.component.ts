@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
           // this.localStorageService.saveData('id' , res.data.id)
           // this.authService.currentUserSource.next(res.data.id)
           // localStorage.setItem('access_token' , res.data.access_token)
-          this.router.navigate(['/profile/view-profile'])
+          this.router.navigate(['/feature/profile/view-profile'])
           this._bs.load(true);
         },
         error: (err) => {

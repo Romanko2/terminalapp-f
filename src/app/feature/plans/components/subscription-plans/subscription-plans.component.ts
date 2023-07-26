@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FrontendService } from 'src/app/utils/services/frontend.service';
 
 @Component({
   selector: 'app-subscription-plans',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubscriptionPlansComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fs:FrontendService) { }
 
   ngOnInit(): void {
+    this.getAllPlans()
   }
-
+  
+  getAllPlans(){
+    this.fs.plansList().subscribe({
+      next:(res)=>{
+        console.log(res)
+      }
+    })
+  }
 }

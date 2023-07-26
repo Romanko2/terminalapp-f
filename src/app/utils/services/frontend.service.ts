@@ -2,7 +2,6 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { API_CONSTANTS } from "../constants/api.const";
-import { EDITPROFILE } from "../interface/auth-interface";
 import { Observable } from "rxjs";
 
 @Injectable({
@@ -26,10 +25,14 @@ export class FrontendService {
     }
 
     //EDIT-PROFILE//
-    editProfile(body: EDITPROFILE):Observable<any>{
+    editProfile(body: any):Observable<any>{
         let headers = { 'Authorization': 'Bearer ' + this.access_token }
-        return this.http.put<EDITPROFILE>(`${this.baseUrl}${API_CONSTANTS.editprofile_url}`, body , {headers})
+        return this.http.put<any>(`${this.baseUrl}${API_CONSTANTS.editprofile_url}`, body , {headers})
     }
 
-    
+    //PLANS_LISTING//
+    plansList():Observable<any>{
+        let headers = { 'Authorization': 'Bearer ' + this.access_token }
+        return this.http.get<any>(`${this.baseUrl}${API_CONSTANTS.plansList_url}` , {headers})
+    }
 }
