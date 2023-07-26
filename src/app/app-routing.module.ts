@@ -7,6 +7,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileModule } from './profile/profile.module'; 
 import { AuthGuard } from './shared/auth.guard';
 import { LayoutComponent } from './theme/layout/layout.component';
+import { FeatureModule } from './feature/feature.module';
 
 const routes: Routes = [
 
@@ -22,6 +23,10 @@ const routes: Routes = [
     ]
   },
   {
+    path:'feature',
+    loadChildren:()=>FeatureModule
+  },
+  {
     path:'profile',
     loadChildren:()=>ProfileModule
   },
@@ -32,6 +37,7 @@ const routes: Routes = [
   { path: '**', 
     component: NotFoundComponent,
   },
+  
   {
     path:'',
     redirectTo:'home',
