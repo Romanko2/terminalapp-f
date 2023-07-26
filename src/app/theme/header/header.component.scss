@@ -8,11 +8,8 @@
     top: 0;
     right: 0;
     z-index: 9999;
-    background: linear-gradient(
-        153deg
-        , #12334f 16%, #101023 62%);
-    border-bottom: 1px solid #b8b6b6;
-    height: 80px;
+    background: linear-gradient(153deg, #0d263b 16%, #08151f 62%);
+    height: 100px;
 
     &.isFull{
         width: calc(100% - 70px);

@@ -1,10 +1,190 @@
 
+.main_page {
+    background: linear-gradient(153deg, #0d263b 16%, #08151f 62%);
+    padding: 2rem 4rem;
+    // height: 100vh;
+        }
+.layout_1 {
+    max-width: 630px;
+    padding: 8rem 0px;
+}
+.layout_1 h1{
+    font-size: 55px;
+    color: #fff;
+    line-height: 64px;
+    font-weight: 600;
+}
 
+span.h1_style {
+    color: #B6FF7D;
+}
+.section{
+    max-width: 1000px;
+}
+.section_1{
+    background-image: url(/assets/img/trading_line.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-bottom: 2px solid #ffffff36;
+}
+a.a_more {
+    color: #B6FF7D;
+    font-size: 26px;
+    font-weight: 600;
+}
+span.span_icon {
+    font-size: 22px;
+}
+.flex_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+.flex_header h1 {
+    margin-bottom: 0px;
+    color: #fff;
+    font-size: 18px;
+}
+span.open {
+    color: #6C6C6C;
+}
+a.view_text {
+    display: flex;
+    color: #b6fc7d;
+    font-size: 18px;
+}
+.layout_2 {
+    padding: 6rem 0px;
+}
+.card_box {
+    min-height: 140px;
+    padding: 20px;
+    background-image: url(/assets/img/line_trading.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: bottom;
+}
+.card_layout{
+    padding-right: 25px;
+    padding-bottom: 15px;
+    background: #25293161;
+    box-shadow: 0px 0px 2px 6px #25293161;
+    margin: 0px 12px;
+}
 
+.card_box h1 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.card_box p {
+    color: #fff;
+    font-size: 18px;
+}
+span.color_text {
+    color: #b6fc7d;
+}
+.color_text2{
+    color: #6C6C6C;
+}
 
+.left_section {
+    background: #25293161;
+    padding: 20px;
+    box-shadow: 0px 0px 2px 6px #25293161;
+}
+.data_row {
+    display: flex;
+    color: #fff;
+    justify-content: space-between;
+    font-size: 16px;
+    align-items: end;
+    border-bottom: 1px solid #ffffff36;
+    padding-bottom: 12px;
+    position: relative;
+    margin-bottom: 20px;
+}
+.dtat_text h1,p {
+    margin-bottom: 6px;
+}
+span.color_data {
+    color: #b6fc7d;
+}
+.after_1:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 4px;
+    height: 39px;
+    background: #EF6C41;
+    left: -24px;
+}
 
+.after_2:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 4px;
+    height: 39px;
+    background: #AC7EF4;
+    left: -24px;
+}
 
-
+.after_3:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 4px;
+    height: 39px;
+    background: #39A2F5;
+    left: -24px;
+}
+.after_3 {
+    border-bottom: 0px;
+}
+.market_row {
+    color: #fff;
+}
+.market_row p{
+    margin-bottom: 0px;
+}
+.market_row {
+    display: flex;
+    align-items: center;
+    padding: 15px 0px;
+}
+.row_line {
+    background: #ffffff36;
+    width: 100%;
+    height: 1px;
+    margin-left: 30px;
+}
+.border_box{
+    border-bottom: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+h1.text_no {
+    margin-bottom: 6px;
+    text-align: right;
+}
+.dtat_text p {
+    font-size: 12px;
+    margin-bottom: 0px;
+}
+.data_row2 h1 {
+    margin-bottom: 0px;
+}
+.data_row2{
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+}
+.data_row2 p {
+    margin-bottom: 0px;
+    font-size: 12px;
+}
 
 
 
