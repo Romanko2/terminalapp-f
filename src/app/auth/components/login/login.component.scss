@@ -83,3 +83,13 @@ a.forgotpassword {
     display: flex;
     align-items: end;
 }
+p.account {
+    margin-bottom: 0px;
+    margin-top: 1rem;
+    color: #fff;
+}
+a.sign_up {
+    color: #2fc0f9 !important;
+    cursor: pointer;
+    font-weight: 600;
+}
