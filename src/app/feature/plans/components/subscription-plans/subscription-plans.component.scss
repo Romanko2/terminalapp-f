@@ -35,11 +35,18 @@ span.span_text {
     border-radius: 4px !important;
     font-size: 12px;
 }
+.btn1:hover{
+    background: #2fc0f9 !important;
+}
 .btn2 {
     background: #80ed99;
     padding: 10px 15px;
     border-radius: 4px !important;
     font-size: 12px;
+    color: #000;
+}
+.btn2:hover{
+    background: #80ed99 !important;
 }
 .plan_section1 {
     margin-top: 3rem;
