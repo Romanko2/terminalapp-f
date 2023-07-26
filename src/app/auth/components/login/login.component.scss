@@ -14,12 +14,12 @@
 // }
 input.form-control.ng-untouched.ng-pristine.ng-invalid {
     border: none;
-    border-bottom: 1px solid #a1a1a1;
-    border-radius: 0px;
+    border-radius: 8px;
 }
 .image-login img{
     width: 100%;
     border-radius: 25px 0px 0px 25px;
+    padding: 30px 0px;
 }
 h5.login-heading {
     font-family: sans-serif;
@@ -62,11 +62,20 @@ a.forgotpassword {
     color: #fff !important;
 }
 
+
+
+.form-control {
+    font-size: 14px;
+    list-style: none;
+    padding: 8px 10px;
+    border: 0px;
+    border-radius: 8px;
+}
 .main_page {
     margin: auto;
     background: #ffffff38;
     border-radius: 25px;
-    padding: 5rem 0px;
+    padding: 3rem 20px;
     max-width: 800px !important;
     border-bottom: 8px solid #051f34;
 }

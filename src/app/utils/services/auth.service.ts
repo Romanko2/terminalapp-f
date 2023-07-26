@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { API_CONSTANTS } from "../constants/api.const";
 import { LOGIN, REGISTER, FORGOTPASSWORD, CHANGEPASSWORD } from "../interface/auth-interface";
 import { environment } from "src/environments/environment";
+import { Router } from "@angular/router";
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +13,7 @@ import { environment } from "src/environments/environment";
 export class AuthService {
     private baseUrl = environment.apiUrl
     access_token: any
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient , private router:Router) {
         this.access_token = localStorage.getItem('access_token')
     }
     //Login//
@@ -38,5 +39,11 @@ export class AuthService {
     changePassword(body:CHANGEPASSWORD):Observable<any>{
         let headers = { 'Authorization': 'Bearer ' + this.access_token }
         return this.http.put<CHANGEPASSWORD>(`${this.baseUrl}${API_CONSTANTS.changePassword_url}` , body , {headers})
+    }
+
+    signOut(): void {
+        localStorage.clear()
+        this.router.navigateByUrl('/');
+      
     }
 }

@@ -51,6 +51,7 @@ body{
         transform: translateY(-50%);
         right: 10px;
         color: #000;
+        cursor: pointer;
     }
 }
 
@@ -353,4 +354,7 @@ select.form-control {
 }
 .profile {
     margin-top: 3rem;
+}
+.right_layout {
+    border-left: 1px solid #fff;
 }
