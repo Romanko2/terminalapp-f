@@ -4,5 +4,6 @@ export const API_CONSTANTS = {
     forgotpassword_url: "forgot/password/frontend",
     viewprofile_url : "user/detail?id=",
     editprofile_url : "edit/profile",
-    changePassword_url : "change/password"
+    changePassword_url : "change/password",
+    plansList_url:"subscriptionplans"
 }

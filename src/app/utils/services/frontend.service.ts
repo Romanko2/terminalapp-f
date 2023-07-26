@@ -30,5 +30,9 @@ export class FrontendService {
         return this.http.put<any>(`${this.baseUrl}${API_CONSTANTS.editprofile_url}`, body , {headers})
     }
 
-    
+    //PLANS_LISTING//
+    plansList():Observable<any>{
+        let headers = { 'Authorization': 'Bearer ' + this.access_token }
+        return this.http.get<any>(`${this.baseUrl}${API_CONSTANTS.plansList_url}` , {headers})
+    }
 }
