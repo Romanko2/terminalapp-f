@@ -27,13 +27,14 @@ export class AppService {
   
 
   uploadImage(url: any, fdata: any) {
+    let headers = { 'Authorization': 'Bearer ' + this.access_token }
     const formData: FormData = new FormData();
     // formData.append('data', fileToUpload, fileToUpload.name);
     let oarr = Object.keys(fdata)
     oarr.map(itm => {
       formData.append(itm, fdata[itm])
     })
-    return this.httpClient.post(this._baseUrl + url, formData).pipe(
+    return this.httpClient.post(this._baseUrl + url, formData , {headers}).pipe(
       map((response: any) => {
         return response;
       }),

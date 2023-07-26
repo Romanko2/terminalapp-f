@@ -30,4 +30,6 @@ export class FrontendService {
         let headers = { 'Authorization': 'Bearer ' + this.access_token }
         return this.http.put<EDITPROFILE>(`${this.baseUrl}${API_CONSTANTS.editprofile_url}`, body , {headers})
     }
+
+    
 }

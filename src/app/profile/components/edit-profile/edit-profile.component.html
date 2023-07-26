@@ -27,11 +27,11 @@
             <div class="form-group  has-required">
                 <label for="nf-name"> Name<span class="text-danger">*</span></label>
                 <section>
-                    <input type="text" maxlength="50" autocomplete="off" placeholder="" formControlName="firstName"
+                    <input type="text" maxlength="50" autocomplete="off" placeholder="" formControlName="fullName"
                         class="form-control titlecase" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
                         required="">
-                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-                        <div *ngIf="f.firstName.errors.required"> Name is required</div>
+                    <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                        <div *ngIf="f.fullName.errors.required"> Name is required</div>
                     </div>
                 </section>
             </div>

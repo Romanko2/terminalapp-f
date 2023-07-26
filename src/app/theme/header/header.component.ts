@@ -11,23 +11,23 @@ import { environment } from 'src/environments/environment';
 })
 export class HeaderComponent implements OnInit {
   isAccessToken!:boolean;
-  isAccessTokens!:boolean
   user:any;
   _host:any = environment.apiUrl;
   bsRef:any
   constructor(private _bs:BehaviorService , private authService:AuthService , private router:Router) {
-
-  //  this.bsRef=this._bs.getUserData().subscribe((res: any) => {
-  //     if(res){
-  //       this.user = res
-  //     } else{
-  //       this.user = _bs.getLocalUser()
-  //     }
-  //   });
+    
+   this.authService.currentUserSource.subscribe((res)=>{
+    if(res == true){
+      this.isAccessToken = true
+    }else{
+      this.isAccessToken = false
+    }
+     
+   })
   }
 
   ngOnInit(): void {
-    
+
   }
 
 
@@ -47,11 +47,13 @@ export class HeaderComponent implements OnInit {
   logout(){
     // this._bs.signOut()
     this.authService.signOut()
+    this.authService.currentUserSource.next(false)
   }
   
   logIn(){
     this.router.navigateByUrl('/auth/login')
   }
+
   ngOnDestroy(): void {
     // this.bsRef.unsubscribe()
   }

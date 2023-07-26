@@ -21,8 +21,8 @@
     <div class="dropdown-menu dropdown_item">
       <a class="dropdown-item" href="#" routerLink="/profile">Profile</a>
       <a class="dropdown-item" href="#" routerLink="/auth/change-password">Change Password</a>
-      <a class="dropdown-item" (click)="logout()" >Logout</a>
-    
+      <a class="dropdown-item" (click)="logout()" *ngIf="isAccessToken">Logout</a>
+      <a class="dropdown-item" (click)="logIn()" *ngIf="!isAccessToken">Login</a>
     </div>
   </div>
 
