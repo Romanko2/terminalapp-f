@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { AppService } from 'src/app/app.service';
 import { BehaviorService } from 'src/app/shared/behavior.service';
 import { AuthService } from 'src/app/utils/services/auth.service';
+import { LocalStorageService } from 'src/app/utils/services/local-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
     private _bs: BehaviorService,
     private authService: AuthService,
     private router: Router,
-    private toaster: ToastrService) {
+    private toaster: ToastrService,
+    private localStorageService:LocalStorageService) {
 
     if (_bs.getLocalUser()) {
       router.navigateByUrl('/')
@@ -49,11 +51,13 @@ export class LoginComponent implements OnInit {
     this.submitted = true
     this._bs.load(false);    if (this.loginForm.valid) {
       this.authService.userLogin(this.loginForm.value).subscribe({
-        next: (res) => {
-          this.toaster.success(res.message)
+        next: (res:any) => {
+          this.toaster.success('Successfully Logged In')
           localStorage.setItem('user:session' , JSON.stringify(res))
-          localStorage.setItem('id' , res.data.id)
-          localStorage.setItem('access_token' , res.data.access_token)
+          this.authService.currentUserSource.next(true)
+          // this.localStorageService.saveData('id' , res.data.id)
+          // this.authService.currentUserSource.next(res.data.id)
+          // localStorage.setItem('access_token' , res.data.access_token)
           this.router.navigate(['/profile/view-profile'])
           this._bs.load(true);
         },
