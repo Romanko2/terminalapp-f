@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   // user:any;
   _host: any = environment.apiUrl;
   bsRef: any
-  constructor(private _bs: BehaviorService, private authService: AuthService, private router: Router, private frontendService: FrontendService,) {
+  constructor(private _bs: BehaviorService, private authService: AuthService, private router: Router,) {
     this._bs.getUserData().subscribe((res: any) => {
       if (res) {
         this.user = res

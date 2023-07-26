@@ -18,6 +18,8 @@ export class FrontendService {
         console.log(this.access_token)
     }
 
+    
+
     //VIEW-PROFILE//
     viewProfile() {
         let headers = { 'Authorization': 'Bearer ' + this.access_token }

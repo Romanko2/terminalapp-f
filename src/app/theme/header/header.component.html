@@ -19,8 +19,8 @@
       <img [src]="userImg(user?.image)" alt="" class="headerProfile"/>
     </button>
     <div class="dropdown-menu dropdown_item">
-      <a class="dropdown-item" href="#" routerLink="/profile">Profile</a>
-      <a class="dropdown-item" href="#" routerLink="/auth/change-password">Change Password</a>
+      <a class="dropdown-item" href="#" routerLink="/feature/profile/view-profile" *ngIf="isAccessToken">Profile</a>
+      <a class="dropdown-item" href="#" routerLink="/auth/change-password" *ngIf="isAccessToken">Change Password</a>
       <a class="dropdown-item" (click)="logout()" *ngIf="isAccessToken">Logout</a>
       <a class="dropdown-item" routerLink="/auth/login" *ngIf="!isAccessToken">Login</a>
     </div>

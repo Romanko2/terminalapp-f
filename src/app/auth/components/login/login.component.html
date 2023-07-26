@@ -8,10 +8,10 @@
       </div>
       <div class="col-md-6 right_layout">
         <article class="card border-0 p-3 border-top">
-          <!-- <h3 class="text-center"><a routerLink="/" class="text-light logo-place">SPA</a></h3> -->
+          <!-- <h3 class="text-center"><a routerLinght logo-place">SPA</a></h3> -->
           <h5 class="login-heading mb-5">Login into your account</h5>
 
-          <form [formGroup]="loginForm" novalidate >
+          <form [formGroup]="loginForm" novalidate>
             <div class="mb-3">
               <input
                 formControlName="email"
@@ -72,13 +72,18 @@
                 >
               </div>
               <a routerLink="/auth/forgot" class="forgotpassword"
-                >Forgot  password?</a
+                >Forgot password?</a
               >
             </div>
-             
+
             <div class="text-center mt-4">
-              <button type="submit" class="btn btn-primary" (click)="login()">Log in</button>
-              <p class="account">Don't have an account? <a class="sign_up" routerLink="/auth/signup">Sign Up</a></p>
+              <button type="submit" class="btn btn-primary" (click)="login()">
+                Log in
+              </button>
+              <p class="account">
+                Don't have an account?
+                <a class="sign_up" routerLink="/auth/signup">Sign Up</a>
+              </p>
             </div>
           </form>
         </article>
