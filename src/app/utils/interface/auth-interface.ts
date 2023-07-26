@@ -14,10 +14,10 @@ export interface FORGOTPASSWORD {
     email:string;
 }
 
-export interface EDITPROFILE {
-    id:any;
-    firstName:any;
-}
+// export interface EDITPROFILE {
+//     id:any;
+//     firstName:any;
+// }
 
 export interface CHANGEPASSWORD {
     newPassword:any;

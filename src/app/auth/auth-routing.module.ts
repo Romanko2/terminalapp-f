@@ -7,10 +7,10 @@ import { ResetComponent } from './components/reset/reset.component';
 import { SignupComponent } from './components/signup/signup.component';
 
 const routes: Routes = [
-  {
-    path:'',
-    redirectTo:'login'
-  },
+  // {
+  //   path:'',
+  //   redirectTo:'login'
+  // },
   {
     path:'login',
     component:LoginComponent,

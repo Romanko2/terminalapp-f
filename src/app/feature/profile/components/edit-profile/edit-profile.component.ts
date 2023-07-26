@@ -19,10 +19,10 @@ export class EditProfileComponent implements OnInit {
   _host: any = environment.apiUrl
   baseImage: any
   submitted: any
-  public id:any
+  public id: any
   constructor(private formBuilder: FormBuilder,
     private appService: AppService,
-    private fs:FrontendService,
+    private fs: FrontendService,
     private toastr: ToastrService,
     private router: Router,
     private _bs: BehaviorService) {
@@ -37,26 +37,26 @@ export class EditProfileComponent implements OnInit {
     this.getUserData()
   }
 
-  getUserData(){
+  getUserData() {
     this._bs.load(true)
     this.fs.viewProfile().subscribe({
-      next:(res:any)=>{
+      next: (res: any) => {
         this._bs.load(false)
         this.user = res.data
         console.log(this.user)
         this.userForm.patchValue({
-          fullName:this.user.fullName ? this.user.fullName : 'NA',
-          email:this.user.email ? this.user.email : 'NA' ,
-          mobileNo: this.user.mobileNo ? this.user.mobileNo: 'NA'
+          fullName: this.user.fullName ? this.user.fullName : 'NA',
+          email: this.user.email ? this.user.email : 'NA',
+          mobileNo: this.user.mobileNo ? this.user.mobileNo : 'NA'
         })
       },
-      error:(err:any)=>{
+      error: (err: any) => {
         this.toastr.error(err.message)
       }
     })
   }
   updateUser() { }
-  
+
 
   // getData() {
   //   this._bs.load(true)
@@ -90,8 +90,8 @@ export class EditProfileComponent implements OnInit {
         let image = res.data.fullpath
         this.user.image = image
 
-        this.appService.update({ id: this.user.id, image }, 'edit/profile').subscribe(res => {
-          console.log(res , "response")
+        this.fs.editProfile({ id: this.user.id, image }).subscribe(res => {
+          console.log(res, "response")
           if (res.success) {
             this._bs.setUserData({ image })
           }

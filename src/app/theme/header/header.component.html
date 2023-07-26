@@ -16,13 +16,13 @@
   </div> -->
   <div class="dropdown userDropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-      <img src="{{userImg(user?.image)}}" alt="" class="headerProfile"/>
+      <img [src]="userImg(user?.image)" alt="" class="headerProfile"/>
     </button>
     <div class="dropdown-menu dropdown_item">
       <a class="dropdown-item" href="#" routerLink="/profile">Profile</a>
       <a class="dropdown-item" href="#" routerLink="/auth/change-password">Change Password</a>
       <a class="dropdown-item" (click)="logout()" *ngIf="isAccessToken">Logout</a>
-      <a class="dropdown-item" (click)="logIn()" *ngIf="!isAccessToken">Login</a>
+      <a class="dropdown-item" routerLink="/auth/login" *ngIf="!isAccessToken">Login</a>
     </div>
   </div>
 

@@ -37,7 +37,7 @@ export class ViewProfileComponent implements OnInit {
   }
 
   edit(){
-  this.router.navigate(['/profile/edit'])
+  this.router.navigate(['/feature/profile/edit'])
   }
   // getData(){
     
