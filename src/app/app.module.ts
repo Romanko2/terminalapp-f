@@ -13,7 +13,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 
 // Compement
 import { NotFoundComponent } from './not-found/not-found.component';
-import { HomeComponent } from './home/home.component';
+// import { HomeComponent } from './feature/home/home.component';
 import { LayoutComponent } from './theme/layout/layout.component';
 import { HeaderComponent } from './theme/header/header.component';
 import { FooterComponent } from './theme/footer/footer.component';
@@ -26,7 +26,7 @@ import { SidebarComponent } from './theme/sidebar/sidebar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    // HomeComponent,
     LayoutComponent,
     HeaderComponent,
     FooterComponent,
