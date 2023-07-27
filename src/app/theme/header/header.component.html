@@ -35,10 +35,10 @@
     </button>
 
     <div class="dropdown-menu dropdown_item">
-      <a class="dropdown-item" href="#" routerLink="/feature/profile/view-profile" *ngIf="user">Profile</a>
-      <a class="dropdown-item" href="#" routerLink="/auth/change-password" *ngIf="user">Change Password</a>
-      <a class="dropdown-item" (click)="logout()" *ngIf="user">Logout</a>
-      <a class="dropdown-item" routerLink="/auth/login" *ngIf="!user">Login</a>
+      <a class="dropdown-item" href="#" routerLink="/feature/profile/view-profile" *ngIf="user" style="cursor: pointer;">Profile</a>
+      <a class="dropdown-item" href="#" routerLink="/auth/change-password" *ngIf="user" style="cursor: pointer;">Change Password</a>
+      <a class="dropdown-item" (click)="logout()" *ngIf="user" style="cursor: pointer;">Logout</a>
+      <a class="dropdown-item" routerLink="/auth/login" *ngIf="!user" style="cursor: pointer;">Login</a>
       
     </div>
   </div>

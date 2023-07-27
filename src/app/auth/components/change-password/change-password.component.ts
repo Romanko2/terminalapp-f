@@ -48,21 +48,26 @@ export class ChangePasswordComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
-  updatePasswrd(){
-    this._bs.load(true);
 
-    this.frontendService.changePassword(this.loginForm.value).subscribe({
-      next:(res)=>{
-        this.toastr.success(res.message)
-        this._bs.load(false);
-        this.router.navigateByUrl('/feature/profile/view-profile')
-      },
-      error:(err)=>{
-        this.toastr.error(err.message)
-      }
-    })
+  updatePasswrd(){
+   
+  this.submitted = true;
+    if(this.loginForm.valid){
+      this.frontendService.changePassword(this.loginForm.value).subscribe({
+        next:(res)=>{
+          this._bs.load(true);
+          this.toastr.success(res.message)
+          this._bs.load(false);
+          this.router.navigateByUrl('/feature/profile/view-profile')
+        },
+        error:(err)=>{
+          // this.toastr.error(err.message)
+        }
+      })
+  }else{
+    this.loginForm.markAllAsTouched()
   }
+}
 
   get f() { return this.loginForm.controls;}
 

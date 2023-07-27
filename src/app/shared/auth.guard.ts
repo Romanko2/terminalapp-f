@@ -11,16 +11,16 @@ import { AuthService } from '../utils/services/auth.service';
 export class AuthGuard implements CanActivate {
   constructor(
     private router: Router,
-    private _bs:BehaviorService,
-    private authService:AuthService
-  ) {}
+    private _bs: BehaviorService,
+    private authService: AuthService
+  ) { }
 
-  token:any
+  token: any
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     // this.token = this._bs.getLocalUser()
     this.token = this.authService.getToken()
-     
+
     if (this.token) {
       // console.log("token",token);   
       // authorised so return true
