@@ -22,7 +22,7 @@ export class FeatureHeaderComponent implements OnInit {
   constructor(private _bs: BehaviorService, private authService: AuthService, private router: Router,) {
 
     this._bs.getUserData().subscribe((res: any) => {
- 
+
       if (res) {
         this.user = res
       } else {
@@ -34,12 +34,12 @@ export class FeatureHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
     this.id = localStorage.getItem("id")
     if (this.id) {
       this.isAccessToken = true
-    } else if (!this.id){
-      this.isAccessToken = false 
+    } else if (!this.id) {
+      this.isAccessToken = false
     }
     // this.authService.currentUserSource.subscribe((res) => {
     //   if (res == true) {
@@ -50,12 +50,12 @@ export class FeatureHeaderComponent implements OnInit {
 
     // })
     // this.getUserData()
-  //   this.authService.getuserdata().subscribe({
-  //     next: (res: any) => {
-  //       console.log(res)
-  //     }
-  //   })
-  
+    //   this.authService.getuserdata().subscribe({
+    //     next: (res: any) => {
+    //       console.log(res)
+    //     }
+    //   })
+
   }
   // getUserData() {
   //   this._bs.load(true)
@@ -105,5 +105,5 @@ export class FeatureHeaderComponent implements OnInit {
       el2.classList.toggle('isFull')
     }
 
-}
+  }
 }

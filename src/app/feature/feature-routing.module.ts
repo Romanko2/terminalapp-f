@@ -11,6 +11,10 @@ const routes: Routes = [
     component:FeatureMainComponent,
     children:[
       {
+        path:'',
+        component:HomeComponent
+      },
+      {
         path:'plans',
         loadChildren:()=>PlansModule
       },
