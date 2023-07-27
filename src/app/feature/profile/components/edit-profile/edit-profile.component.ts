@@ -47,29 +47,35 @@ export class EditProfileComponent implements OnInit {
         this.userForm.patchValue({
           fullName: this.user.fullName ? this.user.fullName : 'NA',
           email: this.user.email ? this.user.email : 'NA',
-          mobileNo: this.user.mobileNo ? this.user.mobileNo : 'NA'
+          mobileNo: this.user.mobileNo.number ? this.user.mobileNo.number : 'NA',
+          dialCode: this.user.mobileNo.dialCode ? this.user.mobileNo.dialCode : 'NA'
         })
       },
       error: (err: any) => {
-        this.toastr.error(err.message)
+        // this.toastr.error(err.message)
       }
     })
   }
-  updateUser() { }
+
+  updateUser() {
+    const body = {
+      fullName: this.userForm.value.fullName,
+      id: this.id,
+      mobileNo: this.userForm.value.mobileNo
+    }
+    this.fs.editProfile(body).subscribe({
+      next: (res) => {
+        this.toastr.success(res.message)
+        this.router.navigateByUrl('/feature/profile/view-profile')
+      },
+      error: (err) => {
+        this.toastr.error(err)
+      }
+    })
+  }
 
 
-  // getData() {
-  //   this._bs.load(true)
-  //   this.appService.getAll('profile').subscribe(res => {
-  //     if (res.success) {
-  //       this.user = res.data
-  //       let data = res.data
-  //       data.mobileNo = sharedModel.getTelInputValue(data)
-  //       this.userForm.patchValue(res.data)
-  //     }
-  //     this._bs.load(false)
-  //   })
-  // }
+
 
   get f() { return this.userForm.controls; }
 

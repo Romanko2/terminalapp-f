@@ -39,9 +39,9 @@ export class SignupComponent implements OnInit {
     if (this.signupForm.valid) {
       this.authService.register(this.signupForm.value).subscribe({
         next: (res) => {
-          localStorage.setItem('user-signup:session' , JSON.stringify(res))
+          localStorage.setItem('user-signup:session', JSON.stringify(res))
           this.toaster.success(res.message)
-   
+
         },
         error: (err) => {
           this.toaster.error(err.message)

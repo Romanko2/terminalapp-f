@@ -7,7 +7,7 @@ import { FrontendService } from 'src/app/utils/services/frontend.service';
   styleUrls: ['./subscription-plans.component.scss']
 })
 export class SubscriptionPlansComponent implements OnInit {
-
+  public plansArr:any[] = []
   constructor(private fs:FrontendService) { }
 
   ngOnInit(): void {
@@ -17,7 +17,8 @@ export class SubscriptionPlansComponent implements OnInit {
   getAllPlans(){
     this.fs.plansList().subscribe({
       next:(res)=>{
-        console.log(res)
+        this.plansArr = res.data.data
+        console.log(this.plansArr)
       }
     })
   }

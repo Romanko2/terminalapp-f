@@ -47,10 +47,10 @@ export class ForgotComponent implements OnInit {
       this.authService.forgotPassword(this.forgotForm.value).subscribe({
         next:(res)=>{
           this.toastr.success(res.message)
-          this.router.navigate(['/auth/reset'], { queryParams: { id: res.id } });
+          // this.router.navigate(['/auth/reset'], { queryParams: { id: res.id } });
         },
         error:(err)=>{
-          this.toastr.error(err.message)
+          // this.toastr.error(err.message)
         }
       })
     }

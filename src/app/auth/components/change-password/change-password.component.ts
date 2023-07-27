@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AppService } from 'src/app/app.service';
 import { BehaviorService } from 'src/app/shared/behavior.service';
 import { ConfirmMatch } from 'src/app/shared/confirm-match.validator';
+import { FrontendService } from 'src/app/utils/services/frontend.service';
 
 @Component({
   selector: 'app-change-password',
@@ -24,6 +25,7 @@ export class ChangePasswordComponent implements OnInit {
 
   constructor(private fb:FormBuilder,
     private _bs:BehaviorService,
+    private frontendService:FrontendService,
     private appService:AppService,
     private router:Router,
     private toastr:ToastrService) {
@@ -42,31 +44,27 @@ export class ChangePasswordComponent implements OnInit {
     });
   }
 
+
   ngOnInit(): void {
+  }
+
+  
+  updatePasswrd(){
+    this._bs.load(true);
+
+    this.frontendService.changePassword(this.loginForm.value).subscribe({
+      next:(res)=>{
+        this.toastr.success(res.message)
+        this._bs.load(false);
+        this.router.navigateByUrl('/feature/profile/view-profile')
+      },
+      error:(err)=>{
+        this.toastr.error(err.message)
+      }
+    })
   }
 
   get f() { return this.loginForm.controls;}
 
-  onSubmit(){
-    this.submitted = true;
-    if (this.loginForm.invalid) {
-      return;
-    }
 
-    this._bs.load(true);
-
-    this.appService.update(this.loginForm.value, 'change/password').subscribe((res: any) => {
-      if (res.success) {
-        this._bs.load(false);
-        this._bs.signOut()
-        this.toastr.success(res.message)
-      } else {
-        this.toastr.error(res.message)
-      }
-      this._bs.load(false)
-    }, error => {
-      this._bs.load(false)
-    });
-
-  }
 }
