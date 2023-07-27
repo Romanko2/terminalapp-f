@@ -1,12 +1,36 @@
 
 .main_page {
-    background: linear-gradient(153deg, #0d263b 16%, #08151f 62%);
-    padding: 2rem 4rem;
+    background: linear-gradient(153deg, #091621 16%, #08151f 62%);
     // height: 100vh;
+    padding-top: 0px;
         }
 .layout_1 {
     max-width: 630px;
     padding: 8rem 0px;
+}
+.section {
+    padding: 0px 3rem;
+    border-bottom: 2px solid #ffffff36;
+}
+.section_2 {
+    padding: 0px 0rem;
+    border-bottom: 2px solid #ffffff36;
+}
+.section_3 {
+    padding: 0px 3rem;
+    border-bottom: 2px solid #ffffff36;
+}
+.section_4 {
+    padding: 0px 3rem;
+    border-bottom: 2px solid #ffffff36;
+}
+.section_5 {
+    padding: 0px 3rem;
+    border-bottom: 2px solid #ffffff36;
+}
+.section_6 {
+    padding: 0px 3rem;
+    border-bottom: 2px solid #ffffff36;
 }
 .layout_1 h1{
     font-size: 55px;
@@ -14,19 +38,21 @@
     line-height: 64px;
     font-weight: 600;
 }
+.layout_3 {
+    padding: 6rem 0px;
+}
 
 span.h1_style {
     color: #B6FF7D;
 }
-.section{
-    max-width: 1000px;
-}
+
 .section_1{
     background-image: url(/assets/img/trading_line.png);
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
-    border-bottom: 2px solid #ffffff36;
+    max-width: 1000px;
+    // border-bottom: 2px solid #ffffff36;
 }
 a.a_more {
     color: #B6FF7D;
@@ -41,6 +67,7 @@ span.span_icon {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 3rem;
+    padding: 0px 3rem;
 }
 .flex_header h1 {
     margin-bottom: 0px;
@@ -197,7 +224,7 @@ h1.text_no {
     object-fit: contain;
 }
 .stock2{
-    padding: 0px 4rem;
+    padding: 0px 3rem;
 }
 .stock2 h1 {
     font-size: 60px;
@@ -250,7 +277,7 @@ p.text_p {
     margin-left: auto;
 }
 .layout_5 {
-    padding: 0px 4rem;
+    padding: 6rem 2rem;
 }
     .grow_box{
         background: #25293161;
@@ -275,7 +302,6 @@ p.text_p {
     ////////////////////############ FAQ ############//////////////////
 
     .faq-section {
-        min-height: 100vh;
         margin-top: 2rem;
     }
     .faq-title h2 {
@@ -303,6 +329,14 @@ p.text_p {
     .faq {
     //   box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06);
       border-radius: 4px;
+    }
+    .row_faq {
+        display: flex;
+        align-items: center;
+    }
+    .row_faq i {
+        font-size: 22px;
+        padding-right: 15px;
     }
     
     .faq .card {
@@ -414,8 +448,9 @@ p.text_p {
 .layout_6 {
     padding: 6rem 0px;
 }
-
-
+.main_row {
+    border-left: 2px solid #ffffff36;
+}
 
 
 
