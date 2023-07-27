@@ -42,7 +42,7 @@ export class SignupComponent implements OnInit {
       const body = {
         firstName:this.signupForm.value.firstName,
         lastName:this.signupForm.value.lastName,
-        email:this.signupForm.value.signupForm,
+        email:this.signupForm.value.email,
         password:this.signupForm.value.password
       }
       this.authService.register(body).subscribe({
