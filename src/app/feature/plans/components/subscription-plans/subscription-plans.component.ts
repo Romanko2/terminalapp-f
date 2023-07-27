@@ -11,7 +11,7 @@ export class SubscriptionPlansComponent implements OnInit {
   constructor(private fs:FrontendService) { }
 
   ngOnInit(): void {
-    this.getAllPlans()
+    // this.getAllPlans()
   }
   
   getAllPlans(){
