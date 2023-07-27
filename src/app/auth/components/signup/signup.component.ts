@@ -49,7 +49,8 @@ export class SignupComponent implements OnInit {
         next: (res) => {
           localStorage.setItem('user-signup:session', JSON.stringify(res))
           this.toaster.success(res.message)
-          
+          this.signupForm.reset()
+          this.submitted = false
         },
         error: (err) => {
           // this.toaster.error(err.message)
@@ -57,8 +58,9 @@ export class SignupComponent implements OnInit {
       })
     } else {
       this.signupForm.markAllAsTouched()
-     
+   
     }
+   
 
   }
 

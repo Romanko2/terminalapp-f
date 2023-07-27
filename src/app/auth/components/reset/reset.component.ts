@@ -25,8 +25,8 @@ export class ResetComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private toastr: ToastrService, private _activatedRoute: ActivatedRoute) {
-    this.verificationCode = this._activatedRoute.snapshot.paramMap.get('verificationCode')
-    console.log(this.verificationCode)
+    this.verificationCode = this._activatedRoute.snapshot.params['verificationCode']
+    console.log(this.verificationCode,"kkkk")
     if (_bs.getLocalUser()) {
       router.navigateByUrl('/')
     }
