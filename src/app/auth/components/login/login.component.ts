@@ -76,6 +76,7 @@ export class LoginComponent implements OnInit {
       if (res.success) {
         this.localStorageService.saveData('id', res.data.id)
         this.localStorageService.saveData('access_token', res.data.access_token)
+        this.router.navigateByUrl('/')
         if (this.remember) {
           localStorage.setItem('remember', JSON.stringify(value))
         } else {
@@ -85,8 +86,7 @@ export class LoginComponent implements OnInit {
         this._bs.load(false);
         this._bs.setUserData(result)
         this.loginForm.reset();
-        this.router.navigate(['/']);
-
+      
       } else {
         // this.toastr.error(res.message)
       }
