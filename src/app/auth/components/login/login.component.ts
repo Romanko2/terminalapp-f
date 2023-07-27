@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   public showPass: any = false;
   public userRole: any;
   remember: any = false;
-
+  rmCheck: any;
+  emailInput: any
   constructor(private fb: FormBuilder,
     private _bs: BehaviorService,
     private authService: AuthService,
@@ -39,15 +40,26 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     let userDetails = JSON.parse(localStorage.getItem('userSignup:session') as string)
     this.userRole = userDetails?.data.role
-   
-    // if (remember) {
-    //   this.remember = true
-    //   this.loginForm.patchValue(JSON.parse(remember))
-    // }
+    this.rmCheck = document.getElementById("rememberMe"),
+      this.emailInput = document.getElementById("ema")
+    if (this.remember) {
+      this.remember = true
+      this.loginForm.patchValue(JSON.parse(this.remember))
+    }
+
+    const getData = localStorage.getItem('remember')
+    const data = JSON.parse(localStorage.getItem('remember')!)
+    console.log(data)
+    if (getData) {
+      this.loginForm.patchValue({
+        email: data.email,
+        password: data.password
+      })
+    }
   }
 
- 
- 
+
+
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
@@ -63,6 +75,7 @@ export class LoginComponent implements OnInit {
 
       if (res.success) {
         this.localStorageService.saveData('id', res.data.id)
+        this.localStorageService.saveData('access_token', res.data.access_token)
         if (this.remember) {
           localStorage.setItem('remember', JSON.stringify(value))
         } else {
@@ -84,4 +97,13 @@ export class LoginComponent implements OnInit {
 
   }
 
+  lsRememberMe() {
+    // if (rmCheck.checked && emailInput.value !== "") {
+    //   localStorage.username = emailInput.value;
+    //   localStorage.checkbox = rmCheck.value;
+    // } else {
+    //   localStorage.username = "";
+    //   localStorage.checkbox = "";
+    // }
+  }
 }
