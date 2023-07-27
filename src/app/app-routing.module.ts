@@ -13,7 +13,7 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => AuthModule,
-    canActivate:[AuthGuard]
+
   },
   {
     path: '',
@@ -22,7 +22,6 @@ const routes: Routes = [
   {
     path: 'feature',
     loadChildren: () => FeatureModule,
-
   },
 
 

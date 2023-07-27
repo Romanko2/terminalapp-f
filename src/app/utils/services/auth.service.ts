@@ -75,7 +75,7 @@ export class AuthService {
 
     }
 
-    getToken() {
+    getToken() :void{
         this.localStorageService.getData('access_token')
     }
 

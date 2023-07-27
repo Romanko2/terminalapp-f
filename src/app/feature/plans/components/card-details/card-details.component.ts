@@ -35,7 +35,7 @@ export class CardDetailsComponent implements OnInit {
     alert("hello")
     this.fs.addCard(this.cardForm.value).subscribe({
       next:(res)=>{
-        this.card_id = res.data.id
+        this.card_id = res.data.default_source
         console.log(res , "res")
         if(res){
           this.purchasePlan()

@@ -9,6 +9,7 @@ import { AuthService } from '../utils/services/auth.service';
   providedIn: 'root' // ADDED providedIn root here.
 })
 export class AuthGuard implements CanActivate {
+  isAuthenticated:any;
   constructor(
     private router: Router,
     private _bs: BehaviorService,
@@ -17,17 +18,27 @@ export class AuthGuard implements CanActivate {
 
   token: any
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    // this.token = this._bs.getLocalUser()
-    this.token = this.authService.getToken()
+  // canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  //   // this.token = this._bs.getLocalUser()
+  //   this.token = this.authService.getToken()
 
-    if (this.token) {
-      // console.log("token",token);   
-      // authorised so return true
-      return true;
+  //   if (this.token) {
+  //     // console.log("token",token);   
+  //     // authorised so return true
+  //     return true;
+  //   }
+  //   // not logged in so redirect to landing page 
+  //   this.router.navigate(['/auth/login']);
+  //   return false;
+  // }
+
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): boolean | Promise<boolean> {
+    this.isAuthenticated = this.authService.getToken();
+    if (!this.isAuthenticated) {
+        this.router.navigate(['/auth/login']);
     }
-    // not logged in so redirect to landing page 
-    this.router.navigate(['/auth/login']);
-    return false;
-  }
+    return this.isAuthenticated;
+}
 }
