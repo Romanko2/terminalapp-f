@@ -8,17 +8,18 @@
     top: 0;
     right: 0;
     z-index: 9999;
-    background: linear-gradient(
-        153deg
-        , #12334f 16%, #101023 62%);
-    border-bottom: 1px solid #b8b6b6;
-    height: 80px;
+    height: 100px;
+    border-left: 2px solid #ffffff36;
+    border-bottom: 2px solid #ffffff36;
 
     &.isFull{
         width: calc(100% - 70px);
     }
 }
 
+.page_header{
+    background: linear-gradient(153deg, #091621 16%, #08151f 62%)
+}
 .headerProfile{
     height: 40px;
     width: 40px;
