@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AppService } from 'src/app/app.service';
 import { BehaviorService } from 'src/app/shared/behavior.service';
@@ -15,51 +15,53 @@ import { AuthService } from 'src/app/utils/services/auth.service';
 export class ResetComponent implements OnInit {
 
   loginForm: FormGroup;
-  submitted:any = false;
-  showPass:any = false;
-  showPass2:any = false;
- public id:any
-  constructor(private fb:FormBuilder,
-    private _bs:BehaviorService,
+  submitted: any = false;
+  showPass: any = false;
+  showPass2: any = false;
+  public id: any
+  public verificationCode: any
+  constructor(private fb: FormBuilder,
+    private _bs: BehaviorService,
     private authService: AuthService,
-    private router:Router,
-    private toastr:ToastrService) {
-
-    if(_bs.getLocalUser()){
+    private router: Router,
+    private toastr: ToastrService, private _activatedRoute: ActivatedRoute) {
+    this.verificationCode = this._activatedRoute.snapshot.paramMap.get('verificationCode')
+    console.log(this.verificationCode)
+    if (_bs.getLocalUser()) {
       router.navigateByUrl('/')
     }
 
     this.loginForm = this.fb.group({
       newPassword: ["", [Validators.required, Validators.minLength(9)]],
-      confirmPassword:["", [Validators.required, Validators.minLength(9)]]
+      confirmPassword: ["", [Validators.required, Validators.minLength(9)]]
     },
-		{
-      validator: ConfirmMatch('newPassword', 'confirmPassword')
-    });
+      {
+        validator: ConfirmMatch('newPassword', 'confirmPassword')
+      });
   }
 
   ngOnInit(): void {
     this.id = localStorage.getItem('id')
   }
 
-  resetPassword(){
+  resetPassword() {
     const body = {
-      id:this.id,
-      newPassword:this.loginForm.value.newPassword,
-      
+      id: this.id,
+      newPassword: this.loginForm.value.newPassword,
+      verificationCode: this.verificationCode
     }
 
     this.authService.resetPassword(body).subscribe({
-      next:(res:any)=>{
+      next: (res: any) => {
         this.toastr.success(res.message)
       },
-      error:(err)=>{
-        
+      error: (err) => {
+
       }
     })
 
   }
-  get f() { return this.loginForm.controls;}
+  get f() { return this.loginForm.controls; }
 
   // onSubmit(){
   //   this.submitted = true;

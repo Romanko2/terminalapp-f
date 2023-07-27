@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
         this._bs.load(false);
         this._bs.setUserData(result)
         this.loginForm.reset();
-        this.router.navigate(['/feature/profile/view-profile']);
+        this.router.navigate(['/']);
 
       } else {
         // this.toastr.error(res.message)

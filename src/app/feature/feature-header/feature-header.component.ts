@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { BehaviorService } from 'src/app/shared/behavior.service';
 import { AuthService } from 'src/app/utils/services/auth.service';
-import { FrontendService } from 'src/app/utils/services/frontend.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
- 
+  selector: 'app-feature-header',
+  templateUrl: './feature-header.component.html',
+  styleUrls: ['./feature-header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class FeatureHeaderComponent implements OnInit {
+
+
   isAccessToken!: boolean;
   id: any
   public user: any;
@@ -105,6 +104,6 @@ export class HeaderComponent implements OnInit {
       el.classList.toggle('isFull')
       el2.classList.toggle('isFull')
     }
-  }
 
+}
 }
