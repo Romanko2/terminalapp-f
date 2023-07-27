@@ -235,6 +235,187 @@ span.color_s {
     padding-right: 3rem;
     border-right: 1px solid #fff;
 }
+h1.heading {
+    font-size: 60px;
+    line-height: 65px;
+    color: #fff;
+    font-weight: 600;
+}
+p.text_p {
+    font-size: 16px;
+    color: #fff;
+}
+.right_linerow {
+    max-width: 278px;
+    margin-left: auto;
+}
+.layout_5 {
+    padding: 0px 4rem;
+}
+    .grow_box{
+        background: #25293161;
+        padding: 20px;
+        min-height: 185px;
+        color: #fff;
+        text-align: center;
+        border-radius: 25px;
+        margin-top: 3rem;
+    }
+    .grow_box h1 {
+        font-size: 22px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+    .grow_box img {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 1rem;
+    }
+
+    ////////////////////############ FAQ ############//////////////////
+
+    .faq-section {
+        min-height: 100vh;
+        margin-top: 2rem;
+    }
+    .faq-title h2 {
+      position: relative;
+      margin-bottom: 45px;
+      display: inline-block;
+      font-weight: 600;
+      line-height: 1;
+    }
+    .faq-title h2::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        width: 60px;
+        height: 2px;
+        background: #E91E63;
+        bottom: -25px;
+        margin-left: -30px;
+    }
+    .faq-title p {
+      padding: 0 190px;
+      margin-bottom: 10px;
+    }
+    
+    .faq {
+    //   box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06);
+      border-radius: 4px;
+    }
+    
+    .faq .card {
+        border: none;
+        background: none;
+        border-bottom: 2px solid #ffffff14;
+        border-radius: 0px;
+    }
+    .card-header h5 {
+        margin-bottom: 0px;
+    }
+    
+    .faq .card .card-header {
+      padding: 0px;
+      border: none;
+      background: none;
+      -webkit-transition: all 0.3s ease 0s;
+      -moz-transition: all 0.3s ease 0s;
+      -o-transition: all 0.3s ease 0s;
+      transition: all 0.3s ease 0s;
+    }
+    
+    .faq .card .card-header:hover {
+        background: rgb(47 192 249 / 8%);
+        padding-left: 10px;
+    }
+    .faq .card .card-header .faq-title {
+      width: 100%;
+      text-align: left;
+      padding: 0px;
+      padding-left: 30px;
+      padding-right: 30px;
+      font-weight: 400;
+      font-size: 18px;
+      letter-spacing: 1px;
+      color: #fff;
+      text-decoration: none !important;
+      -webkit-transition: all 0.3s ease 0s;
+      -moz-transition: all 0.3s ease 0s;
+      -o-transition: all 0.3s ease 0s;
+      transition: all 0.3s ease 0s;
+      cursor: pointer;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    
+    .faq .card .card-header .faq-title .badge {
+        display: inline-block;
+        /* width: 20px; */
+        /* height: 20px; */
+        line-height: 14px;
+        /* float: left; */
+        /* border-radius: 100px; */
+        /* text-align: center; */
+        /* background: #E91E63; */
+        color: #fff;
+        font-size: 18px;
+        margin-right: 6px;
+    }
+    
+    .faq .card .card-body {
+      padding: 30px;
+      padding-left: 35px;
+      padding-bottom: 16px;
+      font-weight: 400;
+      font-size: 16px;
+      color: #6F8BA4;
+      line-height: 28px;
+      letter-spacing: 1px;
+      border-top: 1px solid #F3F8FF;
+    }
+    
+    .faq .card .card-body p {
+      margin-bottom: 14px;
+    }
+    
+    @media (max-width: 991px) {
+      .faq {
+        margin-bottom: 30px;
+      }
+      .faq .card .card-header .faq-title {
+        line-height: 26px;
+        margin-top: 10px;
+      }
+    }
+  ////////////////////############ FAQ ############//////////////////
+
+  .faq_text {
+    color: #fff;
+    padding-right: 4rem;
+    margin-top: 3rem;
+}
+.faq_text h1 {
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 60px;
+}
+.faq_text p {
+ font-size: 16px;
+}
+.faq_img {
+    max-width: 430px;
+    margin: auto;
+}
+.faq_img img {
+    width: 100%;
+    height: 520px;
+}
+.layout_6 {
+    padding: 6rem 0px;
+}
+
+
 
 
 
