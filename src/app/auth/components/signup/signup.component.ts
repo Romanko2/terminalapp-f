@@ -26,7 +26,7 @@ export class SignupComponent implements OnInit {
     this.signupForm = this.fb.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email, Validators.pattern("^[a-z0-9._%. +-]+@[a-z0-9.-]+\\.[a-z]{2,4}.$")]],
+      email: ['', [Validators.required, Validators.email, Validators.pattern("^[a-z0-9._%. +-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       password: ['', [Validators.required, Validators.minLength(8)]],
     })
   }
@@ -39,9 +39,9 @@ export class SignupComponent implements OnInit {
     if (this.signupForm.valid) {
       this.authService.register(this.signupForm.value).subscribe({
         next: (res) => {
-          localStorage.setItem('user-signup:session' , JSON.stringify(res))
+          localStorage.setItem('user-signup:session', JSON.stringify(res))
           this.toaster.success(res.message)
-   
+
         },
         error: (err) => {
           this.toaster.error(err.message)

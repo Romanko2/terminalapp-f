@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
 import { LocalStorageService } from "./local-storage.service";
 import { map } from "rxjs/operators";
 
+
 @Injectable({
     providedIn: 'root'
 })
@@ -15,13 +16,19 @@ import { map } from "rxjs/operators";
 export class AuthService {
     private baseUrl = environment.apiUrl
     access_token: any;
-
+    userInfo$ = new BehaviorSubject<any>(null)
     currentUserSource = new BehaviorSubject<any>('')
-    // currentUser$ = this.currentUserSource.asObservable();
+
+
+
     constructor(private http: HttpClient, private router: Router, private localStorageService: LocalStorageService) {
         this.access_token = localStorage.getItem('access_token')
     }
-    //Login//
+
+
+
+
+
     userLogin(body: LOGIN): Observable<any> {
         return this.http.post<LOGIN>(`${this.baseUrl}${API_CONSTANTS.login_url}`, body).pipe(
             map((response: any) => {
@@ -29,7 +36,7 @@ export class AuthService {
                 if (user) {
                     localStorage.setItem('user', JSON.stringify(user));
                     this.currentUserSource.next(true)
-                    this.localStorageService.saveData("isLoggedIn" , 'true')
+                    this.localStorageService.saveData("isLoggedIn", 'true')
                     // this.currentUserSource.next(true)
                     this.localStorageService.saveData('id', user.data.id)
                     this.localStorageService.saveData('access_token', user.data.access_token)
@@ -52,7 +59,7 @@ export class AuthService {
 
 
     resetPassword(body: any) {
-
+      return this.http.put(`${this.baseUrl}${API_CONSTANTS.reset_url}`, body)
     }
 
     changePassword(body: CHANGEPASSWORD): Observable<any> {
@@ -62,9 +69,16 @@ export class AuthService {
 
     signOut(): void {
         this.localStorageService.clearData()
-        localStorage.setItem('isLoggedIn','false');   
+        localStorage.setItem('isLoggedIn', 'false');
         // this.currentUserSource.next(false)
         this.router.navigateByUrl('/');
 
     }
+
+    getToken() {
+        this.localStorageService.getData('access_token')
+    }
+
+
+
 }

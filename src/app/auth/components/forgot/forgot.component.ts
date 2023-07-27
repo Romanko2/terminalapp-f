@@ -33,7 +33,7 @@ export class ForgotComponent implements OnInit {
         [
           Validators.required,
           Validators.email,
-          Validators.pattern('^[a-z0-9._%. +-]+@[a-z0-9.-]+\\.[a-z]{2,4}.$'),
+          Validators.pattern('^[a-z0-9._%. +-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
         ],
       ],
     });
@@ -47,10 +47,10 @@ export class ForgotComponent implements OnInit {
       this.authService.forgotPassword(this.forgotForm.value).subscribe({
         next:(res)=>{
           this.toastr.success(res.message)
-          this.router.navigate(['/auth/reset'], { queryParams: { id: res.id } });
+          // this.router.navigate(['/auth/reset'], { queryParams: { id: res.id } });
         },
         error:(err)=>{
-          this.toastr.error(err.message)
+          // this.toastr.error(err.message)
         }
       })
     }

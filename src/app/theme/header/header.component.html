@@ -16,6 +16,7 @@
       <button ngbDropdownItem (click)="logout()">Logout</button>
     </div>
   </div> -->
+<<<<<<< HEAD
   <div class="div_ul">
 <ul>
   <li>Market activity </li>
@@ -23,16 +24,20 @@
   <li>About</li>
 </ul>
 </div>
+=======
+>>>>>>> bb42d03f52e3ba7f1382b206a89ee0d11bcbadc6
 
   <div class="dropdown userDropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
       <img [src]="userImg(user?.image)" alt="" class="headerProfile"/>
     </button>
+
     <div class="dropdown-menu dropdown_item">
-      <a class="dropdown-item" href="#" routerLink="/profile">Profile</a>
-      <a class="dropdown-item" href="#" routerLink="/auth/change-password">Change Password</a>
-      <a class="dropdown-item" (click)="logout()" *ngIf="isAccessToken">Logout</a>
-      <a class="dropdown-item" routerLink="/auth/login" *ngIf="!isAccessToken">Login</a>
+      <a class="dropdown-item" href="#" routerLink="/feature/profile/view-profile" *ngIf="user">Profile</a>
+      <a class="dropdown-item" href="#" routerLink="/auth/change-password" *ngIf="user">Change Password</a>
+      <a class="dropdown-item" (click)="logout()" *ngIf="user">Logout</a>
+      <a class="dropdown-item" routerLink="/auth/login" *ngIf="!user">Login</a>
+      
     </div>
   </div>
 

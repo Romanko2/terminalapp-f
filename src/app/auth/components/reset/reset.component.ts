@@ -18,7 +18,7 @@ export class ResetComponent implements OnInit {
   submitted:any = false;
   showPass:any = false;
   showPass2:any = false;
-
+ public id:any
   constructor(private fb:FormBuilder,
     private _bs:BehaviorService,
     private authService: AuthService,
@@ -30,7 +30,6 @@ export class ResetComponent implements OnInit {
     }
 
     this.loginForm = this.fb.group({
-      verificationCode: ["", [Validators.required]],
       newPassword: ["", [Validators.required, Validators.minLength(9)]],
       confirmPassword:["", [Validators.required, Validators.minLength(9)]]
     },
@@ -40,8 +39,26 @@ export class ResetComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.id = localStorage.getItem('id')
   }
 
+  resetPassword(){
+    const body = {
+      id:this.id,
+      newPassword:this.loginForm.value.newPassword,
+      
+    }
+
+    this.authService.resetPassword(body).subscribe({
+      next:(res:any)=>{
+        this.toastr.success(res.message)
+      },
+      error:(err)=>{
+        
+      }
+    })
+
+  }
   get f() { return this.loginForm.controls;}
 
   // onSubmit(){
