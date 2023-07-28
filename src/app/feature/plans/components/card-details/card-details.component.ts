@@ -18,9 +18,10 @@ export class CardDetailsComponent implements OnInit {
   card_id: any;
   id: any;
   submitted: any;
+  selectedCard:any;
   selectedMonth!: string;
   selectedDate!: number;
-
+public cardloader:boolean= false;
   dates: number[] = Array.from({ length: 31 }, (_, i) => i + 1);
 
   years: number[] = [];
@@ -104,7 +105,28 @@ export class CardDetailsComponent implements OnInit {
     })
   }
 
-
+  markDefault(index:any,$event:any){
+    this.cardloader=true
+    // let data={
+    //   id:this.cards[index].id
+    // }
+    // this.appService.update(data, 'card/set-primary').subscribe((res:any) => {
+    //   if (res.success) {
+    //     this.getCards()
+    //   } else {
+    //     $event.stopPropagation();
+    //   }
+    //   setTimeout(() => {
+    //     this.cardloader=false
+    //   }, 500);
+      
+    // },error=>{
+    //   this.cardloader=false
+    //   $event.stopPropagation();
+    //   return false
+      
+    // })
+  }
 
   get f() { return this.cardForm.controls; }
 
