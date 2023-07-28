@@ -61,10 +61,10 @@ public cardloader:boolean= false;
         next: (res) => {
           this.card_id = res.data.default_source
           console.log(res, "res")
-          if (res) {
-            this.purchasePlan()
+          // if (res) {
+          //   this.purchasePlan()
             
-          }
+          // }
          
         },
         error: (err) => {
@@ -107,6 +107,8 @@ public cardloader:boolean= false;
 
   markDefault(index:any,$event:any){
     this.cardloader=true
+    this.card_id = this.cardsList[index].card_id
+    this.cardloader = false
     // let data={
     //   id:this.cards[index].id
     // }
