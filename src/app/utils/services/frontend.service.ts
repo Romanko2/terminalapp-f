@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { API_CONSTANTS } from "../constants/api.const";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { CHANGEPASSWORD } from "../interface/auth-interface";
 
 @Injectable({
@@ -12,6 +12,7 @@ import { CHANGEPASSWORD } from "../interface/auth-interface";
 export class FrontendService {
     private baseUrl = environment.apiUrl
     access_token: any
+    isPurchased$ = new BehaviorSubject<any>(true)
     id: any
     constructor(private http: HttpClient) {
         this.id = localStorage.getItem('id')
@@ -53,4 +54,12 @@ export class FrontendService {
         let headers = { 'Authorization': 'Bearer ' + this.access_token }
         return this.http.post<any>(`${this.baseUrl}${API_CONSTANTS.purchaseplan_url}`, body , { headers })
     }
+
+    getCards(){
+        let headers = { 'Authorization': 'Bearer ' + this.access_token }
+        return this.http.get<any>(`${this.baseUrl}getCards`,{ headers })
+    }
+  
+      
+  
 }

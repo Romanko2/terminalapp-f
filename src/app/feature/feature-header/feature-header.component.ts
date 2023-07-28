@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorService } from 'src/app/shared/behavior.service';
 import { AuthService } from 'src/app/utils/services/auth.service';
+import { FrontendService } from 'src/app/utils/services/frontend.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -10,8 +11,9 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./feature-header.component.scss']
 })
 export class FeatureHeaderComponent implements OnInit {
-
-
+isUpgrade:any
+isPurchased:any
+bsRes : any
   isAccessToken!: boolean;
   id: any
   public user: any;
@@ -19,8 +21,17 @@ export class FeatureHeaderComponent implements OnInit {
   // user:any;
   _host: any = environment.apiUrl;
   bsRef: any
-  constructor(private _bs: BehaviorService, private authService: AuthService, private router: Router,) {
-
+  constructor(private _bs: BehaviorService, private authService: AuthService, private router: Router,private fs:FrontendService) {
+    this.isPurchased = localStorage.getItem("isPurchased")
+   
+    if(this.isPurchased){
+      this.isUpgrade = true
+    }else{
+      this.fs.isPurchased$.subscribe((res)=>{
+  
+        this.isUpgrade = true
+      })
+    }
     this._bs.getUserData().subscribe((res: any) => {
 
       if (res) {
