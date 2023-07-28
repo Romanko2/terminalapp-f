@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CardNumberMaskDirective } from 'src/app/utils/services/mask.directive';
 import { CvcValidatorDirective } from 'src/app/utils/cvc.validator';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { CvcValidatorDirective } from 'src/app/utils/cvc.validator';
     MatDatepickerModule,
     MatFormFieldModule,
     MatNativeDateModule,
+    NgxMaskModule
   ]
 })
 export class PlansModule { }
