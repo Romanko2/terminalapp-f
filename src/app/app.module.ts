@@ -22,6 +22,7 @@ import { ErrorInterceptor } from './shared/error.interceptor';
 import { AuthInterceptor } from './shared/auth-interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { SidebarComponent } from './theme/sidebar/sidebar.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
@@ -43,7 +44,7 @@ import { SidebarComponent } from './theme/sidebar/sidebar.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
-
+    NgxMaskModule.forRoot()
   ],
   providers: [BehaviorService,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
