@@ -104,29 +104,7 @@ export class CardDetailsComponent implements OnInit {
     })
   }
 
-  // validateCard() {
-  //   const cardNumber = this.cardForm.value.trim();
 
-  //   // Check if the card number is empty.
-  //   if (cardNumber.length === 0) {
-  //     this.cardForm.setErrors({ cardNumber: 'Card number is required.' });
-  //     return;
-  //   }
-
-  //   // Check if the card number is valid.
-  //   if (!this.isValidCardNumber(cardNumber)) {
-  //     this.cardForm.setErrors({ cardNumber: 'Invalid card number.' });
-  //     return;
-  //   }
-
-  //   // The card number is valid.
-  //   this.cardForm.setErrors(null);
-  // }
-
-  // // This function checks if the card number is valid.
-  // isValidCardNumber(cardNumber) {
-  //   // TODO: Implement this function.
-  // }
 
   get f() { return this.cardForm.controls; }
 

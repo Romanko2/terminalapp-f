@@ -1,8 +1,12 @@
 <div class="page_header">
   <div class="container">
     <div class="mainHeader shadow" id="mainHeader">
-      <div class="logo_img">
-        <img src="/assets/img/logo.png" />
+      <div class="logo_img" *ngIf="!user">
+        <img
+          src="/assets/img/logo.png"
+          style="cursor: pointer"
+          routerLink="/"
+        />
       </div>
 
       <div class="div_ul">
@@ -20,9 +24,7 @@
           <li>About</li>
         </ul>
       </div>
-      <div *ngIf="isUpgrade">
-        <button class="btn btn-primary" routerLink="/feature/plans">Upgrade</button>
-      </div>
+
       <div class="dropdown userDropdown">
         <button
           class="btn btn-secondary dropdown-toggle"
