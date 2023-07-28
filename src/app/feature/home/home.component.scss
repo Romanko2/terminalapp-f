@@ -79,8 +79,12 @@ span.open {
 }
 a.view_text {
     display: flex;
+    align-items: center;
     color: #b6fc7d;
     font-size: 18px;
+}
+a.view_text mat-icon {
+    margin-top: 2px;
 }
 .layout_2 {
     padding: 6rem 0px;

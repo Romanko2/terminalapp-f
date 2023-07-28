@@ -17,8 +17,9 @@
         width: 100%;
         object-fit: cover;
         // border: 3px solid #ffffff;
-        border-radius: 5px;
-        box-shadow: 0px 0px 12px -10px #000;
+        border-radius: 10px;
+        // box-shadow: 0px 0px 12px -10px #000;
+        box-shadow: 0px 0px 17px -10px #000;
     
     }
     
@@ -41,3 +42,88 @@
     .profile_layout {
         margin-top: 2rem;
     }
+
+
+    //////////////////////######### Plan Details ##########/////////////////////
+
+    .plan_details {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    .plan_main {
+        border: 1px solid #dadada;
+        border-radius: 10px;
+    }
+    .plan_part {
+        padding: 20px;
+        border-bottom: 1px solid #dadada;
+    }
+    .p_tag {
+        display: flex;
+        justify-content: space-between;
+    }
+    .plan_part h1 {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+    .p_tag p {
+        font-size: 18px;
+        color: #757575;
+    }
+    span.start_new {
+        font-size: 24px;
+        font-weight: 600;
+        color: #000;
+    }
+    h1.heading_plan {
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .plan_flex {
+        display: flex;
+        justify-content: space-between;
+    }
+    .plan_part mat-icon {
+        color: green;
+        border: 2px solid green;
+        padding: 2px 2px;
+        border-radius: 50%;
+        font-weight: 600;
+        margin-right: 10px;
+        font-size: 10px;
+    }
+    .plan_part p{
+        color: #757575;
+        margin-bottom: 0;
+    }
+  
+    img.mastercard_img {
+        width: 40px;
+        border: 1px solid #e8e8e8;
+        border-radius: 4px;
+        margin-right: 15px;
+    }
+    p.text_id {
+        margin-top: 15px;
+    }
+    .btn_div{
+        padding: 20px;
+    }
+    .btn_black{
+        background: #494949;
+        box-shadow: 0px 0px 3px -1px #292929;
+    }
+    .btn_black:hover{
+        background: #494949 !important;   
+    }
+    .btn_white {
+        background: #fff;
+        color: #ce0303;
+        box-shadow:0px 0px 3px -1px #292929;
+    }
+    .btn_white:hover{
+        background: #fff !important;
+    }
+
+    //////////////////////######### Plan Details ##########/////////////////////
