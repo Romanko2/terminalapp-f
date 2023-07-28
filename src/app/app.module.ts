@@ -23,6 +23,7 @@ import { AuthInterceptor } from './shared/auth-interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { SidebarComponent } from './theme/sidebar/sidebar.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import { SidebarComponent } from './theme/sidebar/sidebar.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
+
   ],
   providers: [BehaviorService,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

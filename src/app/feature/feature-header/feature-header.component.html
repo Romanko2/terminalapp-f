@@ -20,7 +20,9 @@
           <li>About</li>
         </ul>
       </div>
-
+      <div *ngIf="isUpgrade">
+        <button class="btn btn-primary" routerLink="/feature/plans">Upgrade</button>
+      </div>
       <div class="dropdown userDropdown">
         <button
           class="btn btn-secondary dropdown-toggle"
