@@ -62,6 +62,8 @@ public cardloader:boolean= false;
         next: (res) => {
           this.card_id = res.data.default_source
           console.log(res, "res")
+          this.getCards()
+          this.cloaseModal()
           // if (res) {
           //   this.purchasePlan()
             
@@ -104,6 +106,9 @@ public cardloader:boolean= false;
         this.fs.isPurchased$.next(isPurchased)
       }
     })
+  }
+  cloaseModal(){
+    document.getElementById('closeModal')?.click()
   }
 
 
