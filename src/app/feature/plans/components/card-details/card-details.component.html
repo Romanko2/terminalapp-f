@@ -14,7 +14,7 @@
   <div class="col-md-3 mb-3 position-relative" *ngFor="let key of cardsList">
     <div class="form-check ">
       <input class="form-check-input position-static radio_btn" type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
-   
+     <i class=" fa fa-trash trash_icon"></i>
     </div>
 
         <div class="container preload" >
@@ -118,17 +118,18 @@
 
 <!-- Modal -->
 <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-dialog-centered card_modalMain">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title title_modal mb-0" id="exampleModalLabel">Add Payment Method</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form [formGroup]="cardForm">
-   
+        <div class="row">
+          <div class="col-md-6">
           <div class="form-group">
             <label>Card Number</label>
             <input
@@ -143,6 +144,8 @@
              
             />
           </div>
+          </div>
+          <div class="col-md-6">
           <div class="form-group">
             <label>Card Holder Name</label>
             <input
@@ -153,22 +156,25 @@
               formControlName="cardHolderName"
             />
           </div>
+          </div>
+          <div class="col-md-4">
           <div class="mb-3">
             <label>exp_month</label>
-            <select formControlName="exp_month" class="form-control">
+            <select formControlName="exp_month" class="form-control select_div">
               <option value="" *ngFor="let month of months" [value]="month">
                 {{ month }}
               </option>
             </select>
           </div>
-
+</div>
+<div class="col-md-4">
           <div class="mb-3">
             <div class="inputWrapper">
               <label>exp_year</label>
               <select
                 id="year"
                 formControlName="exp_year"
-                class="form-control"
+                class="form-control select_div"
               >
                 <option *ngFor="let year of years" [value]="year">
                   {{ year }}
@@ -176,6 +182,8 @@
               </select>
             </div>
           </div>
+          </div>
+          <div class="col-md-4">
           <div class="mb-3">
             <div class="inputWrapper">
               <label>cvc</label>
@@ -201,22 +209,21 @@
               </div>
             </div>
           </div>
-
-          <div class="text-center mt-4">
-            <button
-              type="submit"
-              class="btn btn-primary"
-              (click)="submitcard()"
-            >
-              Continue
-            </button>
           </div>
+
+        
+        </div>
         </form>
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div> -->
+      <div class="modal-footer">
+        <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="submitcard()"
+      >
+        Continue
+      </button>
+      </div>
     </div>
   </div>
 </div>

@@ -168,9 +168,8 @@ label {
 }
 
 input {
-    margin-top: 3px;
     padding: 8px 15px;
-    font-size: 16px;
+    font-size: 12px;
     width: 100%;
     border-radius: 3px;
     border: 1px solid #dcdcdc;
@@ -384,6 +383,7 @@ h1.heading_card {
     z-index: 999;
     top: 15px;
     right: -78px;
+    cursor: pointer;
 }
 
 .layout_card {
@@ -392,4 +392,18 @@ h1.heading_card {
 }
 .catd_section {
     padding: 2rem 0px;
+}
+.trash_icon {
+    position: absolute;
+    right: 18px;
+    top: 17px;
+    color: #d41010;
+    cursor: pointer;
+}
+.title_modal {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+}
+.card_modalMain {
+    max-width: 700px;
 }
