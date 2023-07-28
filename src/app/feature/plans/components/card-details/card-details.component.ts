@@ -18,7 +18,7 @@ export class CardDetailsComponent implements OnInit {
   card_id: any;
   id: any;
   submitted: any;
-  selectedCard:any;
+  selectedPlan:any;
   selectedMonth!: string;
   selectedDate!: number;
 public cardloader:boolean= false;
@@ -53,6 +53,7 @@ public cardloader:boolean= false;
     this.cardType.valueChanges.subscribe((res) => {
       console.log(res)
     })
+    this.getPlanDetail()
   }
 
   submitcard() {
@@ -105,6 +106,7 @@ public cardloader:boolean= false;
     })
   }
 
+
   markDefault(index:any,$event:any){
     this.cardloader=true
     this.card_id = this.cardsList[index].card_id
@@ -130,6 +132,14 @@ public cardloader:boolean= false;
     // })
   }
 
+
+  getPlanDetail(){
+    this.fs.getPlanById(this.id).subscribe({
+      next:(res)=>{
+        this.selectedPlan = res.data
+      }
+    })
+  }
   get f() { return this.cardForm.controls; }
 
   months: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];

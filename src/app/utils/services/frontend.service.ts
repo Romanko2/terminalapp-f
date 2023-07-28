@@ -64,5 +64,8 @@ export class FrontendService {
     }
   
       
-  
+  getPlanById(id:any){
+    let headers = { 'Authorization': 'Bearer ' + this.access_token }
+    return this.http.get<any>(`${this.baseUrl}subscriptionplan?id=${id}`,{ headers })
+  }
 }
