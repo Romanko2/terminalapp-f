@@ -28,19 +28,7 @@
         <article class="card border-0 p-3 border-top">
 
           <form [formGroup]="cardForm">
-            <div class="form-group">
-              <label>Card Type</label>
-              <select
-                name=""
-                id=""
-                class="form-control"
-                [formControl]="cardType"
-              >
-                <option *ngFor="let key of cardsList" [value]="key.id">
-                  {{ key.brand }}
-                </option>
-              </select>
-            </div>
+   
             <div class="form-group">
               <label>Card Number</label>
               <input
@@ -50,7 +38,7 @@
                 required
                 formControlName="card_number"
                 cardNumberMask
-                maxlength="16"
+               
               />
             </div>
             <div class="form-group">

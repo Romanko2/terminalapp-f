@@ -8,6 +8,7 @@ import { FeatureHeaderComponent } from './feature-header/feature-header.componen
 import { HomeComponent } from './home/home.component';
 import { FeatureFooterComponent } from './feature-footer/feature-footer.component';
 import { MatIconModule } from '@angular/material/icon';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MatIconModule } from '@angular/material/icon';
     FeatureMainComponent,
     FeatureHeaderComponent,
     HomeComponent,
-    FeatureFooterComponent
+    FeatureFooterComponent,
+    AboutUsComponent
   ],
   imports: [
     CommonModule,

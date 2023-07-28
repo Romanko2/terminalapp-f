@@ -14,16 +14,21 @@ import { environment } from 'src/environments/environment';
 export class ViewProfileComponent implements OnInit {
   
   public user:any
+  id:any
   _host:any=environment.apiUrl
-  constructor(private frontendService:FrontendService,private _bs:BehaviorService,private toastr:ToastrService , private router:Router) { }
+  constructor(private frontendService:FrontendService,private _bs:BehaviorService,private toastr:ToastrService , private router:Router) {
+    this.id = localStorage.getItem('id')
+   }
 
   ngOnInit(): void {
     this.getUserData()
+    this.id = localStorage.getItem('id')
+  
   }
 
   getUserData(){
     this._bs.load(true)
-    this.frontendService.viewProfile().subscribe({
+    this.frontendService.viewProfile( this.id ).subscribe({
       next:(res:any)=>{
         this._bs.load(false)
         this.user = res.data

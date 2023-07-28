@@ -39,7 +39,7 @@ export class EditProfileComponent implements OnInit {
 
   getUserData() {
     this._bs.load(true)
-    this.fs.viewProfile().subscribe({
+    this.fs.viewProfile(this.id).subscribe({
       next: (res: any) => {
         this._bs.load(false)
         this.user = res.data
