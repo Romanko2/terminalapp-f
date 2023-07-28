@@ -13,11 +13,12 @@
     }
     
     >img{
-        height: 130px;
-        width: 130px;
+        height: 215px;
+        width: 100%;
         object-fit: cover;
-        border: 3px solid #ffffff;
-        border-radius: 50%;
+        // border: 3px solid #ffffff;
+        border-radius: 5px;
+        box-shadow: 0px 0px 12px -10px #000;
     
     }
     
@@ -30,4 +31,13 @@
     padding: 5px 4px !important;
     border-radius: 50px;
     }
+    }
+
+
+    .profile_border {
+        border-bottom: 2px solid #dcdcdc;
+        padding-bottom: 20px;
+    }
+    .profile_layout {
+        margin-top: 2rem;
     }

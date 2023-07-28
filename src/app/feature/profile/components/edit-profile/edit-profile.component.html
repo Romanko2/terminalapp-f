@@ -1,6 +1,6 @@
 <div class="container">
   <div class="profile">
-    <h2 class="d-flex justify-content-between mb-3">
+    <h2 class="d-flex profile_border justify-content-between mb-3">
       Edit Profile
       <button
         class="btn btn-primary"
@@ -9,9 +9,10 @@
         Back
       </button>
     </h2>
-    <div class="row mx-0">
+    <div class="profile_layout">
+    <div class="form-row mx-0">
       <div class="col-md-3">
-        <div class="bg-main">
+        <div class="">
           <div class="col-md-12 mb-3 text-center">
             <div class="edit-profile-input">
               <img [src]="userImg(user?.image)" class="shadow" />
@@ -122,6 +123,7 @@
           </form>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </div>
