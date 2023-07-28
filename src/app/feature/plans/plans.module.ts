@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PlansRoutingModule } from './plans-routing.module';
 import { SubscriptionPlansComponent } from './components/subscription-plans/subscription-plans.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardDetailsComponent } from './components/card-details/card-details.component';
 
 
@@ -13,7 +14,8 @@ import { CardDetailsComponent } from './components/card-details/card-details.com
   ],
   imports: [
     CommonModule,
-    PlansRoutingModule
+    PlansRoutingModule,
+    FormsModule, ReactiveFormsModule,
   ]
 })
 export class PlansModule { }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { FrontendService } from 'src/app/utils/services/frontend.service';
 
 @Component({
@@ -8,10 +10,15 @@ import { FrontendService } from 'src/app/utils/services/frontend.service';
 })
 export class SubscriptionPlansComponent implements OnInit {
   public plansArr:any[] = []
-  constructor(private fs:FrontendService) { }
+  access_token:any
+  constructor(private fs:FrontendService , private router:Router , private toastr:ToastrService) { }
 
   ngOnInit(): void {
-    // this.getAllPlans()
+   
+    this.access_token = localStorage.getItem('access_token')
+    if(this.access_token){
+      this.getAllPlans()
+    }
   }
   
   getAllPlans(){
@@ -21,5 +28,14 @@ export class SubscriptionPlansComponent implements OnInit {
         console.log(this.plansArr)
       }
     })
+  }
+
+  choosePlan(key:any){
+    if(this.access_token){
+      this.router.navigate(['/feature/plans/card-details' , {id:key}])
+    } else {
+      this.router.navigateByUrl('/auth/login')
+    }
+
   }
 }

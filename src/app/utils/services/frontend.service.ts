@@ -42,4 +42,15 @@ export class FrontendService {
         let headers = { 'Authorization': 'Bearer ' + this.access_token }
         return this.http.get<any>(`${this.baseUrl}${API_CONSTANTS.plansList_url}`, { headers })
     }
+
+    //ADDCARD//
+    addCard(body:any){
+        let headers = { 'Authorization': 'Bearer ' + this.access_token }
+        return this.http.post<any>(`${this.baseUrl}${API_CONSTANTS.card_url}`, body , { headers })
+    }
+
+    purchasePlan(body:any){
+        let headers = { 'Authorization': 'Bearer ' + this.access_token }
+        return this.http.post<any>(`${this.baseUrl}${API_CONSTANTS.purchaseplan_url}`, body , { headers })
+    }
 }

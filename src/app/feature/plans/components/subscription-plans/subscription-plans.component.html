@@ -7,9 +7,9 @@
                  <h1 class="text_heading">Featured Plans</h1>
                  <p>Choose your workspace plan according to your organional plan</p>
              </td>
-             <td class="back_color" >
-                 <h1 class="heading_2">Free<span class="span_text">$20</span></h1>
-                 <button class="btn btn-primary form-control btn2">Choos This Plan</button>
+             <td class="back_color" *ngFor="let key of plansArr">
+                 <h1 class="heading_2">${{key.amount}}<span class="span_text">/{{key.interval}}</span></h1>
+                 <button class="btn btn-primary form-control btn2" (click)="choosePlan(key.id)">Choos This Plan</button>
              </td>
             
          </tr>

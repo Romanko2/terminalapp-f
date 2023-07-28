@@ -10,27 +10,21 @@ import { LayoutComponent } from './theme/layout/layout.component';
 import { FeatureModule } from './feature/feature.module';
 
 const routes: Routes = [
-
-  {
-    path: '',
-    component: HomeComponent,
-
-    children: [
-      {
-        path: 'dashboard',
-        loadChildren: () => DashboardModule
-      }
-    ]
-  },
-  {
-    path: 'feature',
-    loadChildren: () => FeatureModule
-  },
-
   {
     path: 'auth',
     loadChildren: () => AuthModule,
+
   },
+  {
+    path: '',
+    component: HomeComponent,
+  },
+  {
+    path: 'feature',
+    loadChildren: () => FeatureModule,
+  },
+
+
   {
     path: '**',
     component: NotFoundComponent,
