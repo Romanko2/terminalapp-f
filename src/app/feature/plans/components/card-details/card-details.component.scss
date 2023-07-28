@@ -213,7 +213,7 @@ input {
 
 .creditcard svg#cardfront,
 .creditcard svg#cardback {
-    width: 100%;
+    width: 240px;
     -webkit-box-shadow: 1px 5px 6px 0px black;
     box-shadow: 1px 5px 6px 0px black;
     border-radius: 22px;
@@ -473,5 +473,5 @@ input {
 h1.heading_card {
     font-size: 24px;
     font-weight: 600;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
