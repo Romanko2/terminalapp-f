@@ -11,6 +11,7 @@ import { FrontendService } from 'src/app/utils/services/frontend.service';
 export class SubscriptionPlansComponent implements OnInit {
   public plansArr:any[] = []
   access_token:any
+  activeplan:any
   constructor(private fs:FrontendService , private router:Router , private toastr:ToastrService) { }
 
   ngOnInit(): void {
@@ -25,6 +26,13 @@ export class SubscriptionPlansComponent implements OnInit {
     this.fs.plansList().subscribe({
       next:(res)=>{
         this.plansArr = res.data.data
+        let plan=this.plansArr.find((item:any)=>item.isPurchased==true)
+        if(plan){
+          console.log(plan,"plannnnnnnnnnnnnnn")
+          this.activeplan=plan.id
+        }else{
+          delete this.activeplan
+        }
         console.log(this.plansArr)
       }
     })
