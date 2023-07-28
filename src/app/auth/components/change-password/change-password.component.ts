@@ -58,7 +58,7 @@ export class ChangePasswordComponent implements OnInit {
           this._bs.load(true);
           this.toastr.success(res.message)
           this._bs.load(false);
-          this.router.navigateByUrl('/feature/profile/view-profile')
+           this.logout()
         },
         error:(err)=>{
           // this.toastr.error(err.message)
@@ -67,6 +67,14 @@ export class ChangePasswordComponent implements OnInit {
   }else{
     this.loginForm.markAllAsTouched()
   }
+}
+
+
+logout() {
+  // this._bs.signOut()
+  // this.authService.signOut()
+  // this.authService.currentUserSource.next(false)
+  this._bs.signOut()
 }
 
   get f() { return this.loginForm.controls;}

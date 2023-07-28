@@ -8,20 +8,21 @@
                  <p>Choose your workspace plan according to your organional plan</p>
              </td>
              <!-- <td class="back_color" *ngFor="let key of plansArr"> -->
-                 <td class="back_color">
+                 <td class="back_color" *ngFor="let key of plansArr">
                  <!-- <h1 class="heading_2">${{key.amount}}<span class="span_text">/{{key.interval}}</span></h1>
                  <button class="btn btn-primary form-control btn2" (click)="choosePlan(key.id)">Choose This Plan</button> -->
-                  <h1 class="heading_2">Free<span class="span_text">/Lifetime</span></h1>
-                 <button class="btn btn-primary form-control btn2" (click)="choosePlan">Choose This Plan</button>
+                  <h1 class="heading_2" *ngIf="key.name=='free'">Free</h1>
+                  <h1 class="heading_2" *ngIf="key.name!='free'">${{key.amount}}<span class="span_text">/{{key.interval}}</span></h1>
+                 <button class="btn btn-primary form-control btn2" (click)="choosePlan(key.id)">Choose This Plan</button>
              </td>
-             <td class="">
-                 <h1 class="heading_2">$25<span class="span_text">/Month</span></h1>
-                <button class="btn btn-primary form-control btn2" (click)="choosePlan">Choose This Plan</button>
+             <!-- <td class="">
+                 <h1 class="heading_2">${{key.amount}}<span class="span_text">/Month</span></h1>
+                <button class="btn btn-primary form-control btn2" (click)="choosePlan()">Choose This Plan</button>
             </td>
             <td class="">
                 <h1 class="heading_2">$40<span class="span_text">/Month</span></h1>
                <button class="btn btn-primary form-control btn2" (click)="choosePlan">Choose This Plan</button>
-           </td>
+           </td> -->
          </tr>
 
          <tr>
