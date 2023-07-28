@@ -21,10 +21,12 @@ export class CardDetailsComponent implements OnInit {
   selectedPlan:any;
   selectedMonth!: string;
   selectedDate!: number;
+  selectedPlanprice:number=0
 public cardloader:boolean= false;
   dates: number[] = Array.from({ length: 31 }, (_, i) => i + 1);
 
   years: number[] = [];
+  selectedCard: any;
   constructor(private fb: FormBuilder, private ls:LocalStorageService ,private fs: FrontendService, private _activatedroute: ActivatedRoute, private toastr: ToastrService , private router:Router) {
     const currentYear = new Date().getFullYear();
     const endYear = currentYear + 100;
@@ -112,8 +114,9 @@ public cardloader:boolean= false;
   }
 
 
-  markDefault(index:any,$event:any){
+  markDefault(index:any){
     this.cardloader=true
+    this.selectedCard=this.cardsList[index]
     this.card_id = this.cardsList[index].card_id
     this.cardloader = false
     // let data={
@@ -142,6 +145,7 @@ public cardloader:boolean= false;
     this.fs.getPlanById(this.id).subscribe({
       next:(res)=>{
         this.selectedPlan = res.data
+        this.selectedPlanprice=res.data.amount
       }
     })
   }
