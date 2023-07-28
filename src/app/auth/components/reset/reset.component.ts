@@ -45,20 +45,27 @@ export class ResetComponent implements OnInit {
   }
 
   resetPassword() {
-    const body = {
-      id: this.id,
-      newPassword: this.loginForm.value.newPassword,
-      verificationCode: this.verificationCode
-    }
-
+  console.log("hello")
+  this.submitted = true
+    if(this.loginForm.valid){
+      const body = {
+        id: this.id,
+        newPassword: this.loginForm.value.newPassword,
+        verificationCode: this.verificationCode
+      }
+      this._bs.load(true);
     this.authService.resetPassword(body).subscribe({
       next: (res: any) => {
         this.toastr.success(res.message)
+        this._bs.load(false);
       },
       error: (err) => {
 
       }
     })
+    }else{
+      this.loginForm.markAllAsTouched()
+    }
 
   }
   get f() { return this.loginForm.controls; }

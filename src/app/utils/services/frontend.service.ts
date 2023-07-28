@@ -19,7 +19,10 @@ export class FrontendService {
         this.access_token = localStorage.getItem('access_token')
         console.log(this.access_token)
     }
-
+// ngOnInit(){
+//     this.id = localStorage.getItem('id')
+//     console.log(this.id)
+// }
     changePassword(body: CHANGEPASSWORD): Observable<any> {
         let headers = { 'Authorization': 'Bearer ' + this.access_token }
         return this.http.put<CHANGEPASSWORD>(`${this.baseUrl}${API_CONSTANTS.changePassword_url}`, body, { headers })
@@ -27,9 +30,9 @@ export class FrontendService {
 
 
     //VIEW-PROFILE//
-    viewProfile() {
+    viewProfile(id:any) {
         let headers = { 'Authorization': 'Bearer ' + this.access_token }
-        return this.http.get(`${this.baseUrl}${API_CONSTANTS.viewprofile_url}${this.id}`, { headers })
+        return this.http.get(`${this.baseUrl}${API_CONSTANTS.viewprofile_url}${id}`, { headers })
     }
 
     //EDIT-PROFILE//

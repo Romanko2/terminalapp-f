@@ -227,6 +227,8 @@ export class AppService {
     return params;
   }
 
+  
+
 
   handleError(error: HttpErrorResponse) {
     console.log(error);
