@@ -239,7 +239,11 @@ button.btn.btn-primary:focus {
 }
 
 
-
+.loginWrapper {
+    background-image: url(/assets/img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
 .loginWrapper{
     background-image: url(assets/img/vector-trading.jpg);
     background-size: 100%;
@@ -283,6 +287,7 @@ button.btn.btn-primary:focus {
 .invalid-feedback{
     display: block;
 }
+
 
 .mat-icon{
     height: auto !important;
@@ -391,6 +396,7 @@ p.text {
     background-color: #2d2d2e1c;
     padding: 10px 10px;
     border-radius: 5px;
+    min-height: 32px;
     font-size: 14px;
     color: #424242;
     height: 40px;

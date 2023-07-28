@@ -1,0 +1,62 @@
+<div class="loginWrapper">
+    <div class="container shadow">
+      
+        <div class="row align-items-center">
+            <!-- <div class="col-md-6 p-0">
+                <div class="image-login">
+                <img src="/assets/img/spa-logo.png" alt="" class="" >
+                </div>
+                </div> -->
+                  <div class="col-md-6 m-auto">
+                   
+        <article class="card_div">
+            <!-- <h3 class="text-center"><a routerLink="/" class="text-light logo-place">SPA</a></h3> -->
+            <h5 class="login-heading mb-5">Login into your account</h5>
+
+            <form [formGroup]="loginForm" novalidate (submit)="onSubmit()">
+            
+                <div class="mb-3">
+               
+                  
+                    <input formControlName="email" type="email" class="form-control" placeholder="Email" required>
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.email || f.email.errors.pattern">Please Enter Valid Email</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="inputWrapper">
+                        <input formControlName="password" [type]="showPass ? 'text' : 'password'" type="password"
+                            minlength="3" class="form-control" placeholder="Password" required>
+                        <i class="fa" (click)="showPass = !showPass"
+                            [ngClass]="{'fa-eye': showPass, 'fa-eye-slash':!showPass}"></i>
+                    </div>
+
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.errors.minlength">Minimum Length is 8</div>
+                    </div>
+                </div>
+                
+                <div class="mt-3 d-flex justify-content-between align-items-center">
+                    <div class="form-check">
+                        <input type="checkbox" [(ngModel)]="remember" [ngModelOptions]="{standalone: true}" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label rem" for="exampleCheck1">Remember me</label>
+                      </div>
+                    <a routerLink="/auth/forgot" class="forgotpassword">Forgot your password?</a>
+
+                   
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn_main">
+                        Log in
+                    </button>
+                </div>
+
+            </form>
+        </article>
+        </div>
+        </div>
+        </div>
+       
+    </div>

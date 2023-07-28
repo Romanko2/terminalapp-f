@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "financial-app-frontend": {
+    "trading-admin": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/financial-app-frontend",
+            "outputPath": "dist/trading-admin",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -76,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "financial-app-frontend:build:production"
+              "browserTarget": "trading-admin:build:production"
             },
             "development": {
-              "browserTarget": "financial-app-frontend:build:development"
+              "browserTarget": "trading-admin:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "financial-app-frontend:build"
+            "browserTarget": "trading-admin:build"
           }
         },
         "test": {
@@ -112,5 +112,5 @@
       }
     }
   },
-  "defaultProject": "financial-app-frontend"
+  "defaultProject": "trading-admin"
 }

@@ -1,7 +1,7 @@
 /*
 Put content of angular2 build into 'public' folder.
 */
-const html = './dist/financial-app-frontend/';
+const html = './dist/trading-admin/';
 
 const port = 8035;
 const apiUrl = '/api';
@@ -18,7 +18,7 @@ app
     .use(express.static(html))
     // Default route
     .use(function (req, res) {
-        res.sendFile(__dirname + '/dist/financial-app-frontend/index.html');
+        res.sendFile(__dirname + '/dist/trading-admin/index.html');
     })
     // Start server
     .listen(port, function () {
