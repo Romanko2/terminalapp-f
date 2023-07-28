@@ -1,6 +1,6 @@
 <div class="card_main">
   <div class="container">
-    <div class="card_layout">
+    <div class="card_laysout">
     <div class="catd_section">
      <h1 class="heading_card">Payment</h1>
      <div class="card_heading">
@@ -8,13 +8,14 @@
        <button class="btn btn-primary "data-toggle="modal" data-target="#exampleModal">Add Payment Method</button>
      </div>
      <h1>Add a payment method usign our secure oayment system.</h1>
-<div class="col-md-4">
-  <div class="form-check ">
-    <input class="form-check-input position-static radio_btn" type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
-  </div>
-  <div class="row">
-  <div class="col-md-3 mb-3" *ngFor="let key of cardsList">
-
+ 
+ 
+  <div class="row w-100">
+  <div class="col-md-3 mb-3 position-relative" *ngFor="let key of cardsList">
+    <div class="form-check ">
+      <input class="form-check-input position-static radio_btn" type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
+   
+    </div>
 
         <div class="container preload" >
       <div class="creditcard" >
@@ -81,16 +82,31 @@
               </svg>
           </div> 
       </div>
-  </div> 
-
-     <div class="col-md-12">
-       <p class="mb-0">Selected Card </p>
-       <p>xxxx xxxx xxxx 4242</p>
-     </div>
-     
+  </div>   
 </div>
+<div class="layout_card">
+<div class="row">
+  <div class="col-md-6 mb-3">
+    <label>Plan Price(s)</label>
+      <input type="text" class="input card" placeholder="">
     </div>
-    </div>
+    <div class="col-md-6 mb-3">
+      <label>Plan Price(s)</label>
+        <input type="text" class="input card" placeholder="">
+      </div>
+     <div class="col-md-4 mb-3">
+       <div class="text_row1">
+         <p class="mb-0">Initially $0 will be charged for your</p>
+       </div>
+       </div>
+  
+       <div class="col-md-12">
+         <p class="mb-0">Selected Card </p>
+         <p class="mb-0">xxxx xxxx xxxx 4242</p>
+       </div>
+       </div>
+  </div>
+    </div> 
   </div>
 </div>
 

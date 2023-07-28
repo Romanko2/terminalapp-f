@@ -215,7 +215,7 @@ input {
 .creditcard svg#cardback {
     width: 240px;
     -webkit-box-shadow: 1px 5px 6px 0px black;
-    box-shadow: 1px 5px 6px 0px black;
+    box-shadow: 1px 5px 6px -3px black;
     border-radius: 22px;
 }
 
@@ -303,7 +303,7 @@ input {
 }
 
 .creditcard .grey {
-    fill: #bdbdbd;
+    fill: #2fc0f9;
 }
 
 .creditcard .greydark {
@@ -383,8 +383,13 @@ h1.heading_card {
     position: absolute !important;
     z-index: 999;
     top: 15px;
-    right: -122px;
+    right: -78px;
 }
-.card_layout {
-    width: 600px;
+
+.layout_card {
+    padding: 0px 2rem;
+    max-width: 600px;
+}
+.catd_section {
+    padding: 2rem 0px;
 }
