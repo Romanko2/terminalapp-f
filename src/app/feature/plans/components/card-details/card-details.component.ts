@@ -107,9 +107,11 @@ public cardloader:boolean= false;
       card_id: this.card_id,
       id: this.id
     }
-    if(this.selectedPlanprice){
+  
+      this.bs.load(true)
       this.fs.purchasePlan(body).subscribe({
         next: (res) => {
+          this.bs.load(false)
           this.getPrimaryCard()
           console.log(res)
           this.toastr.success(res.message)
@@ -121,9 +123,7 @@ public cardloader:boolean= false;
           this.fs.isPurchased$.next(isPurchased)
         },
       })
-    }else{
-      this.toastr.error("Please select payment")
-    }
+    
    
   }
   cloaseModal(){
