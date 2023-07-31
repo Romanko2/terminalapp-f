@@ -9,8 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { FeatureFooterComponent } from './feature-footer/feature-footer.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { HighchartComponent } from './highchart/highchart.component';
-
+import { HighchartComponent } from './highchart/highchart.component'
 
 @NgModule({
   declarations: [
@@ -19,6 +18,7 @@ import { HighchartComponent } from './highchart/highchart.component';
     HomeComponent,
     FeatureFooterComponent,
     AboutUsComponent,
+    HighchartComponent,
     HighchartComponent
   ],
   imports: [

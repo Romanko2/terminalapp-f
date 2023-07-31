@@ -9,7 +9,7 @@ import { SharedModule } from '../../shared/shared.module';
 @NgModule({
   declarations: [
     ViewProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
   ],
   imports: [
     CommonModule,
