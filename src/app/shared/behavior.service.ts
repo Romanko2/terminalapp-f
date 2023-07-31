@@ -12,7 +12,7 @@ export class BehaviorService {
     constructor(private router: Router) {}
 
     signOut(): void {
-        this.router.navigateByUrl('/auth/login');
+        this.router.navigateByUrl('/');
         localStorage.removeItem('credentials')
         this.setUserData(null)
     }

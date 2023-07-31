@@ -15,7 +15,8 @@
                 <img [src]="userImg(user?.image)" class="shadow" />
 
                 <i class="fa fa-edit" (click)="uploadPic.click()"></i>
-                <input #uploadPic type="file" id="uploadPic" [disabled]="imageUploading" (change)="updateImage($event)"/>
+                <input #uploadPic type="file" id="uploadPic" [disabled]="imageUploading"
+                  (change)="updateImage($event)" />
               </div>
               <div *ngIf="imageUploading" class="text-success mt-2">
                 Uploading.. <i class="fa fa-spinner fa-spin"></i>
@@ -32,10 +33,13 @@
                     <label for="nf-name">
                       Name<span class="text-danger">*</span></label>
                     <section>
-                      <input type="text" class="form-control" placeholder="First name" formControlName="fullName" required />
+                      <input type="text" class="form-control" placeholder="First name" formControlName="fullName"
+                        required />
                       <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
-                        <div *ngIf="f.fullName.errors.required">First name is required</div>
-                    </div> 
+                        <div *ngIf="f.fullName.errors.required">
+                          First name is required
+                        </div>
+                      </div>
                     </section>
                   </div>
                 </div>
@@ -73,7 +77,8 @@
 
                 <div class="col-md-12 text-right">
                   <button class="btn btn-primary" [disabled]="updating" (click)="updateUser()">
-                    Update <i class="fa fa-spinner fa-spin" *ngIf="updating"></i>
+                    Update
+                    <i class="fa fa-spinner fa-spin" *ngIf="updating"></i>
                   </button>
                 </div>
               </div>
