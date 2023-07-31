@@ -77,7 +77,7 @@
                         id="svgname"
                         class="st2 st5 st6"
                       >
-                        JOHN DOE
+                        {{key.cardHolderName}}
                       </text>
                       <text
                         transform="matrix(1 0 0 1 54.1074 389.8793)"
@@ -217,6 +217,7 @@
                   class="input card"
                   placeholder=""
                   [(ngModel)]="selectedPlanprice"
+                  readonly
                 />
               </div>
               <div class="col-md-4 mb-3">
@@ -312,7 +313,7 @@
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="mb-3">
+                  <div class="">
                     <label>exp_month</label>
                     <select
                       formControlName="exp_month"
@@ -337,7 +338,7 @@
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <div class="mb-3">
+                  <div class="">
                     <div class="inputWrapper">
                       <label>exp_year</label>
                       <select
