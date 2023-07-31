@@ -32,15 +32,10 @@
                     <label for="nf-name">
                       Name<span class="text-danger">*</span></label>
                     <section>
-                      <input type="text" maxlength="50" autocomplete="off" placeholder="" formControlName="fullName"
-                        class="form-control titlecase" [ngClass]="{
-                        'is-invalid': submitted && f.firstName.errors
-                      }" required="" />
+                      <input type="text" class="form-control" placeholder="First name" formControlName="fullName" required />
                       <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
-                        <div *ngIf="f.fullName.errors.required">
-                          Name is required
-                        </div>
-                      </div>
+                        <div *ngIf="f.fullName.errors.required">First name is required</div>
+                    </div> 
                     </section>
                   </div>
                 </div>

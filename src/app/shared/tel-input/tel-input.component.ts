@@ -17,5 +17,4 @@ export class TelInputComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

@@ -29,7 +29,7 @@ export class EditProfileComponent implements OnInit {
     this.userForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       mobileNo: ['', [Validators.required]],
-      fullName: [''],
+      fullName: ['' , [Validators.required]],
     });
     this.id = localStorage.getItem('id')
   }
@@ -41,14 +41,20 @@ export class EditProfileComponent implements OnInit {
     this._bs.load(true)
     this.fs.viewProfile(this.id).subscribe({
       next: (res: any) => {
+        console.log(res)
         this._bs.load(false)
         this.user = res.data
+        console
         console.log(this.user)
         this.userForm.patchValue({
-          fullName: this.user.fullName ? this.user.fullName : 'NA',
-          email: this.user.email ? this.user.email : 'NA',
-          mobileNo: this.user.mobileNo.number ? this.user.mobileNo.number : 'NA',
-          dialCode: this.user.mobileNo.dialCode ? this.user.mobileNo.dialCode : 'NA'
+          fullName: this.user.fullName ,
+          email: this.user.email ,
+          mobileNo: {
+            countryCode: this.user.country,
+            dialCode: this.user.dialCode,
+            number: this.user.mobileNo,
+          },
+          
         })
       },
       error: (err: any) => {
@@ -61,8 +67,12 @@ export class EditProfileComponent implements OnInit {
     const body = {
       fullName: this.userForm.value.fullName,
       id: this.id,
-      mobileNo: this.userForm.value.mobileNo
+      dialCode: this.userForm.value.mobileNo.dialCode,
+      mobileNo: this.userForm.value.mobileNo.number,
+      country: this.userForm.value.mobileNo.countryCode,
     }
+ this.submitted = true
+   if(this.userForm.valid){
     this.fs.editProfile(body).subscribe({
       next: (res) => {
         this.toastr.success(res.message)
@@ -72,6 +82,9 @@ export class EditProfileComponent implements OnInit {
         this.toastr.error(err)
       }
     })
+   }else{
+    this.userForm.markAllAsTouched()
+   }
   }
 
 
