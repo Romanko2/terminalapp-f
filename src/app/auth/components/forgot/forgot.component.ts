@@ -43,12 +43,16 @@ export class ForgotComponent implements OnInit {
 
   public forgot() {
     this.submitted = true;
+    this._bs.load(true)
     if(this.forgotForm.valid){
       this.authService.forgotPassword(this.forgotForm.value).subscribe({
         next:(res)=>{
+          this._bs.load(false)
           this.toastr.success(res.message)
-          this.forgotForm.reset()
+          
           this.submitted = false
+          this.forgotForm.reset()
+          
           // this.router.navigate(['/auth/reset'], { queryParams: { id: res.id } });
         },
         error:(err)=>{

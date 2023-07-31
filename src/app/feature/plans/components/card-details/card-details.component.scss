@@ -382,8 +382,10 @@ h1.heading_card {
     position: absolute !important;
     z-index: 999;
     top: 15px;
-    right: -78px;
+    right: 35px;
     cursor: pointer;
+    display: block;
+    width: 20px;
 }
 
 .layout_card {
@@ -395,7 +397,7 @@ h1.heading_card {
 }
 .trash_icon {
     position: absolute;
-    right: 18px;
+    right: 30px;
     top: 19px;
     color: #d41010;
     cursor: pointer;

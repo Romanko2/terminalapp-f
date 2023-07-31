@@ -2,128 +2,90 @@
   <div class="profile">
     <h2 class="d-flex profile_border justify-content-between mb-3">
       Edit Profile
-      <button
-        class="btn btn-primary"
-        routerLink="/feature/profile/view-profile"
-      >
+      <button class="btn btn-primary" routerLink="/feature/profile/view-profile">
         Back
       </button>
     </h2>
     <div class="profile_layout">
-    <div class="form-row mx-0">
-      <div class="col-md-3">
-        <div class="">
-          <div class="col-md-12 mb-3 text-center">
-            <div class="edit-profile-input">
-              <img [src]="userImg(user?.image)" class="shadow" />
-              <i class="fa fa-edit"></i>
-              <input
-                type="file"
-                (change)="updateImage($event)"
-                [disabled]="imageUploading"
-              />
-            </div>
-            <div *ngIf="imageUploading" class="text-success mt-2">
-              Uploading.. <i class="fa fa-spinner fa-spin"></i>
+      <div class="form-row mx-0">
+        <div class="col-md-3">
+          <div class="">
+            <div class="col-md-12 mb-3 text-center">
+              <div class="edit-profile-input">
+                <img [src]="userImg(user?.image)" class="shadow" />
+
+                <i class="fa fa-edit" (click)="uploadPic.click()"></i>
+                <input #uploadPic type="file" id="uploadPic" [disabled]="imageUploading" (change)="updateImage($event)"/>
+              </div>
+              <div *ngIf="imageUploading" class="text-success mt-2">
+                Uploading.. <i class="fa fa-spinner fa-spin"></i>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-9">
-        <div class="bg-main">
-          <form [formGroup]="userForm">
-            <div class="form-row addupdateform">
-              <div class="col-sm-6">
-                <div class="form-group has-required">
-                  <label for="nf-name">
-                    Name<span class="text-danger">*</span></label
-                  >
-                  <section>
-                    <input
-                      type="text"
-                      maxlength="50"
-                      autocomplete="off"
-                      placeholder=""
-                      formControlName="fullName"
-                      class="form-control titlecase"
-                      [ngClass]="{
+        <div class="col-md-9">
+          <div class="bg-main">
+            <form [formGroup]="userForm">
+              <div class="form-row addupdateform">
+                <div class="col-sm-6">
+                  <div class="form-group has-required">
+                    <label for="nf-name">
+                      Name<span class="text-danger">*</span></label>
+                    <section>
+                      <input type="text" maxlength="50" autocomplete="off" placeholder="" formControlName="fullName"
+                        class="form-control titlecase" [ngClass]="{
                         'is-invalid': submitted && f.firstName.errors
-                      }"
-                      required=""
-                    />
-                    <div
-                      *ngIf="submitted && f.fullName.errors"
-                      class="invalid-feedback"
-                    >
-                      <div *ngIf="f.fullName.errors.required">
-                        Name is required
+                      }" required="" />
+                      <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                        <div *ngIf="f.fullName.errors.required">
+                          Name is required
+                        </div>
                       </div>
-                    </div>
-                  </section>
+                    </section>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-6">
-                <div class="setinput">
-                  <label class="required d-block"
-                    >Contact Number<span class="text-danger">*</span></label
-                  >
-                  <app-tel-input [control]="f.mobileNo"></app-tel-input>
-                  <div
-                    *ngIf="submitted && f.mobileNo.errors"
-                    class="invalid-feedback"
-                  >
-                    <div *ngIf="f.mobileNo.errors.required">
-                      Contact Number is required
-                    </div>
-                    <div *ngIf="!f.mobileNo.errors.required">
-                      Contact Number is invalid
+                <div class="col-md-6">
+                  <div class="setinput">
+                    <label class="required d-block">Contact Number<span class="text-danger">*</span></label>
+                    <app-tel-input [control]="f.mobileNo"></app-tel-input>
+                    <div *ngIf="submitted && f.mobileNo.errors" class="invalid-feedback">
+                      <div *ngIf="f.mobileNo.errors.required">
+                        Contact Number is required
+                      </div>
+                      <div *ngIf="!f.mobileNo.errors.required">
+                        Contact Number is invalid
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group has-required">
-                  <label for="nf-name"
-                    >Email<span class="text-danger">*</span></label
-                  >
-                  <section>
-                    <input
-                      formControlName="email"
-                      [readonly]="true"
-                      type="email"
-                      class="form-control"
-                      required
-                      readonly
-                    />
-                    <div
-                      *ngIf="submitted && f.email.errors"
-                      class="invalid-feedback"
-                    >
-                      <div *ngIf="f.email.errors?.required">
-                        Email is required
+                <div class="col-sm-6">
+                  <div class="form-group has-required">
+                    <label for="nf-name">Email<span class="text-danger">*</span></label>
+                    <section>
+                      <input formControlName="email" [readonly]="true" type="email" class="form-control" required
+                        readonly />
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors?.required">
+                          Email is required
+                        </div>
+                        <div *ngIf="f.email.value && f.email.errors.email">
+                          Please Enter Valid Email
+                        </div>
                       </div>
-                      <div *ngIf="f.email.value && f.email.errors.email">
-                        Please Enter Valid Email
-                      </div>
-                    </div>
-                  </section>
+                    </section>
+                  </div>
+                </div>
+
+                <div class="col-md-12 text-right">
+                  <button class="btn btn-primary" [disabled]="updating" (click)="updateUser()">
+                    Update <i class="fa fa-spinner fa-spin" *ngIf="updating"></i>
+                  </button>
                 </div>
               </div>
-
-              <div class="col-md-12 text-right">
-                <button
-                  class="btn btn-primary"
-                  [disabled]="updating"
-                  (click)="updateUser()"
-                >
-                  Update <i class="fa fa-spinner fa-spin" *ngIf="updating"></i>
-                </button>
-              </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </div>

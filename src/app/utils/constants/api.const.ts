@@ -9,5 +9,6 @@ export const API_CONSTANTS = {
     reset_url:"reset/password",
     card_url : "add/card",
     purchaseplan_url:"purchaseplan",
-    purchasePlandetails_url:"/purchase/plan?id="
+    purchasePlandetails_url:"purchase/plan?id=",
+    activePlan_url:"activePlan?user_id="
 }

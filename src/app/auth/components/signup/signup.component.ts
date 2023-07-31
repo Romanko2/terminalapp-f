@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
       lastName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email, Validators.pattern("^[a-z0-9._%. +-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       password: ['', [Validators.required, Validators.minLength(8)]],
-      terms:['' , Validators.required]
+      terms: ['', Validators.required]
     })
   }
 
@@ -40,10 +40,10 @@ export class SignupComponent implements OnInit {
     this.submitted = true
     if (this.signupForm.valid) {
       const body = {
-        firstName:this.signupForm.value.firstName,
-        lastName:this.signupForm.value.lastName,
-        email:this.signupForm.value.email,
-        password:this.signupForm.value.password
+        firstName: this.signupForm.value.firstName,
+        lastName: this.signupForm.value.lastName,
+        email: this.signupForm.value.email,
+        password: this.signupForm.value.password
       }
       this.authService.register(body).subscribe({
         next: (res) => {
@@ -58,9 +58,8 @@ export class SignupComponent implements OnInit {
       })
     } else {
       this.signupForm.markAllAsTouched()
-   
     }
-   
+
 
   }
 

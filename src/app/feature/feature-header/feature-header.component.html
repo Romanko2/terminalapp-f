@@ -1,7 +1,7 @@
 <div class="page_header">
   <div class="container">
     <div class="mainHeader shadow" id="mainHeader">
-      <div class="logo_img" *ngIf="!user">
+      <div class="logo_img" >
         <img
           src="/assets/img/logo.png"
           style="cursor: pointer"
@@ -25,14 +25,17 @@
         </ul>
       </div>
 
+      <button class="btn btn-primary" routerLink="/auth/signup" *ngIf="!user">Sign up</button>
+      <button class="btn btn-primary" routerLink="/auth/login" *ngIf="!user">Sign in</button>
       <div class="dropdown userDropdown">
+        
         <button
           class="btn btn-secondary dropdown-toggle"
           type="button"
           data-toggle="dropdown"
           aria-expanded="false"
         >
-          <img [src]="userImg(user?.image)" alt="" class="headerProfile" />
+          <img [src]="userImg(user?.image)" alt="" class="headerProfile" *ngIf="user"/>
         </button>
 
         <div class="dropdown-menu dropdown_item">

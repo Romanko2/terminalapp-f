@@ -13,9 +13,11 @@
   <div class="row w-100">
   <div class="col-md-3 mb-3 position-relative" *ngFor="let key of cardsList;let i=index">
     <div class="form-check ">
+      
       <input class="form-check-input position-static radio_btn" type="radio" (click)="markDefault(i)" name="blankRadio" id="blankRadio1" value="{{key.id}}" aria-label="...">
-      <i class=" fa fa-trash trash_icon"></i>
+
     </div>
+    <i class=" fa fa-trash trash_icon" (click)="delete()"></i>
 
         <div class="container preload" >
       <div class="creditcard" >
@@ -147,7 +149,12 @@
               
              
             />
+            <div *ngIf="submitted && f.card_number.errors" class="invalid-feedback">
+              <div *ngIf="f.card_number.errors.required">Card Number is required</div>
+             
+            </div>
           </div>
+        
           </div>
           <div class="col-md-6">
           <div class="form-group">
@@ -159,6 +166,10 @@
               required
               formControlName="cardHolderName"
             />
+            <div *ngIf="submitted && f.cardHolderName.errors" class="invalid-feedback">
+              <div *ngIf="f.cardHolderName.errors.required">Card holder name is required</div>
+             
+            </div>
           </div>
           </div>
           <div class="col-md-4">
@@ -169,6 +180,10 @@
                 {{ month }}
               </option>
             </select>
+          </div>
+          <div *ngIf="submitted && f.exp_month.errors" class="invalid-feedback">
+            <div *ngIf="f.exp_month.errors.required">Expiry month is required</div>
+           
           </div>
 </div>
 <div class="col-md-4">
@@ -184,6 +199,10 @@
                   {{ year }}
                 </option>
               </select>
+            </div>
+            <div *ngIf="submitted && f.exp_year.errors" class="invalid-feedback">
+              <div *ngIf="f.exp_year.errors.required">Expiry year is required</div>
+             
             </div>
           </div>
           </div>
@@ -207,9 +226,14 @@
               >
                 <span
                   *ngIf="cardForm.controls.cvc.errors?.invalidCvc"
-                  style="color: red"
+                  
+                  class="invalid-feedback"
                   >Invalid CVC number.</span
                 >
+              </div>
+              <div *ngIf="submitted && f.cvc.errors" class="invalid-feedback">
+                <div *ngIf="f.cvc.errors.required">CVC is required</div>
+               
               </div>
             </div>
           </div>
@@ -222,7 +246,7 @@
       <div class="modal-footer">
         <button
         type="submit"
-        class="btn btn-primary"
+        class="btn btn-primary mt-3"
         (click)="submitcard()"
       >
         Continue
