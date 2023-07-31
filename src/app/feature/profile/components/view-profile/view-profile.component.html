@@ -38,17 +38,17 @@
             </div>
             </div>
         </div>
-
+  <ng-container *ngIf="activePlanDetails">
         <div class="plan_details">
             <h1 class="heading_plan">Plan details</h1>
             <p>Manage of change your plan. View our <a href class="a_tag">terms of service</a> and <a href="#"class="a_tag">privacy policy</a>.</p>
             <p></p>
             <div class="plan_main">
                 <div class="plan_part">
-                <h1>Basic</h1>
+                <h1>{{activePlanDetails.name}}</h1>
                 <div class="p_tag">
                 <p>All the basics for starting a new business</p>
-                <p>USD <span class="start_new">$39.0</span>/mo</p>
+                <p>USD <span class="start_new">${{activePlanDetails.amount}}</span>/{{activePlanDetails.interval}}</p>
                 </div>
                 </div>
                 <div class="plan_part">
@@ -67,7 +67,7 @@
                         <h1>Billing cycle</h1>
                         <a href="#" class="a_tag">Change billing cycle</a>
                         </div>
-                        <p>Monthly for $39.00 USD.</p>
+                        <p>Monthly for ${{activePlanDetails.amount}} USD.</p>
                    
                         </div>
                     <div class="plan_part">
@@ -84,6 +84,7 @@
             </div>
            
         </div>
+    </ng-container>
     </div>
 </div>
 </div>

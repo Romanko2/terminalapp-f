@@ -13,9 +13,11 @@
   <div class="row w-100">
   <div class="col-md-3 mb-3 position-relative" *ngFor="let key of cardsList;let i=index">
     <div class="form-check ">
+      
       <input class="form-check-input position-static radio_btn" type="radio" (click)="markDefault(i)" name="blankRadio" id="blankRadio1" value="{{key.id}}" aria-label="...">
-   
+
     </div>
+    <i class=" fa fa-trash trash_icon" (click)="delete()"></i>
 
         <div class="container preload" >
       <div class="creditcard" >
@@ -121,17 +123,19 @@
 
 <!-- Modal -->
 <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-dialog-centered card_modalMain">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title title_modal mb-0" id="exampleModalLabel">Add Payment Method</h5>
+      
         <button type="button" class="close" id="closeModal"data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form [formGroup]="cardForm">
-   
+        <div class="row">
+          <div class="col-md-6">
           <div class="form-group">
             <label>Card Number</label>
             <input
@@ -145,7 +149,14 @@
               
              
             />
+            <div *ngIf="submitted && f.card_number.errors" class="invalid-feedback">
+              <div *ngIf="f.card_number.errors.required">Card Number is required</div>
+             
+            </div>
           </div>
+        
+          </div>
+          <div class="col-md-6">
           <div class="form-group">
             <label>Card Holder Name</label>
             <input
@@ -155,30 +166,47 @@
               required
               formControlName="cardHolderName"
             />
+            <div *ngIf="submitted && f.cardHolderName.errors" class="invalid-feedback">
+              <div *ngIf="f.cardHolderName.errors.required">Card holder name is required</div>
+             
+            </div>
           </div>
+          </div>
+          <div class="col-md-4">
           <div class="mb-3">
             <label>exp_month</label>
-            <select formControlName="exp_month" class="form-control">
+            <select formControlName="exp_month" class="form-control select_div">
               <option value="" *ngFor="let month of months" [value]="month">
                 {{ month }}
               </option>
             </select>
           </div>
-
+          <div *ngIf="submitted && f.exp_month.errors" class="invalid-feedback">
+            <div *ngIf="f.exp_month.errors.required">Expiry month is required</div>
+           
+          </div>
+</div>
+<div class="col-md-4">
           <div class="mb-3">
             <div class="inputWrapper">
               <label>exp_year</label>
               <select
                 id="year"
                 formControlName="exp_year"
-                class="form-control"
+                class="form-control select_div"
               >
                 <option *ngFor="let year of years" [value]="year">
                   {{ year }}
                 </option>
               </select>
             </div>
+            <div *ngIf="submitted && f.exp_year.errors" class="invalid-feedback">
+              <div *ngIf="f.exp_year.errors.required">Expiry year is required</div>
+             
+            </div>
           </div>
+          </div>
+          <div class="col-md-4">
           <div class="mb-3">
             <div class="inputWrapper">
               <label>cvc</label>
@@ -198,28 +226,32 @@
               >
                 <span
                   *ngIf="cardForm.controls.cvc.errors?.invalidCvc"
-                  style="color: red"
+                  
+                  class="invalid-feedback"
                   >Invalid CVC number.</span
                 >
               </div>
+              <div *ngIf="submitted && f.cvc.errors" class="invalid-feedback">
+                <div *ngIf="f.cvc.errors.required">CVC is required</div>
+               
+              </div>
             </div>
           </div>
-
-          <div class="text-center mt-4">
-            <button
-              type="submit"
-              class="btn btn-primary"
-              (click)="submitcard()"
-            >
-              Continue
-            </button>
           </div>
+
+        
+        </div>
         </form>
       </div>
-      <!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div> -->
+      <div class="modal-footer">
+        <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="submitcard()"
+      >
+        Continue
+      </button>
+      </div>
     </div>
   </div>
 </div>

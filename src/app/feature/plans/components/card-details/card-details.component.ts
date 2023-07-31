@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { BehaviorService } from 'src/app/shared/behavior.service';
 import { FrontendService } from 'src/app/utils/services/frontend.service';
 import { LocalStorageService } from 'src/app/utils/services/local-storage.service';
 
@@ -27,7 +28,7 @@ public cardloader:boolean= false;
 
   years: number[] = [];
   selectedCard: any;
-  constructor(private fb: FormBuilder, private ls:LocalStorageService ,private fs: FrontendService, private _activatedroute: ActivatedRoute, private toastr: ToastrService , private router:Router) {
+  constructor(private fb: FormBuilder, private ls:LocalStorageService ,private fs: FrontendService, private _activatedroute: ActivatedRoute, private toastr: ToastrService , private router:Router , private bs:BehaviorService) {
     const currentYear = new Date().getFullYear();
     const endYear = currentYear + 100;
 
@@ -59,17 +60,24 @@ public cardloader:boolean= false;
   }
 
   submitcard() {
+    this.submitted = true
     if (this.cardForm.valid) {
+      this.bs.load(true)
       this.fs.addCard(this.cardForm.value).subscribe({
         next: (res) => {
+         
           this.card_id = res.data.default_source
           console.log(res, "res")
+          this.bs.load(false)
           this.getCards()
           this.cloaseModal()
+          this.cardForm.reset()
+          this.submitted = false
           // if (res) {
           //   this.purchasePlan()
             
           // }
+          this.toastr.success(res.message)
          
         },
         error: (err) => {
@@ -143,9 +151,19 @@ public cardloader:boolean= false;
 
   getPlanDetail(){
     this.fs.getPlanById(this.id).subscribe({
-      next:(res)=>{
+      next:(res:any)=>{
         this.selectedPlan = res.data
         this.selectedPlanprice=res.data.amount
+      }
+    })
+  }
+
+
+  delete(){
+    this.fs.deleteCards(this.card_id).subscribe({
+      next:(res:any)=>{
+        this.toastr.success(res.message)
+        this.getCards()
       }
     })
   }

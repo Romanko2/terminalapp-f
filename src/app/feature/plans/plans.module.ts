@@ -8,7 +8,6 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { CardDetailsComponent } from './components/card-details/card-details.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
-import { CardNumberMaskDirective } from 'src/app/utils/services/mask.directive';
 import { CvcValidatorDirective } from 'src/app/utils/cvc.validator';
 import { NgxMaskModule } from 'ngx-mask';
 
@@ -17,7 +16,6 @@ import { NgxMaskModule } from 'ngx-mask';
   declarations: [
     SubscriptionPlansComponent,
     CardDetailsComponent,
-    CardNumberMaskDirective,
     CvcValidatorDirective
   ],
   imports: [

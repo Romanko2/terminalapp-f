@@ -6,7 +6,7 @@ import { HomeComponent } from './feature/home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileModule } from './feature/profile/profile.module';
 import { AuthGuard } from './shared/auth.guard';
-import { LayoutComponent } from './theme/layout/layout.component';
+
 import { FeatureModule } from './feature/feature.module';
 
 const routes: Routes = [
