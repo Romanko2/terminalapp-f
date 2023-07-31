@@ -15,6 +15,7 @@
                 <img [src]="userImg(user?.image)" class="shadow" />
 
                 <i class="fa fa-edit" (click)="uploadPic.click()"></i>
+                <mat-icon class="icon_delete">delete</mat-icon>
                 <input #uploadPic type="file" id="uploadPic" [disabled]="imageUploading"
                   (change)="updateImage($event)" />
               </div>

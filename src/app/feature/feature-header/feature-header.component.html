@@ -36,6 +36,7 @@
           data-toggle="dropdown"
           aria-expanded="false"
         >
+        <img src="/assets/img/blank-profile.png"class="headerProfile" *ngIf="!user"/>
           <img [src]="userImg(user?.image)" alt="" class="headerProfile" *ngIf="user"/>
         </button>
 
