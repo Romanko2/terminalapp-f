@@ -10,21 +10,21 @@
   z-index: 9999;
   height: 100px;
   border-left: 2px solid #ffffff36;
-  // border-bottom: 2px solid #ffffff36;
+  border-bottom: 2px solid #ffffff36;
 
   &.isFull {
     width: calc(100% - 70px);
   }
 }
-.mainHeader:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  background: #ffffff36;
-  width: calc(100vw - 104px);
-  height: 2px;
-  left: 0;
-}
+// .mainHeader:after {
+//   content: '';
+//   position: absolute;
+//   bottom: 0;
+//   background: #ffffff36;
+//   width: calc(100vw - 104px);
+//   height: 2px;
+//   left: 0;
+// }
 
 .page_header {
   background: linear-gradient(153deg, #091621 16%, #08151f 62%);

@@ -6,6 +6,8 @@ import { FeatureMainComponent } from './feature-main/feature-main.component';
 import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HighchartComponent } from './highchart/highchart.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 
 const routes: Routes = [
   {
@@ -27,6 +29,14 @@ const routes: Routes = [
       {
         path:'about-us',
         component:AboutUsComponent
+      },
+      {
+        path:'privacy-policy',
+        component:PrivacyPolicyComponent
+      },
+      {
+        path:'terms-and-conditions',
+        component:TermsAndConditionsComponent
       },
       {
         path:'highchart',

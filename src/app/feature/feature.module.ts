@@ -10,6 +10,8 @@ import { FeatureFooterComponent } from './feature-footer/feature-footer.componen
 import { MatIconModule } from '@angular/material/icon';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { HighchartComponent } from './highchart/highchart.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { HighchartComponent } from './highchart/highchart.component';
     HomeComponent,
     FeatureFooterComponent,
     AboutUsComponent,
-    HighchartComponent
+    HighchartComponent,
+    PrivacyPolicyComponent,
+    TermsAndConditionsComponent
   ],
   imports: [
     CommonModule,
