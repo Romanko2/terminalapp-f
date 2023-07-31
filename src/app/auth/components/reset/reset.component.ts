@@ -32,8 +32,8 @@ export class ResetComponent implements OnInit {
     }
 
     this.loginForm = this.fb.group({
-      newPassword: ["", [Validators.required, Validators.minLength(9)]],
-      confirmPassword: ["", [Validators.required, Validators.minLength(9)]]
+      newPassword: ["", [Validators.required, Validators.minLength(8)]],
+      confirmPassword: ["", [Validators.required, Validators.minLength(8)]]
     },
       {
         validator: ConfirmMatch('newPassword', 'confirmPassword')
@@ -41,14 +41,14 @@ export class ResetComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.id = localStorage.getItem('id')
+    // this.id = localStorage.getItem('id')
     this._activatedRoute.queryParams.subscribe(params=>{
-      this.verificationCode = params.verificationCode
+      this.verificationCode = params.verificationCode,
+      this.id = params.id
     })
   }
 
   resetPassword() {
-  console.log("hello")
   this.submitted = true
     if(this.loginForm.valid){
       const body = {

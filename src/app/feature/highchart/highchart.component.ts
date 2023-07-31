@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StockChart } from 'angular-highcharts';
 // import * as Highcharts from "highcharts";
 // import { StockChart } from 'highcharts/highcharts.src';
 
@@ -21,5 +22,13 @@ export class HighchartComponent  {
   //     },
    
   //   });
+  // }
+
+  // stock:StockChart;
+
+  // ngOnInit(){
+  //   this.stock = new StockChart({
+      
+  //   })
   // }
 }

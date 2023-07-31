@@ -13,7 +13,6 @@ import { HighchartComponent } from './highchart/highchart.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 
-
 @NgModule({
   declarations: [
     FeatureMainComponent,
@@ -23,7 +22,8 @@ import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-co
     AboutUsComponent,
     HighchartComponent,
     PrivacyPolicyComponent,
-    TermsAndConditionsComponent
+    TermsAndConditionsComponent,
+    HighchartComponent,
   ],
   imports: [
     CommonModule,

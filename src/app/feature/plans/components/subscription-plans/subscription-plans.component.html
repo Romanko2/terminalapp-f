@@ -13,7 +13,10 @@
                  <button class="btn btn-primary form-control btn2" (click)="choosePlan(key.id)">Choose This Plan</button> -->
                   <h1 class="heading_2" *ngIf="key.name=='free'">Free</h1>
                   <h1 class="heading_2" *ngIf="key.name!='free'">${{key.amount}}<span class="span_text">/{{key.interval}}</span></h1>
-                 <button class="btn btn-primary form-control btn2" [disabled]="key.isPurchased && key.id==activeplan" (click)="choosePlan(key.id)">{{key.isPurchased == true && key.id==activeplan ? 'Active' : (activeplan && key.id!=activeplan ?"Upgrade Plan":'Choose Plan')}}</button>
+                  <button class="btn btn-primary form-control btn2" [disabled]="key.status == 'active'" (click)="choosePlan(key.id)">
+                    {{key.status == 'active' ? 'Active' : 'Upgrade Plan'}}
+                  </button>
+                 <!-- <button class="btn btn-primary form-control btn2" [disabled]="key.isPurchased && key.id==activeplan" (click)="choosePlan(key.id)">{{key.isPurchased == true && key.id==activeplan ? 'Active' : (activeplan && key.id!=activeplan ?"Upgrade Plan":'Choose Plan')}}</button> -->
              </td>
          </tr>
 

@@ -22,16 +22,16 @@ import { AuthInterceptor } from './shared/auth-interceptor';
 import { ToastrModule } from 'ngx-toastr';
 
 import { NgxMaskModule } from 'ngx-mask';
+import { HIGHCHARTS_MODULES } from 'angular-highcharts';
 // import { ChartModule } from 'angular-highcharts'; 
-// import stock from 'highcharts/modules/stock.src';
-// import more from 'highcharts/highcharts-more.src';
+import stock from 'highcharts/modules/stock.src';
+import more from 'highcharts/highcharts-more.src';
 
 
 export function highchartsModules() {
   // apply Highcharts Modules to this array
-  // return [stock, more];
+  return [stock, more];
 }
-
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ export function highchartsModules() {
     // HomeComponent,
   
     NotFoundComponent,
-
+   
   ],
   imports: [
     BrowserModule,
@@ -52,11 +52,12 @@ export function highchartsModules() {
     MatProgressSpinnerModule,
     NgxMaskModule.forRoot(),
 
+
   ],
   providers: [BehaviorService,
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-   
+    { provide: HIGHCHARTS_MODULES, useFactory: highchartsModules } // add as factory to your providers
   ],
   bootstrap: [AppComponent]
 })

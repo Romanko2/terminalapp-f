@@ -12,11 +12,13 @@ import { CvcValidatorDirective } from 'src/app/utils/cvc.validator';
 import { NgxMaskModule } from 'ngx-mask';
 
 
+
 @NgModule({
   declarations: [
     SubscriptionPlansComponent,
     CardDetailsComponent,
-    CvcValidatorDirective
+    CvcValidatorDirective,
+
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,7 @@ import { NgxMaskModule } from 'ngx-mask';
     MatFormFieldModule,
     MatNativeDateModule,
     NgxMaskModule
+ 
   ]
 })
 export class PlansModule { }
