@@ -212,7 +212,7 @@ input {
 
 .creditcard svg#cardfront,
 .creditcard svg#cardback {
-    width: 240px;
+    // width: 240px;
     -webkit-box-shadow: 1px 5px 6px 0px black;
     box-shadow: 1px 5px 6px -3px black;
     border-radius: 22px;
@@ -392,9 +392,9 @@ h1.heading_card {
     padding: 0px 1rem;
     max-width: 600px;
 }
-.catd_section {
-    padding: 2rem 0px;
-}
+// .catd_section {
+//     padding: 2rem 0px;
+// }
 .trash_icon {
     position: absolute;
     right: 30px;
@@ -405,7 +405,22 @@ h1.heading_card {
 .title_modal {
     font-size: 15px !important;
     font-weight: 600 !important;
+    color: #2fc0f9;
 }
 .card_modalMain {
-    max-width: 700px;
+    max-width: 600px;
+}
+.card_main {
+    background: linear-gradient(
+153deg
+, #091621 16%, #08151f 62%);
+}
+.card_laysout {
+    color: #fff;
+    border-left: 2px solid #ffffff36;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+.card_content {
+    border-radius: 20px;
 }

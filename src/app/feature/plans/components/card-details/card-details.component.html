@@ -19,7 +19,7 @@
     </div>
     <i class=" fa fa-trash trash_icon" (click)="delete()"></i>
 
-        <div class="container preload" >
+        <div class="card_card" >
       <div class="creditcard" >
           <div class="front" >
               <div id="ccsingle"></div>
@@ -107,7 +107,7 @@
          <p class="mb-0">xxxx xxxx xxxx {{this.selectedCard.last4}}</p>
        </div>
        <div class="col-md-12" *ngIf="selectedCard">
-        <button class="btn btn-primary" (click)="purchasePlan()">Buy Now</button>
+        <button class="btn btn-primary mt-3" (click)="purchasePlan()">Buy Now</button>
       </div>
        </div>
   </div>
@@ -124,8 +124,8 @@
 <!-- Modal -->
 <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered card_modalMain">
-    <div class="modal-content">
-      <div class="modal-header">
+    <div class="modal-content card_content">
+      <div class="modal-header card_headerModal">
         <h5 class="modal-title title_modal mb-0" id="exampleModalLabel">Add Payment Method</h5>
       
         <button type="button" class="close" id="closeModal"data-dismiss="modal" aria-label="Close">
@@ -246,7 +246,7 @@
       <div class="modal-footer">
         <button
         type="submit"
-        class="btn btn-primary mt-3"
+        class="btn btn-primary"
         (click)="submitcard()"
       >
         Continue

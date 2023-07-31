@@ -24,9 +24,10 @@
           <li>About</li>
         </ul>
       </div>
-
-      <button class="btn btn-primary" routerLink="/auth/signup" *ngIf="!user">Sign up</button>
-      <button class="btn btn-primary" routerLink="/auth/login" *ngIf="!user">Sign in</button>
+      <div>
+        <button class="btn btn-primary" routerLink="/auth/signup" *ngIf="!user">Sign up</button>
+        <button class="btn btn-primary ml-2" routerLink="/auth/login" *ngIf="!user">Sign in</button>
+        </div>
       <div class="dropdown userDropdown">
         
         <button
@@ -59,6 +60,7 @@
           >
         </div>
       </div>
+   
     </div>
   </div>
 </div>
