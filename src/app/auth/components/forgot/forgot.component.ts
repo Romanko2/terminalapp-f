@@ -43,8 +43,9 @@ export class ForgotComponent implements OnInit {
 
   public forgot() {
     this.submitted = true;
-    this._bs.load(true)
+
     if(this.forgotForm.valid){
+      this._bs.load(true)
       this.authService.forgotPassword(this.forgotForm.value).subscribe({
         next:(res)=>{
           this._bs.load(false)

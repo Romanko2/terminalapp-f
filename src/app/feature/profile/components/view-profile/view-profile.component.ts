@@ -31,7 +31,7 @@ export class ViewProfileComponent implements OnInit {
 
   getUserData(){
     this._bs.load(true)
-    this.frontendService.viewProfile( this.id ).subscribe({
+    this.frontendService.viewProfile(this.id).subscribe({
       next:(res:any)=>{
         this._bs.load(false)
         this.user = res.data
