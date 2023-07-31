@@ -19,8 +19,8 @@ export class SubscriptionPlansComponent implements OnInit {
    
     this.access_token = localStorage.getItem('access_token')
 
-      // this.getAllPlans()
-     this.getSelectedPlans()
+      this.getAllPlans()
+    //  this.getSelectedPlans()
   }
   
   getAllPlans(){
@@ -29,9 +29,10 @@ export class SubscriptionPlansComponent implements OnInit {
       next:(res)=>{
         this._bs.load(false)
         this.plansArr = res.data.data
-        let plan=this.plansArr.find((item:any)=>item.isPurchased==true)
+        let plan=this.plansArr.find((item:any)=>item.isActive==true)
         if(plan){
           this.activeplan=plan.id
+          console.log(this.activeplan)
         }else{
           delete this.activeplan
         }
@@ -52,28 +53,28 @@ export class SubscriptionPlansComponent implements OnInit {
 
   }
 
-  getSelectedPlans(){
-    // this.fs.getActivePlans().subscribe({
-    //   next:(res)=>{
-    //     console.log(res)
-    //   }
-    // })
-    this._bs.load(true)
-    this.fs.getActivePlans().subscribe({
-      next:(res:any)=>{
-        this._bs.load(false)
-        this.plansArr = res.data.data
-        let plan=this.plansArr.find((item:any)=>item.isPurchased==true)
-        if(plan){
-          this.activeplan=plan.id
-        }else{
-          delete this.activeplan
-        }
-        console.log(this.plansArr)
-      },
-      error:(err)=>{
-        this.router.navigateByUrl('/auth/login')
-      }
-    })
-  }
+  // getSelectedPlans(){
+  //   // this.fs.getActivePlans().subscribe({
+  //   //   next:(res)=>{
+  //   //     console.log(res)
+  //   //   }
+  //   // })
+  //   this._bs.load(true)
+  //   this.fs.getActivePlans().subscribe({
+  //     next:(res:any)=>{
+  //       this._bs.load(false)
+  //       this.plansArr = res.data.data
+  //       let plan=this.plansArr.find((item:any)=>item.isPurchased==true)
+  //       if(plan){
+  //         this.activeplan=plan.id
+  //       }else{
+  //         delete this.activeplan
+  //       }
+  //       console.log(this.plansArr)
+  //     },
+  //     error:(err)=>{
+  //       this.router.navigateByUrl('/auth/login')
+  //     }
+  //   })
+  // }
 }

@@ -79,8 +79,8 @@ export class FrontendService {
     return this.http.delete<any>(`${this.baseUrl}Cards?card_id=${card_id}`,{ headers })
   }
 
-  getActivePlans(){
-    let headers = { 'Authorization': 'Bearer ' + this.access_token }
-    return this.http.get(`${this.baseUrl}purchaseplans?page=1&count=3` , {headers})
-  }
+//   getActivePlans(){
+//     let headers = { 'Authorization': 'Bearer ' + this.access_token }
+//     return this.http.get(`${this.baseUrl}purchaseplans?page=1&count=3` , {headers})
+//   }
 }
