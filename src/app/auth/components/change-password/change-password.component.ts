@@ -53,11 +53,12 @@ export class ChangePasswordComponent implements OnInit {
    
   this.submitted = true;
     if(this.loginForm.valid){
+      this._bs.load(true);
       this.frontendService.changePassword(this.loginForm.value).subscribe({
         next:(res)=>{
-          this._bs.load(true);
-          this.toastr.success(res.message)
           this._bs.load(false);
+          this.toastr.success(res.message)
+      
            this.logout()
         },
         error:(err)=>{

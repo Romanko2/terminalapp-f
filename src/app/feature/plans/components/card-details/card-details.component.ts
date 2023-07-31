@@ -17,6 +17,7 @@ export class CardDetailsComponent implements OnInit {
   cardsList: any[] = []
   user_id: any;
   card_id: any;
+  cardId:any;
   id: any;
   submitted: any;
   selectedPlan:any;
@@ -90,10 +91,12 @@ public cardloader:boolean= false;
   }
 
   getCards() {
+    this.bs.load(true)
     this.fs.getCards().subscribe({
       next: (res) => {
         this.cardsList = res.data
         
+        this.bs.load(false)
       }
     })
   }
@@ -104,21 +107,27 @@ public cardloader:boolean= false;
       card_id: this.card_id,
       id: this.id
     }
-    this.fs.purchasePlan(body).subscribe({
-      next: (res) => {
-        console.log(res)
-        this.toastr.success(res.message)
-        this.cardForm.reset();
-        this.submitted = false
-        this.router.navigate(['/feature/plans'])
-        let isPurchased:boolean = true
-        this.ls.saveData("isPurchased" , isPurchased)
-        this.fs.isPurchased$.next(isPurchased)
-      }
-    })
+    if(this.selectedPlanprice){
+      this.fs.purchasePlan(body).subscribe({
+        next: (res) => {
+          console.log(res)
+          this.toastr.success(res.message)
+          this.cardForm.reset();
+          this.submitted = false
+          this.router.navigate(['/feature/plans'])
+          let isPurchased:boolean = true
+          this.ls.saveData("isPurchased" , isPurchased)
+          this.fs.isPurchased$.next(isPurchased)
+        },
+      })
+    }else{
+      this.toastr.error("Please select payment")
+    }
+   
   }
   cloaseModal(){
     document.getElementById('closeModal')?.click()
+    this.submitted = false;
   }
 
 
@@ -159,12 +168,12 @@ public cardloader:boolean= false;
   }
 
 
-  delete(){
-    this.fs.deleteCards(this.card_id).subscribe({
+  delete(card_id:any){
+    this.fs.deleteCards(card_id).subscribe({
       next:(res:any)=>{
         this.toastr.success(res.message)
         this.getCards()
-      }
+      } 
     })
   }
   get f() { return this.cardForm.controls; }

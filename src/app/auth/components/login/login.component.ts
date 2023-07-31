@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   public showPass: any = false;
   public userRole: any;
   remember: any = false;
+  remeberData:any;
   rmCheck: any;
   emailInput: any
   constructor(private fb: FormBuilder,
@@ -48,12 +49,12 @@ export class LoginComponent implements OnInit {
     }
 
     const getData = localStorage.getItem('remember')
-    const data = JSON.parse(localStorage.getItem('remember')!)
-    console.log(data)
+    const remeberData = JSON.parse(localStorage.getItem('remember')!)
+    console.log(remeberData)
     if (getData) {
       this.loginForm.patchValue({
-        email: data.email,
-        password: data.password
+        email: remeberData.email,
+        password: remeberData.password
       })
     }
   }

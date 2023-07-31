@@ -1,268 +1,416 @@
 <div class="card_main">
   <div class="container">
     <div class="card_laysout">
-    <div class="catd_section">
-     <h1 class="heading_card">Payment</h1>
-     <div class="card_heading">
-       <h1>Payment Method </h1>
-       <button class="btn btn-primary "data-toggle="modal" data-target="#exampleModal">Add Payment Method</button>
-     </div>
-     <h1>Add a payment method usign our secure oayment system.</h1>
- 
- 
-  <div class="row w-100">
-  <div class="col-md-3 mb-3 position-relative" *ngFor="let key of cardsList;let i=index">
-    <div class="form-check ">
-      
-      <input class="form-check-input position-static radio_btn" type="radio" (click)="markDefault(i)" name="blankRadio" id="blankRadio1" value="{{key.id}}" aria-label="...">
+      <div class="catd_section">
+        <h1 class="heading_card">Payment</h1>
+        <div class="card_heading">
+          <h1>Payment Method</h1>
+          <button
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#exampleModal"
+          >
+            Add Payment Method
+          </button>
+        </div>
+        <h1>Add a payment method usign our secure oayment system.</h1>
 
-    </div>
-    <i class=" fa fa-trash trash_icon" (click)="delete()"></i>
+        <div class="row w-100">
+          <div
+            class="col-md-3 mb-3 position-relative"
+            *ngFor="let key of cardsList; let i = index"
+          >
+            <div class="form-check">
+              <input
+                class="form-check-input position-static radio_btn"
+                type="radio"
+                (click)="markDefault(i)"
+                name="blankRadio"
+                id="blankRadio1"
+                value="{{ key.id }}"
+                aria-label="..."
+              />
+            </div>
+            <i class="fa fa-trash trash_icon" (click)="delete(key.card_id)"></i>
 
-        <div class="card_card" >
-      <div class="creditcard" >
-          <div class="front" >
-              <div id="ccsingle"></div>
-              <svg version="1.1" id="cardfront" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                  x="0px" y="0px" viewBox="0 0 750 471" style="enable-background:new 0 0 750 471;" xml:space="preserve">
-                  <g id="Front">
+            <div class="card_card">
+              <div class="creditcard">
+                <div class="front">
+                  <div id="ccsingle"></div>
+                  <svg
+                    version="1.1"
+                    id="cardfront"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 750 471"
+                    style="enable-background: new 0 0 750 471"
+                    xml:space="preserve"
+                  >
+                    <g id="Front">
                       <g id="CardBackground">
-                          <g id="Page-1_1_">
-                              <g id="amex_1_">
-                                  <path id="Rectangle-1_1_" class="lightcolor grey" d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
-                          C0,17.9,17.9,0,40,0z" />
-                              </g>
+                        <g id="Page-1_1_">
+                          <g id="amex_1_">
+                            <path
+                              id="Rectangle-1_1_"
+                              class="lightcolor grey"
+                              d="M40,0h670c22.1,0,40,17.9,40,40v391c0,22.1-17.9,40-40,40H40c-22.1,0-40-17.9-40-40V40
+                          C0,17.9,17.9,0,40,0z"
+                            />
                           </g>
-                          <path class="darkcolor greydark" d="M750,431V193.2c-217.6-57.5-556.4-13.5-750,24.9V431c0,22.1,17.9,40,40,40h670C732.1,471,750,453.1,750,431z" />
+                        </g>
+                        <path
+                          class="darkcolor greydark"
+                          d="M750,431V193.2c-217.6-57.5-556.4-13.5-750,24.9V431c0,22.1,17.9,40,40,40h670C732.1,471,750,453.1,750,431z"
+                        />
                       </g>
-                      <text transform="matrix(1 0 0 1 60.106 295.0121)" id="svgnumber" class="st2 st3 st4">XXXX XXXX XXXX {{key.last4}}</text>
-                      <text transform="matrix(1 0 0 1 54.1064 428.1723)" id="svgname" class="st2 st5 st6">JOHN DOE</text>
-                      <text transform="matrix(1 0 0 1 54.1074 389.8793)" class="st7 st5 st8">cardholder name</text>
-                      <text transform="matrix(1 0 0 1 479.7754 388.8793)" class="st7 st5 st8">expiration</text>
-                      <text transform="matrix(1 0 0 1 65.1054 241.5)" class="st7 st5 st8">card number</text>
+                      <text
+                        transform="matrix(1 0 0 1 60.106 295.0121)"
+                        id="svgnumber"
+                        class="st2 st3 st4"
+                      >
+                        XXXX XXXX XXXX {{ key.last4 }}
+                      </text>
+                      <text
+                        transform="matrix(1 0 0 1 54.1064 428.1723)"
+                        id="svgname"
+                        class="st2 st5 st6"
+                      >
+                        JOHN DOE
+                      </text>
+                      <text
+                        transform="matrix(1 0 0 1 54.1074 389.8793)"
+                        class="st7 st5 st8"
+                      >
+                        cardholder name
+                      </text>
+                      <text
+                        transform="matrix(1 0 0 1 479.7754 388.8793)"
+                        class="st7 st5 st8"
+                      >
+                        expiration
+                      </text>
+                      <text
+                        transform="matrix(1 0 0 1 65.1054 241.5)"
+                        class="st7 st5 st8"
+                      >
+                        card number
+                      </text>
                       <g>
-                          <text transform="matrix(1 0 0 1 574.4219 433.8095)" id="svgexpire" class="st2 st5 st9">{{key.exp_month}}/{{key.exp_year}}</text>
-                          <text transform="matrix(1 0 0 1 479.3848 417.0097)" class="st2 st10 st11">VALID</text>
-                          <text transform="matrix(1 0 0 1 479.3848 435.6762)" class="st2 st10 st11">THRU</text>
-                          <polygon class="st2" points="554.5,421 540.4,414.2 540.4,427.9 		" />
+                        <text
+                          transform="matrix(1 0 0 1 574.4219 433.8095)"
+                          id="svgexpire"
+                          class="st2 st5 st9"
+                        >
+                          {{ key.exp_month }}/{{ key.exp_year }}
+                        </text>
+                        <text
+                          transform="matrix(1 0 0 1 479.3848 417.0097)"
+                          class="st2 st10 st11"
+                        >
+                          VALID
+                        </text>
+                        <text
+                          transform="matrix(1 0 0 1 479.3848 435.6762)"
+                          class="st2 st10 st11"
+                        >
+                          THRU
+                        </text>
+                        <polygon
+                          class="st2"
+                          points="554.5,421 540.4,414.2 540.4,427.9 		"
+                        />
                       </g>
                       <g id="cchip">
+                        <g>
+                          <path
+                            class="st2"
+                            d="M168.1,143.6H82.9c-10.2,0-18.5-8.3-18.5-18.5V74.9c0-10.2,8.3-18.5,18.5-18.5h85.3
+                      c10.2,0,18.5,8.3,18.5,18.5v50.2C186.6,135.3,178.3,143.6,168.1,143.6z"
+                          />
+                        </g>
+                        <g>
                           <g>
-                              <path class="st2" d="M168.1,143.6H82.9c-10.2,0-18.5-8.3-18.5-18.5V74.9c0-10.2,8.3-18.5,18.5-18.5h85.3
-                      c10.2,0,18.5,8.3,18.5,18.5v50.2C186.6,135.3,178.3,143.6,168.1,143.6z" />
+                            <rect
+                              x="82"
+                              y="70"
+                              class="st12"
+                              width="1.5"
+                              height="60"
+                            />
                           </g>
                           <g>
-                              <g>
-                                  <rect x="82" y="70" class="st12" width="1.5" height="60" />
-                              </g>
-                              <g>
-                                  <rect x="167.4" y="70" class="st12" width="1.5" height="60" />
-                              </g>
-                              <g>
-                                  <path class="st12" d="M125.5,130.8c-10.2,0-18.5-8.3-18.5-18.5c0-4.6,1.7-8.9,4.7-12.3c-3-3.4-4.7-7.7-4.7-12.3
+                            <rect
+                              x="167.4"
+                              y="70"
+                              class="st12"
+                              width="1.5"
+                              height="60"
+                            />
+                          </g>
+                          <g>
+                            <path
+                              class="st12"
+                              d="M125.5,130.8c-10.2,0-18.5-8.3-18.5-18.5c0-4.6,1.7-8.9,4.7-12.3c-3-3.4-4.7-7.7-4.7-12.3
                           c0-10.2,8.3-18.5,18.5-18.5s18.5,8.3,18.5,18.5c0,4.6-1.7,8.9-4.7,12.3c3,3.4,4.7,7.7,4.7,12.3
                           C143.9,122.5,135.7,130.8,125.5,130.8z M125.5,70.8c-9.3,0-16.9,7.6-16.9,16.9c0,4.4,1.7,8.6,4.8,11.8l0.5,0.5l-0.5,0.5
                           c-3.1,3.2-4.8,7.4-4.8,11.8c0,9.3,7.6,16.9,16.9,16.9s16.9-7.6,16.9-16.9c0-4.4-1.7-8.6-4.8-11.8l-0.5-0.5l0.5-0.5
-                          c3.1-3.2,4.8-7.4,4.8-11.8C142.4,78.4,134.8,70.8,125.5,70.8z" />
-                              </g>
-                              <g>
-                                  <rect x="82.8" y="82.1" class="st12" width="25.8" height="1.5" />
-                              </g>
-                              <g>
-                                  <rect x="82.8" y="117.9" class="st12" width="26.1" height="1.5" />
-                              </g>
-                              <g>
-                                  <rect x="142.4" y="82.1" class="st12" width="25.8" height="1.5" />
-                              </g>
-                              <g>
-                                  <rect x="142" y="117.9" class="st12" width="26.2" height="1.5" />
-                              </g>
+                          c3.1-3.2,4.8-7.4,4.8-11.8C142.4,78.4,134.8,70.8,125.5,70.8z"
+                            />
                           </g>
+                          <g>
+                            <rect
+                              x="82.8"
+                              y="82.1"
+                              class="st12"
+                              width="25.8"
+                              height="1.5"
+                            />
+                          </g>
+                          <g>
+                            <rect
+                              x="82.8"
+                              y="117.9"
+                              class="st12"
+                              width="26.1"
+                              height="1.5"
+                            />
+                          </g>
+                          <g>
+                            <rect
+                              x="142.4"
+                              y="82.1"
+                              class="st12"
+                              width="25.8"
+                              height="1.5"
+                            />
+                          </g>
+                          <g>
+                            <rect
+                              x="142"
+                              y="117.9"
+                              class="st12"
+                              width="26.2"
+                              height="1.5"
+                            />
+                          </g>
+                        </g>
                       </g>
-                  </g>
-                  
-              </svg>
-          </div> 
-      </div>
-  </div>   
-</div>
-<div class="layout_card">
-<div class="row">
-  <!-- <div class="col-md-6 mb-3">
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="layout_card">
+            <div class="row">
+              <!-- <div class="col-md-6 mb-3">
     <label>Plan Price(s)</label>
       <input type="text" class="input card" placeholder="" [(ngModel)]="selectedPlan.price">
     </div> -->
-    <div class="col-md-12 mb-3">
-      <label>Plan Price(s)</label>
-        <input type="text" disabled class="input card" placeholder="" [(ngModel)]="selectedPlanprice">  
-      </div>
-     <div class="col-md-4 mb-3">
-       <div class="text_row1">
-         <p class="mb-0">Initially $0 will be charged for your</p>
-       </div>
-       </div>
-  
-       <div class="col-md-12" *ngIf="selectedCard">
-         <p class="mb-0">Selected Card </p>
-         <p class="mb-0">xxxx xxxx xxxx {{this.selectedCard.last4}}</p>
-       </div>
-       <div class="col-md-12" *ngIf="selectedCard">
-        <button class="btn btn-primary mt-3" (click)="purchasePlan()">Buy Now</button>
-      </div>
-       </div>
-  </div>
-    </div> 
-  </div>
-</div>
-
-
-
-
-
-
-
-<!-- Modal -->
-<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered card_modalMain">
-    <div class="modal-content card_content">
-      <div class="modal-header card_headerModal">
-        <h5 class="modal-title title_modal mb-0" id="exampleModalLabel">Add Payment Method</h5>
-      
-        <button type="button" class="close" id="closeModal"data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="cardForm">
-        <div class="row">
-          <div class="col-md-6">
-          <div class="form-group">
-            <label>Card Number</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Card Number"
-              required
-              mask="0000 0000 0000 0000"
-              placeholder="XXXX XXXX XXXX XXXX" maxlength="19" 
-              formControlName="card_number"
-              
-             
-            />
-            <div *ngIf="submitted && f.card_number.errors" class="invalid-feedback">
-              <div *ngIf="f.card_number.errors.required">Card Number is required</div>
-             
-            </div>
-          </div>
-        
-          </div>
-          <div class="col-md-6">
-          <div class="form-group">
-            <label>Card Holder Name</label>
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Name"
-              required
-              formControlName="cardHolderName"
-            />
-            <div *ngIf="submitted && f.cardHolderName.errors" class="invalid-feedback">
-              <div *ngIf="f.cardHolderName.errors.required">Card holder name is required</div>
-             
-            </div>
-          </div>
-          </div>
-          <div class="col-md-4">
-          <div class="mb-3">
-            <label>exp_month</label>
-            <select formControlName="exp_month" class="form-control select_div">
-              <option value="" *ngFor="let month of months" [value]="month">
-                {{ month }}
-              </option>
-            </select>
-          </div>
-          <div *ngIf="submitted && f.exp_month.errors" class="invalid-feedback">
-            <div *ngIf="f.exp_month.errors.required">Expiry month is required</div>
-           
-          </div>
-</div>
-<div class="col-md-4">
-          <div class="mb-3">
-            <div class="inputWrapper">
-              <label>exp_year</label>
-              <select
-                id="year"
-                formControlName="exp_year"
-                class="form-control select_div"
-              >
-                <option *ngFor="let year of years" [value]="year">
-                  {{ year }}
-                </option>
-              </select>
-            </div>
-            <div *ngIf="submitted && f.exp_year.errors" class="invalid-feedback">
-              <div *ngIf="f.exp_year.errors.required">Expiry year is required</div>
-             
-            </div>
-          </div>
-          </div>
-          <div class="col-md-4">
-          <div class="mb-3">
-            <div class="inputWrapper">
-              <label>cvc</label>
-              <input
-                type="text"
-                id="cvc"
-                name="cvc"
-                class="form-control"
-                formControlName="cvc"
-                cvcValidator
-                maxlength="3"
-              />
-              <div
-                *ngIf="
-                  cardForm.controls.cvc.invalid && cardForm.controls.cvc.dirty
-                "
-              >
-                <span
-                  *ngIf="cardForm.controls.cvc.errors?.invalidCvc"
-                  
-                  class="invalid-feedback"
-                  >Invalid CVC number.</span
-                >
+              <div class="col-md-12 mb-3">
+                <label>Plan Price(s)</label>
+                <input
+                  type="text"
+                  disabled
+                  class="input card"
+                  placeholder=""
+                  [(ngModel)]="selectedPlanprice"
+                />
               </div>
-              <div *ngIf="submitted && f.cvc.errors" class="invalid-feedback">
-                <div *ngIf="f.cvc.errors.required">CVC is required</div>
-               
+              <div class="col-md-4 mb-3">
+                <div class="text_row1">
+                  <p class="mb-0">Initially $0 will be charged for your</p>
+                </div>
+              </div>
+
+              <div class="col-md-12" *ngIf="selectedCard">
+                <p class="mb-0">Selected Card</p>
+                <p class="mb-0">xxxx xxxx xxxx {{ this.selectedCard.last4 }}</p>
+              </div>
+              <div class="col-md-12" *ngIf="selectedCard">
+                <button class="btn btn-primary mt-3" (click)="purchasePlan()">
+                  Buy Now
+                </button>
               </div>
             </div>
           </div>
-          </div>
-
-        
         </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button
-        type="submit"
-        class="btn btn-primary"
-        (click)="submitcard()"
-      >
-        Continue
-      </button>
       </div>
     </div>
-  </div>
-</div>
 
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered card_modalMain">
+        <div class="modal-content card_content">
+          <div class="modal-header">
+            <h5 class="modal-title title_modal mb-0" id="exampleModalLabel">
+              Add Payment Method
+            </h5>
 
+            <button
+              type="button"
+              class="close"
+              id="closeModal"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="cardForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Card Number</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Card Number"
+                      required
+                      mask="0000 0000 0000 0000"
+                      placeholder="XXXX XXXX XXXX XXXX"
+                      maxlength="19"
+                      formControlName="card_number"
+                    />
+                    <div
+                      *ngIf="submitted && f.card_number.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f.card_number.errors.required">
+                        Card Number is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Card Holder Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Name"
+                      required
+                      formControlName="cardHolderName"
+                    />
+                    <div
+                      *ngIf="submitted && f.cardHolderName.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f.cardHolderName.errors.required">
+                        Card holder name is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="mb-3">
+                    <label>exp_month</label>
+                    <select
+                      formControlName="exp_month"
+                      class="form-control select_div"
+                    >
+                      <option
+                        value=""
+                        *ngFor="let month of months"
+                        [value]="month"
+                      >
+                        {{ month }}
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    *ngIf="submitted && f.exp_month.errors"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="f.exp_month.errors.required">
+                      Expiry month is required
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="mb-3">
+                    <div class="inputWrapper">
+                      <label>exp_year</label>
+                      <select
+                        id="year"
+                        formControlName="exp_year"
+                        class="form-control select_div"
+                      >
+                        <option *ngFor="let year of years" [value]="year">
+                          {{ year }}
+                        </option>
+                      </select>
+                    </div>
+                    <div
+                      *ngIf="submitted && f.exp_year.errors"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="f.exp_year.errors.required">
+                        Expiry year is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="mb-3">
+                    <div class="inputWrapper">
+                      <label>cvc</label>
+                      <input
+                        type="text"
+                        id="cvc"
+                        name="cvc"
+                        class="form-control"
+                        formControlName="cvc"
+                        cvcValidator
+                        maxlength="3"
+                      />
+                      <div
+                        *ngIf="
+                          cardForm.controls.cvc.invalid &&
+                          cardForm.controls.cvc.dirty
+                        "
+                      >
+                        <span
+                          *ngIf="cardForm.controls.cvc.errors?.invalidCvc"
+                          class="invalid-feedback"
+                          >Invalid CVC number.</span
+                        >
+                      </div>
+                      <div
+                        *ngIf="submitted && f.cvc.errors"
+                        class="invalid-feedback"
+                      >
+                        <div *ngIf="f.cvc.errors.required">CVC is required</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="submit"
+              class="btn btn-primary mt-3"
+              (click)="submitcard()"
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-
-
-
-
-<!-- <div class="loginWrapper">
+    <!-- <div class="loginWrapper">
   <div class="main_page">
     <div class="row align-items-center mx-0">
       <div class="col-md-12">
@@ -356,3 +504,5 @@
     </div>
   </div>
 </div> -->
+  </div>
+</div>
