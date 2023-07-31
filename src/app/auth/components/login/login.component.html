@@ -59,7 +59,7 @@
             </div>
 
             <div class="mt-3 d-flex justify-content-between align-items-center">
-              <div class="form-check check_div">
+              <div class="form-check check_div" *ngIf="!remeberData">
                 <input
                   type="checkbox"
                   [(ngModel)]="remember"

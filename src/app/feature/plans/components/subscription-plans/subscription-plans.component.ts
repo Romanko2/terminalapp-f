@@ -20,7 +20,7 @@ export class SubscriptionPlansComponent implements OnInit {
     this.access_token = localStorage.getItem('access_token')
 
       this.getAllPlans()
-
+this.getSelectedPlans()
   }
   
   getAllPlans(){
@@ -50,5 +50,13 @@ export class SubscriptionPlansComponent implements OnInit {
       this.router.navigateByUrl('/auth/login')
     }
 
+  }
+
+  getSelectedPlans(){
+    this.fs.getActivePlans().subscribe({
+      next:(res)=>{
+        console.log(res)
+      }
+    })
   }
 }
