@@ -18,7 +18,15 @@
         width: calc(100% - 70px);
     }
 }
-
+.mainHeader:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    background: #ffffff36;
+    width: calc(100vw - 104px);
+    height: 2px;
+    left: 0;
+  }
 .headerProfile{
     height: 40px;
     width: 40px;
