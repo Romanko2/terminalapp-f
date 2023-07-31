@@ -64,6 +64,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   updateUser() {
+    this.submitted = true
     const body = {
       fullName: this.userForm.value.fullName,
       id: this.id,
@@ -71,8 +72,9 @@ export class EditProfileComponent implements OnInit {
       mobileNo: this.userForm.value.mobileNo.number,
       country: this.userForm.value.mobileNo.countryCode,
     }
- this.submitted = true
+  
    if(this.userForm.valid){
+   
     this.fs.editProfile(body).subscribe({
       next: (res) => {
         this.toastr.success(res.message)

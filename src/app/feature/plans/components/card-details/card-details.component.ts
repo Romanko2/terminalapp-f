@@ -110,6 +110,7 @@ public cardloader:boolean= false;
     if(this.selectedPlanprice){
       this.fs.purchasePlan(body).subscribe({
         next: (res) => {
+          this.getPrimaryCard()
           console.log(res)
           this.toastr.success(res.message)
           this.cardForm.reset();
@@ -136,25 +137,26 @@ public cardloader:boolean= false;
     this.selectedCard=this.cardsList[index]
     this.card_id = this.cardsList[index].card_id
     this.cardloader = false
-    // let data={
-    //   id:this.cards[index].id
-    // }
-    // this.appService.update(data, 'card/set-primary').subscribe((res:any) => {
-    //   if (res.success) {
-    //     this.getCards()
-    //   } else {
-    //     $event.stopPropagation();
-    //   }
-    //   setTimeout(() => {
-    //     this.cardloader=false
-    //   }, 500);
+  //   let data={
+  //     id:this.cards[index].id
+  //   }
+  //   this.appService.update(data, 'card/set-primary').subscribe((res:any) => {
+  //     if (res.success) {
+  //       this.getCards()
+  //     } else {
+  //       $event.stopPropagation();
+  //     }
+  //     setTimeout(() => {
+  //       this.cardloader=false
+  //     }, 500);
       
-    // },error=>{
-    //   this.cardloader=false
-    //   $event.stopPropagation();
-    //   return false
+  //   },error=>{
+  //     this.cardloader=false
+  //     $event.stopPropagation();
+  //     return false
       
-    // })
+  //   })
+  // }
   }
 
 
@@ -176,6 +178,19 @@ public cardloader:boolean= false;
       } 
     })
   }
+
+  getPrimaryCard(){
+    const body = {
+      card_id:this.card_id
+    }
+    this.fs.primaryCard(body).subscribe({
+      next:(res)=>{
+        console.log(res)
+        this.getCards()
+      }
+    })
+  }
+
   get f() { return this.cardForm.controls; }
 
   months: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
