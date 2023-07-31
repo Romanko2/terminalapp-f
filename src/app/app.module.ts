@@ -27,6 +27,7 @@ import { HIGHCHARTS_MODULES } from 'angular-highcharts';
 import stock from 'highcharts/modules/stock.src';
 import more from 'highcharts/highcharts-more.src';
 
+// import { NgChartsModule } from 'ng2-charts';
 
 export function highchartsModules() {
   // apply Highcharts Modules to this array
@@ -51,6 +52,8 @@ export function highchartsModules() {
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     NgxMaskModule.forRoot(),
+
+    // NgChartsModule
 
 
   ],
