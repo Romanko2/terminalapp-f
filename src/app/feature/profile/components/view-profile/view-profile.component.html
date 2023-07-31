@@ -1,92 +1,124 @@
 <div class="container">
-    <div class="profile">
-<h2 class="d-flex profile_border mb-3">View Profile
-    <button class="btn btn-primary ml-auto" (click)="edit()"><i class="fa fa-pencil" title="Edit"></i> Edit Profile</button>
-</h2>
-<div class="profile_layout">
-<div class="form-row mx-0">
-    <div class="col-md-3">
-    <div class="bg-profile">
+  <div class="profile">
+    <h2 class="d-flex profile_border mb-3">
+      View Profile
+      <button class="btn btn-primary ml-auto" (click)="edit()">
+        <i class="fa fa-pencil" title="Edit"></i> Edit Profile
+      </button>
+    </h2>
+    <div class="profile_layout">
+      <div class="form-row mx-0">
+        <div class="col-md-3">
+          <div class="bg-profile">
+            <div class="col-md-12 mb-3 text-center">
+              <div class="edit-profile-input">
+                <img [src]="userImg(user?.image)" class="shadow" />
+              </div>
+              <div *ngIf="imageUploading" class="text-success mt-2">
+                Uploading.. <i class="fa fa-spinner fa-spin"></i>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <div class="col-md-12 mb-3 text-center">
-        <div class="edit-profile-input">
-            <img [src]="userImg(user?.image)" class="shadow"/>
-            
-             </div>
-             <div *ngIf="imageUploading" class="text-success mt-2">Uploading.. <i class="fa fa-spinner fa-spin"></i></div>
-    </div>
-    </div>
-    </div>
-
-    <div class="col-md-9">
-        <div class="bg-main">
+        <div class="col-md-9">
+          <div class="bg-main">
             <div class="col-md-12">
-                <div class="row">
-            <div class="col-md-6">
-                <label class="profile-label">Name</label>
-                <p class="text">{{user?.fullName ? user.fullName : 'NA'}}</p>
-            </div>
-            <div class="col-md-6">
-                <label class="profile-label">Email</label>
-                <p class="text">{{user?.email ? user.email : 'NA'}}</p>
-            </div>
-            <div class="col-md-6">
-                <label class="profile-label">Contact Number</label>
-                <p class="text">{{user?.mobileNo.dialCode}} {{user?.mobileNo ? user.mobileNo : 'NA'}}</p>
-            </div>
-          
-            </div>
-            </div>
-        </div>
-  <ng-container *ngIf="userDetails.activPlan == true">
-        <div class="plan_details">
-            <h1 class="heading_plan">Plan details</h1>
-            <p>Manage of change your plan. View our <a href class="a_tag"routerLink="/feature/terms-and-conditions">terms of service</a> and <a href="#"class="a_tag"routerLink="/feature/privacy-policy">privacy policy</a>.</p>
-            <p></p>
-            <div class="plan_main">
-                <div class="plan_part">
-                <h1>{{activePlanDetails.name}}</h1>
-                <div class="p_tag">
-                <p>All the basics for starting a new business</p>
-                <p>USD <span class="start_new">${{activePlanDetails.amount}}</span>/{{activePlanDetails.interval}}</p>
+              <div class="row">
+                <div class="col-md-6">
+                  <label class="profile-label">Name</label>
+                  <p class="text">
+                    {{ user?.fullName ? user.fullName : "NA" }}
+                  </p>
                 </div>
+                <div class="col-md-6">
+                  <label class="profile-label">Email</label>
+                  <p class="text">{{ user?.email ? user.email : "NA" }}</p>
+                </div>
+                <div class="col-md-6">
+                  <label class="profile-label">Contact Number</label>
+                  <p class="text">
+                    {{ user?.mobileNo.dialCode }}
+                    {{ user?.mobileNo ? user.mobileNo : "NA" }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-container *ngIf="userDetails.activPlan == true">
+            <div class="plan_details">
+              <h1 class="heading_plan">Plan details</h1>
+             
+              <p>Manage of change your plan. View our <a href class="a_tag"routerLink="/feature/terms-and-conditions">terms of service</a> and <a href="#"class="a_tag"routerLink="/feature/privacy-policy">privacy policy</a>.</p>
+              <p></p>
+              <div class="plan_main">
+                <div class="plan_part">
+                  <h1>{{ activePlanDetails.name }}</h1>
+                  <div class="p_tag">
+                    <p>All the basics for starting a new business</p>
+                    <p>
+                      USD
+                      <span class="start_new"
+                        >${{ activePlanDetails.amount }}</span
+                      >/{{ activePlanDetails.interval }}
+                    </p>
+                  </div>
                 </div>
                 <div class="plan_part">
-                    <div class="plan_flex">
-                    <h1>Basic </h1>
+                  <div class="plan_flex">
+                    <h1>Basic</h1>
                     <a href="#" class="a_tag">Show all features</a>
-                    </div>
-                    <p class="text_id"><mat-icon>check</mat-icon>1.15% + $0.30 online credit card rates</p>
-                    <p class="text_id"><mat-icon>check</mat-icon>1.15% + $0.30 in-person credit card fees</p>
-                    <p class="text_id"><mat-icon>check</mat-icon>2 staff members</p>
-                    <p class="text_id"><mat-icon>check</mat-icon>Shipping discounts</p>
-                   
-                    </div>
-                    <div class="plan_part">
-                        <div class="plan_flex">
-                        <h1>Billing cycle</h1>
-                        <a href="#" class="a_tag">Change billing cycle</a>
-                        </div>
-                        <p>Monthly for ${{activePlanDetails.amount}} USD.</p>
-                   
-                        </div>
-                    <div class="plan_part">
-                        <div class="plan_flex">
-                        <h1>Payment method</h1>
-                        <a href="#" class="a_tag">Change payment method</a>
-                        </div>
-                        <p><img src="/assets/img/Mastercard_logo.jpg"class="mastercard_img">Mastercard ending  in 9438</p>
-                        </div>
-                        <div class="btn_div text-right">
-                            <button class="btn btn-primary btn_white"> Deactivate store</button>
-                            <button class="btn btn-primary btn_black ml-3" routerLink="/feature/plans"> Change plan</button>
-                            </div>
+                  </div>
+                  <p class="text_id">
+                    <mat-icon>check</mat-icon>1.15% + $0.30 online credit card
+                    rates
+                  </p>
+                  <p class="text_id">
+                    <mat-icon>check</mat-icon>1.15% + $0.30 in-person credit
+                    card fees
+                  </p>
+                  <p class="text_id">
+                    <mat-icon>check</mat-icon>2 staff members
+                  </p>
+                  <p class="text_id">
+                    <mat-icon>check</mat-icon>Shipping discounts
+                  </p>
+                </div>
+                <!-- <div class="plan_part">
+                  <div class="plan_flex">
+                    <h1>Billing cycle</h1>
+                    <a href="#" class="a_tag">Change billing cycle</a>
+                  </div>
+                  <p>Monthly for ${{ activePlanDetails.amount }} USD.</p>
+                </div> -->
+                <div class="plan_part">
+                  <div class="plan_flex">
+                    <h1>Payment method</h1>
+                    <a href="#" class="a_tag">Change payment method</a>
+                  </div>
+                  <p>
+                    <img
+                      src="/assets/img/Mastercard_logo.jpg"
+                      class="mastercard_img"
+                    />Mastercard ending in 9438
+                  </p>
+                </div>
+                <div class="btn_div text-right">
+                  <button class="btn btn-primary btn_white">
+                    Deactivate store
+                  </button>
+                  <button
+                    class="btn btn-primary btn_black ml-3"
+                    routerLink="/feature/plans"
+                  >
+                    Change plan
+                  </button>
+                </div>
+              </div>
             </div>
-           
+          </ng-container>
         </div>
-    </ng-container>
+      </div>
     </div>
-</div>
-</div>
-</div>
+  </div>
 </div>
