@@ -13,6 +13,7 @@ export class SubscriptionPlansComponent implements OnInit {
   public plansArr:any[] = []
   access_token:any
   activeplan:any
+  cardId:any
   constructor(private fs:FrontendService , private router:Router , private toastr:ToastrService , private _bs:BehaviorService) { }
 
   ngOnInit(): void {
@@ -52,6 +53,8 @@ export class SubscriptionPlansComponent implements OnInit {
     }
 
   }
+
+ 
 
   // getSelectedPlans(){
   //   // this.fs.getActivePlans().subscribe({

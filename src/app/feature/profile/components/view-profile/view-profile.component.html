@@ -94,19 +94,19 @@
                 <div class="plan_part">
                   <div class="plan_flex">
                     <h1>Payment method</h1>
-                    <a href="#" class="a_tag">Change payment method</a>
+                    <!-- <a href="#" class="a_tag">Change payment method</a> -->
                   </div>
                   <p>
                     <img
                       src="/assets/img/Mastercard_logo.jpg"
                       class="mastercard_img"
-                    />Mastercard ending in 9438
+                    />Mastercard ending in {{user.cards.last4}}
                   </p>
                 </div>
                 <div class="btn_div text-right">
-                  <button class="btn btn-primary btn_white">
+                  <!-- <button class="btn btn-primary btn_white">
                     Deactivate store
-                  </button>
+                  </button> -->
                   <button
                     class="btn btn-primary btn_black ml-3"
                     routerLink="/feature/plans"
