@@ -14,7 +14,8 @@ import { environment } from 'src/environments/environment';
 export class ViewProfileComponent implements OnInit {
   
   public user:any
-  public activePlanDetails:any
+  public activePlanDetails:any;
+  public userDetails:any
   id:any
   _host:any=environment.apiUrl
   constructor(private frontendService:FrontendService,private _bs:BehaviorService,private toastr:ToastrService , private router:Router) {
@@ -24,9 +25,9 @@ export class ViewProfileComponent implements OnInit {
   ngOnInit(): void {
     this.getUserData()
     this.id = localStorage.getItem('id')
-    if(this.id){
-      this.getActivePlan()
-    }
+    // if(this.id){
+    //   this.getActivePlan()
+    // }
   }
 
   getUserData(){
@@ -34,8 +35,11 @@ export class ViewProfileComponent implements OnInit {
     this.frontendService.viewProfile(this.id).subscribe({
       next:(res:any)=>{
         this._bs.load(false)
+        this.userDetails = res
+        console.log(this.userDetails)
         this.user = res.data
-        console.log(this.user)
+        this.activePlanDetails = res.activPlanDetails
+        console.log(this.activePlanDetails)
 
       },
       error:(err:any)=>{
@@ -44,18 +48,19 @@ export class ViewProfileComponent implements OnInit {
     })
   }
 
+
   edit(){
   this.router.navigate(['/feature/profile/edit'])
   }
 
-  getActivePlan(){
-    this.frontendService.activePlan(this.id).subscribe({
-      next:(res)=>{
-        this.activePlanDetails = res.data
-        console.log(this.activePlanDetails)
-      }
-    })
-  }
+  // getActivePlan(){
+  //   this.frontendService.activePlan(this.id).subscribe({
+  //     next:(res)=>{
+  //       this.activePlanDetails = res.data
+  //       console.log(this.activePlanDetails)
+  //     }
+  //   })
+  // }
   // getData(){
     
   //   this.appService.getAll('profile').subscribe(res=>{

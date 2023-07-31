@@ -38,7 +38,7 @@
             </div>
             </div>
         </div>
-  <ng-container *ngIf="activePlanDetails">
+  <ng-container *ngIf="userDetails.activPlan == true">
         <div class="plan_details">
             <h1 class="heading_plan">Plan details</h1>
             <p>Manage of change your plan. View our <a href class="a_tag">terms of service</a> and <a href="#"class="a_tag">privacy policy</a>.</p>
@@ -79,7 +79,7 @@
                         </div>
                         <div class="btn_div text-right">
                             <button class="btn btn-primary btn_white"> Deactivate store</button>
-                            <button class="btn btn-primary btn_black ml-3"> Change plan</button>
+                            <button class="btn btn-primary btn_black ml-3" routerLink="/feature/plans"> Change plan</button>
                             </div>
             </div>
            
