@@ -11,7 +11,7 @@
                  <td class="back_color table_td" *ngFor="let key of plansArr">
                  <!-- <h1 class="heading_2">${{key.amount}}<span class="span_text">/{{key.interval}}</span></h1>
                  <button class="btn btn-primary form-control btn2" (click)="choosePlan(key.id)">Choose This Plan</button> -->
-                 <h1 style="text-align: center;">{{key.name | uppercase}}</h1>
+                 <h1 class="name_plan" style="text-align: center;">{{key.name | uppercase}}</h1>
                   <h1 class="heading_2" *ngIf="key.name=='free'">0</h1>
                   <h1 class="heading_2" *ngIf="key.name!='free'">${{key.amount}}<span class="span_text">/{{key.interval}}</span></h1>
                   <!-- <div class="button" ><a href="/step1?starter/" *ngIf="item.active == false" (click)="choosePlan(item._id)" class="btn btn-secondary btn-sm" data-bs-toggle="modal"

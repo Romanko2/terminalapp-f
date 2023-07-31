@@ -18,11 +18,12 @@ h1.text_heading {
     color: #797979;
 }
 h1.heading_2 {
-    font-size: 40px;
+    font-size: 22px;
     font-weight: 600;
     margin-top: 10px;
     text-align: center;
     line-height: 42px;
+    margin-bottom: 0px;
 }
 span.span_text {
     font-weight: normal;
@@ -86,4 +87,22 @@ img.check_img {
 }
 .plan_section1 p {
     margin-bottom: 0px;
+}
+h1.name_plan {
+    margin-bottom: 0px;
+    font-size: 30px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    position: relative;
+}
+h1.name_plan:after {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    background: #d4d2d2;
+    max-width: 90px;
+    height: 2px;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
