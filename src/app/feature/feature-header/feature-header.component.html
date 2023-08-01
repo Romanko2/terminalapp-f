@@ -28,7 +28,7 @@
         <button class="btn btn-primary" routerLink="/auth/signup" *ngIf="!user">Sign up</button>
         <button class="btn btn-primary ml-2" routerLink="/auth/login" *ngIf="!user">Sign in</button>
         </div>
-      <div class="dropdown userDropdown">
+      <div class="dropdown userDropdown" *ngIf="user">
         
         <button
           class="btn btn-secondary dropdown-toggle"

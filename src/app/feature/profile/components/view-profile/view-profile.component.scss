@@ -55,7 +55,16 @@
     .plan_details {
         margin-top: 2rem;
         margin-bottom: 2rem;
-    }
+}
+
+// .plan_details {
+//     margin-top: 2rem;
+//     margin-bottom: 2rem;
+//     box-shadow: 0px 0px 17px -10px #000;
+// padding: 25px;
+// border-radius: 10px;
+// }
+
     .plan_main {
         border: 1px solid #dadada;
         border-radius: 10px;
@@ -113,9 +122,9 @@
     p.text_id {
         margin-top: 15px;
     }
-    .btn_div{
-        padding: 20px;
-    }
+    // .btn_div{
+    //     padding: 20px;
+    // }
     .btn_black{
         background: #494949;
         box-shadow: 0px 0px 3px -1px #292929;
@@ -172,3 +181,17 @@
         border-radius: 10px;
         padding: 15px;
     }
+    .plan_p {
+        text-align: center;
+        font-size: 18px;
+        color: #898989;
+    }
+    // .plan_p{
+    //     text-align: center;
+    //     font-size: 18px;
+    //     color: #898989;
+    //     min-height: 288px;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    // }
