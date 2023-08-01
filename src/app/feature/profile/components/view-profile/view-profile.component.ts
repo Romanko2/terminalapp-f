@@ -25,6 +25,7 @@ export class ViewProfileComponent implements OnInit {
   ngOnInit(): void {
     this.getUserData()
     this.id = localStorage.getItem('id')
+    this.getgraph()
     // if(this.id){
     //   this.getActivePlan()
     // }
@@ -52,6 +53,20 @@ export class ViewProfileComponent implements OnInit {
 
   edit(){
   this.router.navigate(['/feature/profile/edit'])
+  }
+  getgraph(){
+    let data={
+      symbol:'TSLA',
+      limit:10,
+      offset:10
+    }
+    this.frontendService.getgraph('End_of_Day',data).subscribe({
+      next:(res:any)=>{
+      },
+      error:(err:any)=>{
+        // this.toastr.error(err.message)
+      }
+    })
   }
 
   // getActivePlan(){
