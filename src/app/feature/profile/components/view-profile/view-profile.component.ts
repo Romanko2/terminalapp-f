@@ -25,7 +25,12 @@ export class ViewProfileComponent implements OnInit {
   ngOnInit(): void {
     this.getUserData()
     this.id = localStorage.getItem('id')
-    this.getgraph()
+    this.getExchangegraph()
+    this.getEODgraph()
+    this.getIntradaygraph()
+    this.getTickersgraph()
+    this.getCurrenciesgraph()
+    this.getTimezonesgraph()
     // if(this.id){
     //   this.getActivePlan()
     // }
@@ -54,13 +59,81 @@ export class ViewProfileComponent implements OnInit {
   edit(){
   this.router.navigate(['/feature/profile/edit'])
   }
-  getgraph(){
+  getExchangegraph(){
+    let data={
+      symbol:'AAPL',
+      limit:10,
+      offset:10
+    }
+    this.frontendService.getgraph('Exchanges',data).subscribe({
+      next:(res:any)=>{
+      },
+      error:(err:any)=>{
+        // this.toastr.error(err.message)
+      }
+    })
+  }
+  getEODgraph(){
     let data={
       symbol:'TSLA',
       limit:10,
       offset:10
     }
     this.frontendService.getgraph('End_of_Day',data).subscribe({
+      next:(res:any)=>{
+      },
+      error:(err:any)=>{
+        // this.toastr.error(err.message)
+      }
+    })
+  }
+  getIntradaygraph(){
+    let data={
+      symbol:'AAPL',
+      limit:10,
+      offset:10
+    }
+    this.frontendService.getgraph('Intraday',data).subscribe({
+      next:(res:any)=>{
+      },
+      error:(err:any)=>{
+        // this.toastr.error(err.message)
+      }
+    })
+  }
+  getTickersgraph(){
+    let data={
+      symbol:'AAPL',
+      limit:10,
+      offset:10
+    }
+    this.frontendService.getgraph('Tickers',data).subscribe({
+      next:(res:any)=>{
+      },
+      error:(err:any)=>{
+        // this.toastr.error(err.message)
+      }
+    })
+  }
+  getCurrenciesgraph(){
+    let data={
+      limit:10,
+      offset:10
+    }
+    this.frontendService.getgraph('Currencies',data).subscribe({
+      next:(res:any)=>{
+      },
+      error:(err:any)=>{
+        // this.toastr.error(err.message)
+      }
+    })
+  }
+  getTimezonesgraph(){
+    let data={
+      limit:10,
+      offset:10
+    }
+    this.frontendService.getgraph('Timezones',data).subscribe({
       next:(res:any)=>{
       },
       error:(err:any)=>{
