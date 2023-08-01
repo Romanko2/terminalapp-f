@@ -52,10 +52,19 @@
 
     //////////////////////######### Plan Details ##########/////////////////////
 
-    .plan_details {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-    }
+//     .plan_details {
+//         margin-top: 2rem;
+//         margin-bottom: 2rem;
+// }
+
+.plan_details {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0px 0px 17px -10px #000;
+padding: 25px;
+border-radius: 10px;
+}
+
     .plan_main {
         border: 1px solid #dadada;
         border-radius: 10px;
@@ -171,4 +180,18 @@
         box-shadow: 0px 0px 12px -7px #000;
         border-radius: 10px;
         padding: 15px;
+    }
+    // .plan_p {
+    //     text-align: center;
+    //     font-size: 18px;
+    //     color: #898989;
+    // }
+    .plan_p{
+        text-align: center;
+        font-size: 18px;
+        color: #898989;
+        min-height: 260px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
