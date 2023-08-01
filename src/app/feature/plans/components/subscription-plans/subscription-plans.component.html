@@ -19,7 +19,7 @@
                     
                <div class="button"><a *ngIf="item.active == true" [attr.disabled]="disabled" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
                      >Active</a></div> -->
-                  <button class="btn btn-primary form-control btn2" [disabled]="key.isActive == true" (click)="choosePlan(key.id)">
+                  <button class="btn btn-primary form-control btn2" [disabled]="key.isActive == true || (activeplan && key.name=='free')" (click)="choosePlan(key.id)">
                     {{key.isActive == true ? 'Active' : (activeplan && key.name!='free' ? 'Upgrade Plan' : 'Choose Plan')}}
                   </button>
                   
