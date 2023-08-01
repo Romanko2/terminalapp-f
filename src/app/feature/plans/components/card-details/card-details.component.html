@@ -24,10 +24,9 @@
               <input
                 class="form-check-input position-static radio_btn"
                 type="radio"
-                (click)="markDefault(i)"
-                name="blankRadio"
-                id="blankRadio1"
-                value="{{ key.id }}"
+                (click)="markDefault(i,$event)"
+                *ngIf="key.isDefault==false" type="radio" checked="{{key.isDefault}}" id="defaultcard{{i}}" title="Default card"
+                name="defaultcard{{i}}" 
                 aria-label="..."
               />
             </div>

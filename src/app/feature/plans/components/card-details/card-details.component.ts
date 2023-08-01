@@ -95,7 +95,13 @@ public cardloader:boolean= false;
     this.fs.getCards().subscribe({
       next: (res) => {
         this.cardsList = res.data
-        
+        this.selectedCard=this.cardsList.find((card:any)=>{
+          return card.isDefault===true
+        })
+        if(this.selectedCard){
+          this.card_id = this.selectedCard.card_id
+        }
+        console.log(this.selectedCard,"this.selectedCard")
         this.bs.load(false)
       }
     })
@@ -132,31 +138,29 @@ public cardloader:boolean= false;
   }
 
 
-  markDefault(index:any){
+  markDefault(index:any,$event:any){
     this.cardloader=true
     this.selectedCard=this.cardsList[index]
     this.card_id = this.cardsList[index].card_id
     this.cardloader = false
-  //   let data={
-  //     id:this.cards[index].id
-  //   }
-  //   this.appService.update(data, 'card/set-primary').subscribe((res:any) => {
-  //     if (res.success) {
-  //       this.getCards()
-  //     } else {
-  //       $event.stopPropagation();
-  //     }
-  //     setTimeout(() => {
-  //       this.cardloader=false
-  //     }, 500);
+    
+    this.fs.primaryCard(this.selectedCard.id).subscribe((res:any) => {
+      if (res.success) {
+        this.getCards()
+      } else {
+        $event.stopPropagation();
+      }
+      setTimeout(() => {
+        this.cardloader=false
+      }, 500);
       
-  //   },error=>{
-  //     this.cardloader=false
-  //     $event.stopPropagation();
-  //     return false
+    },error=>{
+      this.cardloader=false
+      $event.stopPropagation();
+      return false
       
-  //   })
-  // }
+    })
+  
   }
 
 
