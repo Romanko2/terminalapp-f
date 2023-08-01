@@ -79,9 +79,9 @@ export class FrontendService {
     return this.http.delete<any>(`${this.baseUrl}Cards?card_id=${card_id}`,{ headers })
   }
   
-  primaryCard(card_id:any){
+  primaryCard(body:any){
     let headers = { 'Authorization': 'Bearer ' + this.access_token }
-    return this.http.put<any>(`${this.baseUrl}primary/card`, card_id,{ headers })
+    return this.http.put<any>(`${this.baseUrl}primary/card`, body,{ headers })
   }
 //   getActivePlans(){
 //     let headers = { 'Authorization': 'Bearer ' + this.access_token }

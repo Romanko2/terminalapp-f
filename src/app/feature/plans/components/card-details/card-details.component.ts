@@ -96,7 +96,7 @@ public cardloader:boolean= false;
       next: (res) => {
         this.cardsList = res.data
         this.selectedCard=this.cardsList.find((card:any)=>{
-          return card.isDefault===true
+          return card.isDefault==true
         })
         if(this.selectedCard){
           this.card_id = this.selectedCard.card_id
@@ -105,6 +105,10 @@ public cardloader:boolean= false;
         this.bs.load(false)
       }
     })
+  }
+  isDefault(i:any) {
+    if (this.cardsList[i].isDefault) return 'checked';
+    else return ''
   }
 
   purchasePlan() {
@@ -140,11 +144,13 @@ public cardloader:boolean= false;
 
   markDefault(index:any,$event:any){
     this.cardloader=true
-    this.selectedCard=this.cardsList[index]
-    this.card_id = this.cardsList[index].card_id
+    // this.selectedCard=this.cardsList[index]
+    // this.card_id = this.cardsList[index].card_id
     this.cardloader = false
-    
-    this.fs.primaryCard(this.selectedCard.id).subscribe((res:any) => {
+    let data={
+      card_id:this.cardsList[index].card_id
+    }
+    this.fs.primaryCard(data).subscribe((res:any) => {
       if (res.success) {
         this.getCards()
       } else {
