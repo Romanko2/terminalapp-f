@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { API_CONSTANTS } from "../constants/api.const";
@@ -83,8 +83,21 @@ export class FrontendService {
     let headers = { 'Authorization': 'Bearer ' + this.access_token }
     return this.http.put<any>(`${this.baseUrl}primary/card`, body,{ headers })
   }
+
+  getgraph(url:any,param:any){
+    let params = this.getParams(param)
+    let headers = { 'Authorization': 'Bearer ' + this.access_token }
+    return this.http.get<any>(`${this.baseUrl}${url}`, { headers ,params:params})
+  }
 //   getActivePlans(){
 //     let headers = { 'Authorization': 'Bearer ' + this.access_token }
 //     return this.http.get(`${this.baseUrl}purchaseplans?page=1&count=3` , {headers})
 //   }
+getParams(parameters:any) {
+    let params = new HttpParams();
+    Object.keys(parameters).map((key) => {
+      params = params.set(key, parameters[key]);
+    })
+    return params;
+  }
 }
