@@ -61,6 +61,7 @@ export class ResetComponent implements OnInit {
       next: (res: any) => {
         this.toastr.success(res.message)
         this._bs.load(false);
+        this.router.navigateByUrl('/auht/login')
       },
       error: (err) => {
 

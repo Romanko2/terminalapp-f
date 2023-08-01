@@ -1,34 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { StockChart } from 'angular-highcharts';
-// import * as Highcharts from "highcharts";
-// import { StockChart } from 'highcharts/highcharts.src';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-highchart',
   templateUrl: './highchart.component.html',
   styleUrls: ['./highchart.component.scss']
 })
-export class HighchartComponent  {
+export class HighchartComponent {
 
-  // stock!: StockChart;
 
-  // ngOnInit() {
-  //   this.stock = new StockChart({
-  //     rangeSelector: {
-  //       selected: 1
-  //     },
-  //     title: {
-  //       text: 'AAPL Stock Price'
-  //     },
-   
-  //   });
-  // }
-
-  // stock:StockChart;
-
-  // ngOnInit(){
-  //   this.stock = new StockChart({
-      
-  //   })
-  // }
 }

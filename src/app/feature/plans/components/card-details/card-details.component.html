@@ -210,7 +210,7 @@
     <label>Plan Price(s)</label>
       <input type="text" class="input card" placeholder="" [(ngModel)]="selectedPlan.price">
     </div> -->
-              <div class="col-md-12 mb-3">
+              <div class="col-md-12 mb-3 px-0">
                 <label>Plan Price(s)</label>
                 <input
                   type="text"
@@ -221,17 +221,17 @@
                   readonly
                 />
               </div>
-              <div class="col-md-4 mb-3">
+              <div class="col-md-12 mb-3 px-0">
                 <div class="text_row1">
                   <p class="mb-0">Initially ${{this.selectedPlanprice}} will be charged for your</p>
                 </div>
               </div>
 
-              <div class="col-md-12" *ngIf="selectedCard">
+              <div class="col-md-12 px-0" *ngIf="selectedCard">
                 <p class="mb-0">Selected Card</p>
                 <p class="mb-0">xxxx xxxx xxxx {{ this.selectedCard.last4 }}</p>
               </div>
-              <div class="col-md-12" *ngIf="selectedCard">
+              <div class="col-md-12 px-0" *ngIf="selectedCard">
                 <button class="btn btn-primary mt-3" (click)="purchasePlan()" >
                   Buy Now 
                 </button>
