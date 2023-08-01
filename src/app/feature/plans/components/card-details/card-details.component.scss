@@ -429,7 +429,7 @@ h1.heading_card:after {
     color: #fff;
     border-left: 2px solid #ffffff36;
     padding: 30px;
-    height: 100vh;
+    height: calc(100vh - 100px);
 }
 .card_content {
     border-radius: 20px;
