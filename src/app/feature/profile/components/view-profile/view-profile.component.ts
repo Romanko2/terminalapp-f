@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./view-profile.component.scss']
 })
 export class ViewProfileComponent implements OnInit {
-  
+  activPlan:boolean=false
   public user:any
   public activePlanDetails:any;
   public userDetails:any
@@ -38,6 +38,7 @@ export class ViewProfileComponent implements OnInit {
         this.userDetails = res
         console.log(this.userDetails)
         this.user = res.data
+        this.activPlan=res.activPlan
         this.activePlanDetails = res.activPlanDetails
         console.log(this.activePlanDetails)
 

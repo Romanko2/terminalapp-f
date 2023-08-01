@@ -72,7 +72,7 @@
          <ng-container>
         <div class="plan_details">
           <h1 class="heading_plan">Plan details</h1>
-         <div *ngIf="user?.activPlan">
+         <div *ngIf="activPlan">
           <p>Manage of change your plan. View our <a href class="a_tag"routerLink="/feature/terms-and-conditions">terms of service</a> and <a href="#"class="a_tag"routerLink="/feature/privacy-policy">privacy policy</a>.</p>
           <p></p>
           <div class="row">
@@ -134,7 +134,7 @@
           </div>
           </div>
          </div>
-         <div *ngIf="!user?.activPlan">
+         <div *ngIf="!activPlan">
 <p>You haven't subscribed for any plan</p>
          </div>
          <div class="btn_div text-right">
@@ -145,7 +145,7 @@
             class="btn btn-primary btn_black ml-3"
             routerLink="/feature/plans"
           >
-            {{user?.activPlan ?'Change plan':"Purchase Plan"}}
+            {{activPlan ?'Change plan':"Purchase Plan"}}
           </button>
         </div>
         </div>
