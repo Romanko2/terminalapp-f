@@ -20,7 +20,7 @@
                <div class="button"><a *ngIf="item.active == true" [attr.disabled]="disabled" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
                      >Active</a></div> -->
                   <button class="btn btn-primary form-control btn2" [disabled]="key.isActive == true" (click)="choosePlan(key.id)">
-                    {{key.isActive == true ? 'Active' : (activeplan ? 'Upgrade Plan' : 'Choose Plan')}}
+                    {{key.isActive == true ? 'Active' : (activeplan && key.name!='free' ? 'Upgrade Plan' : 'Choose Plan')}}
                   </button>
                   
                  <!-- <button class="btn btn-primary form-control btn2" [disabled]="key.isPurchased && key.id==activeplan" (click)="choosePlan(key.id)">{{key.isPurchased == true && key.id==activeplan ? 'Active' : (activeplan && key.id!=activeplan ?"Upgrade Plan":'Choose Plan')}}</button> -->
