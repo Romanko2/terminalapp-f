@@ -25,12 +25,12 @@ export class ViewProfileComponent implements OnInit {
   ngOnInit(): void {
     this.getUserData()
     this.id = localStorage.getItem('id')
-    this.getExchangegraph()
-    this.getEODgraph()
-    this.getIntradaygraph()
-    this.getTickersgraph()
-    this.getCurrenciesgraph()
-    this.getTimezonesgraph()
+    // this.getExchangegraph()
+    // this.getEODgraph()
+    // this.getIntradaygraph()
+    // this.getTickersgraph()
+    // this.getCurrenciesgraph()
+    // this.getTimezonesgraph()
     // if(this.id){
     //   this.getActivePlan()
     // }
