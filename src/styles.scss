@@ -466,3 +466,6 @@ label.profile-label {
 //     height: 2px;
 //     left: 0;
 //   }
+.close:focus {
+    outline: none !important;
+}

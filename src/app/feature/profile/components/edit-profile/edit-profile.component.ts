@@ -129,7 +129,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   userImg(img: any) {
-    let value = './assets/img/profile.jpg';
+    let value = './assets/img/blank-profile.png';
 
     if (img && img.includes('https://')) {
       value = img;
