@@ -123,16 +123,16 @@
               </div>
               <p>
                 <img
-                  src="/assets/img/Mastercard_logo.jpg"
+                  src="/assets/img/visa.png"
                   class="mastercard_img"
-                />Mastercard ending in {{user.cards.last4}}
+                />Visacard ending in {{user.cards.last4}}
               </p>
             </div>
            
           </div>
         
          </div>
-         <div  class="plan_p" *ngIf="!activPlan">
+         <div *ngIf="!activPlan" class="plan_p">
 <p>You haven't subscribed for any plan</p>
          </div>
          <div class="btn_div text-right">
