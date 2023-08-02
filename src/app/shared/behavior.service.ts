@@ -12,7 +12,7 @@ export class BehaviorService {
     constructor(private router: Router) {}
 
     signOut(): void {
-        this.router.navigateByUrl('/auth');
+        this.router.navigateByUrl('/auth/login');
         localStorage.removeItem('credentials')
         this.setUserData(null)
     }
@@ -25,6 +25,7 @@ export class BehaviorService {
         if(data){
            let user = JSON.stringify(value)
            localStorage.setItem('credentials', user)
+          
            this.userData.next(value);
         }else{
             localStorage.removeItem('credentials');

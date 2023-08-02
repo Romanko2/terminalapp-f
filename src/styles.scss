@@ -109,9 +109,9 @@ body{
     // font-family: sans-serif;
     font-style: normal;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 12px;
     color: #FFFFFF;
-    padding: 9px 20px;
+    padding: 8px 20px;
 }
 // .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
 //     color: #fff;
@@ -153,10 +153,10 @@ button.btn.btn-primary:focus {
     color: #fff;
 }
 .last-back:hover {
-    background: #2fc0f9;
+    background: #12334f;
 }
 .last-back:focus {
-    background: #2fc0f9 !important;
+    background: #12334f !important;
     box-shadow: none;
 }
 .listTable{
@@ -359,3 +359,24 @@ select.form-control {
 .right_layout {
     border-left: 1px solid #fff;
 }
+
+
+
+//////////////////////######## Home ########//////////////////////
+
+.div_ul li {
+    color: #fff;
+    display: inline-block;
+    margin: 0px 1rem;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+}
+.div_ul li:hover {
+    color: #80ed99;
+}
+.div_ul ul{
+    margin-bottom: 0px;
+}
+
+//////////////////////######## Home End ########//////////////////////

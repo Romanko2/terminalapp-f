@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { API_CONSTANTS } from "../constants/api.const";
 import { Observable } from "rxjs";
+import { CHANGEPASSWORD } from "../interface/auth-interface";
 
 @Injectable({
     providedIn: 'root'
@@ -11,14 +12,18 @@ import { Observable } from "rxjs";
 export class FrontendService {
     private baseUrl = environment.apiUrl
     access_token: any
-    id:any
+    id: any
     constructor(private http: HttpClient) {
         this.id = localStorage.getItem('id')
         this.access_token = localStorage.getItem('access_token')
         console.log(this.access_token)
     }
 
-    
+    changePassword(body: CHANGEPASSWORD): Observable<any> {
+        let headers = { 'Authorization': 'Bearer ' + this.access_token }
+        return this.http.put<CHANGEPASSWORD>(`${this.baseUrl}${API_CONSTANTS.changePassword_url}`, body, { headers })
+    }
+
 
     //VIEW-PROFILE//
     viewProfile() {
@@ -27,14 +32,25 @@ export class FrontendService {
     }
 
     //EDIT-PROFILE//
-    editProfile(body: any):Observable<any>{
+    editProfile(body: any): Observable<any> {
         let headers = { 'Authorization': 'Bearer ' + this.access_token }
-        return this.http.put<any>(`${this.baseUrl}${API_CONSTANTS.editprofile_url}`, body , {headers})
+        return this.http.put<any>(`${this.baseUrl}${API_CONSTANTS.editprofile_url}`, body, { headers })
     }
 
     //PLANS_LISTING//
-    plansList():Observable<any>{
+    plansList(): Observable<any> {
         let headers = { 'Authorization': 'Bearer ' + this.access_token }
-        return this.http.get<any>(`${this.baseUrl}${API_CONSTANTS.plansList_url}` , {headers})
+        return this.http.get<any>(`${this.baseUrl}${API_CONSTANTS.plansList_url}`, { headers })
+    }
+
+    //ADDCARD//
+    addCard(body:any){
+        let headers = { 'Authorization': 'Bearer ' + this.access_token }
+        return this.http.post<any>(`${this.baseUrl}${API_CONSTANTS.card_url}`, body , { headers })
+    }
+
+    purchasePlan(body:any){
+        let headers = { 'Authorization': 'Bearer ' + this.access_token }
+        return this.http.post<any>(`${this.baseUrl}${API_CONSTANTS.purchaseplan_url}`, body , { headers })
     }
 }

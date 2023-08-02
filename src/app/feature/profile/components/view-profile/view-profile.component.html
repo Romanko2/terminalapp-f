@@ -31,12 +31,9 @@
             </div>
             <div class="col-md-6">
                 <label class="profile-label">Contact Number</label>
-                <p class="text">{{user?.dialCode}} {{user?.mobileNo ? user.mobileNo : 'NA'}}</p>
+                <p class="text">{{user?.mobileNo.dialCode}} {{user?.mobileNo.number ? user.mobileNo.number : 'NA'}}</p>
             </div>
-            <div class="col-md-6">
-                <label class="profile-label">Role</label>
-                <p class="text">{{user?.role}}</p>
-            </div>
+          
             </div>
             </div>
         </div>

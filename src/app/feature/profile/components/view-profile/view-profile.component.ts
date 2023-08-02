@@ -31,7 +31,7 @@ export class ViewProfileComponent implements OnInit {
 
       },
       error:(err:any)=>{
-        this.toastr.error(err.message)
+        // this.toastr.error(err.message)
       }
     })
   }

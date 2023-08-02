@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AppService } from 'src/app/app.service';
 import { BehaviorService } from 'src/app/shared/behavior.service';
 import { AuthService } from 'src/app/utils/services/auth.service';
 import { LocalStorageService } from 'src/app/utils/services/local-storage.service';
@@ -15,15 +16,16 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   public submitted: any = false;
   public showPass: any = false;
-  public userRole:any;
+  public userRole: any;
   remember: any = false;
-
+  rmCheck: any;
+  emailInput: any
   constructor(private fb: FormBuilder,
     private _bs: BehaviorService,
     private authService: AuthService,
     private router: Router,
     private toaster: ToastrService,
-    private localStorageService:LocalStorageService) {
+    private localStorageService: LocalStorageService, private appService: AppService) {
 
     if (_bs.getLocalUser()) {
       router.navigateByUrl('/')
@@ -36,70 +38,72 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let userDetails =  JSON.parse(localStorage.getItem('userSignup:session') as string)
+    let userDetails = JSON.parse(localStorage.getItem('userSignup:session') as string)
     this.userRole = userDetails?.data.role
-    console.log(this.userRole , "role")
-    // if (remember) {
-    //   this.remember = true
-    //   this.loginForm.patchValue(JSON.parse(remember))
-    // }
-  }
-
-  public login() {
-    this.submitted = true
-    this._bs.load(false);    if (this.loginForm.valid) {
-      this.authService.userLogin(this.loginForm.value).subscribe({
-        next: (res:any) => {
-          this.toaster.success('Successfully Logged In')
-          localStorage.setItem('user:session' , JSON.stringify(res))
-          this.authService.currentUserSource.next(true)
-          // this.localStorageService.saveData('id' , res.data.id)
-          // this.authService.currentUserSource.next(res.data.id)
-          // localStorage.setItem('access_token' , res.data.access_token)
-          this.router.navigate(['/feature/profile/view-profile'])
-          this._bs.load(true);
-        },
-        error: (err) => {
-          this.toaster.error(err.message)
-        }
-      })
-    } else {
-      this.loginForm.markAllAsTouched()
+    this.rmCheck = document.getElementById("rememberMe"),
+      this.emailInput = document.getElementById("ema")
+    if (this.remember) {
+      this.remember = true
+      this.loginForm.patchValue(JSON.parse(this.remember))
     }
 
+    const getData = localStorage.getItem('remember')
+    const data = JSON.parse(localStorage.getItem('remember')!)
+    console.log(data)
+    if (getData) {
+      this.loginForm.patchValue({
+        email: data.email,
+        password: data.password
+      })
+    }
   }
+
+
+
   get f() { return this.loginForm.controls; }
 
-  // onSubmit() {
-  //   this.submitted = true;
-  //   if (this.loginForm.invalid) {
-  //     return;
-  //   }
+  onSubmit() {
+    this.submitted = true;
+    if (this.loginForm.invalid) {
+      return;
+    }
 
-  //   this._bs.load(true);
-  //   let value = this.loginForm.value
+    this._bs.load(true);
+    let value = this.loginForm.value
 
-  //   this.appService.add(value, 'admin/signin').subscribe((res: any) => {
-  //     if (res.success) {
-  //       if (this.remember) {
-  //         localStorage.setItem('remember', JSON.stringify(value))
-  //       } else {
-  //         localStorage.removeItem('remember')
-  //       }
-  //       const result = res.data;
-  //       this._bs.load(false);
-  //       this._bs.setUserData(result)
-  //       this.loginForm.reset();
-  //       this.router.navigate(['/']);
+    this.appService.add(value, 'user/signin').subscribe((res: any) => {
 
-  //     } else {
-  //       // this.toastr.error(res.message)
-  //     }
-  //     this._bs.load(false)
-  //   }, error => {
-  //     this._bs.load(false)
-  //   });
+      if (res.success) {
+        this.localStorageService.saveData('id', res.data.id)
+        this.localStorageService.saveData('access_token', res.data.access_token)
+        this.router.navigateByUrl('/')
+        if (this.remember) {
+          localStorage.setItem('remember', JSON.stringify(value))
+        } else {
+          localStorage.removeItem('remember')
+        }
+        const result = res.data;
+        this._bs.load(false);
+        this._bs.setUserData(result)
+        this.loginForm.reset();
+      
+      } else {
+        // this.toastr.error(res.message)
+      }
+      this._bs.load(false)
+    }, error => {
+      this._bs.load(false)
+    });
 
-  // }
+  }
 
+  lsRememberMe() {
+    // if (rmCheck.checked && emailInput.value !== "") {
+    //   localStorage.username = emailInput.value;
+    //   localStorage.checkbox = rmCheck.value;
+    // } else {
+    //   localStorage.username = "";
+    //   localStorage.checkbox = "";
+    // }
+  }
 }

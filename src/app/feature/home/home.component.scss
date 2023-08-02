@@ -1,11 +1,456 @@
 
+.main_page {
+    background: linear-gradient(153deg, #091621 16%, #08151f 62%);
+    // height: 100vh;
+    padding-top: 0px;
+        }
+.layout_1 {
+    max-width: 630px;
+    padding: 8rem 0px;
+}
+.section {
+    padding: 0px 3rem;
+    border-bottom: 2px solid #ffffff36;
+}
+.section_2 {
+    padding: 0px 0rem;
+    border-bottom: 2px solid #ffffff36;
+}
+.section_3 {
+    padding: 0px 3rem;
+    border-bottom: 2px solid #ffffff36;
+}
+.section_4 {
+    padding: 0px 3rem;
+    border-bottom: 2px solid #ffffff36;
+}
+.section_5 {
+    padding: 0px 3rem;
+    border-bottom: 2px solid #ffffff36;
+}
+.section_6 {
+    padding: 0px 3rem;
+    border-bottom: 2px solid #ffffff36;
+}
+.layout_1 h1{
+    font-size: 55px;
+    color: #fff;
+    line-height: 64px;
+    font-weight: 600;
+}
+.layout_3 {
+    padding: 6rem 0px;
+}
 
+span.h1_style {
+    color: #B6FF7D;
+}
 
+.section_1{
+    background-image: url(/assets/img/trading_line.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    max-width: 1000px;
+    // border-bottom: 2px solid #ffffff36;
+}
+a.a_more {
+    color: #B6FF7D;
+    font-size: 26px;
+    font-weight: 600;
+}
+span.span_icon {
+    font-size: 22px;
+}
+.flex_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding: 0px 3rem;
+}
+.flex_header h1 {
+    margin-bottom: 0px;
+    color: #fff;
+    font-size: 18px;
+}
+span.open {
+    color: #6C6C6C;
+}
+a.view_text {
+    display: flex;
+    color: #b6fc7d;
+    font-size: 18px;
+}
+.layout_2 {
+    padding: 6rem 0px;
+}
+.card_box {
+    min-height: 140px;
+    padding: 20px;
+    background-image: url(/assets/img/line_trading.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: bottom;
+}
+.card_layout{
+    padding-right: 25px;
+    padding-bottom: 15px;
+    background: #25293161;
+    box-shadow: 0px 0px 2px 6px #25293161;
+    margin: 0px 12px;
+}
 
+.card_box h1 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.card_box p {
+    color: #fff;
+    font-size: 18px;
+}
+span.color_text {
+    color: #b6fc7d;
+}
+.color_text2{
+    color: #6C6C6C;
+}
 
+.left_section {
+    background: #25293161;
+    padding: 20px;
+    box-shadow: 0px 0px 2px 6px #25293161;
+    margin-right: 3rem;
+}
+.right_section {
+    background: #25293161;
+    padding: 20px;
+    box-shadow: 0px 0px 2px 6px #25293161;
+}
+.data_row {
+    display: flex;
+    color: #fff;
+    justify-content: space-between;
+    font-size: 16px;
+    align-items: end;
+    border-bottom: 1px solid #ffffff36;
+    padding-bottom: 12px;
+    position: relative;
+    margin-bottom: 20px;
+}
+.dtat_text h1,p {
+    margin-bottom: 6px;
+}
+span.color_data {
+    color: #b6fc7d;
+}
+.after_1:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 4px;
+    height: 39px;
+    background: #EF6C41;
+    left: -24px;
+}
 
+.after_2:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 4px;
+    height: 39px;
+    background: #AC7EF4;
+    left: -24px;
+}
 
+.after_3:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 4px;
+    height: 39px;
+    background: #39A2F5;
+    left: -24px;
+}
+.after_3 {
+    border-bottom: 0px;
+}
+.market_row {
+    color: #fff;
+}
+.market_row p{
+    margin-bottom: 0px;
+}
+.market_row {
+    display: flex;
+    align-items: center;
+    padding: 15px 0px;
+}
+.row_line {
+    background: #ffffff36;
+    width: 100%;
+    height: 1px;
+    margin-left: 30px;
+}
+.border_box{
+    border-bottom: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+h1.text_no {
+    margin-bottom: 6px;
+    text-align: right;
+}
+.dtat_text p {
+    font-size: 12px;
+    margin-bottom: 0px;
+}
+.data_row2 h1 {
+    margin-bottom: 0px;
+}
+.data_row2{
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+}
+.data_row2 p {
+    margin-bottom: 0px;
+    font-size: 12px;
+}
+.stock img {
+    width: 100%;
+    height: 450px;
+    object-fit: contain;
+}
+.stock2{
+    padding: 0px 3rem;
+}
+.stock2 h1 {
+    font-size: 60px;
+    color: #fff;
+    font-weight: 600;
+    line-height: 65px;
+    margin-bottom: 0px;
+}
+span.color_s {
+    color: #B6FF7D;
+}
+.stock2 p {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+.layout_4 {
+    padding: 6rem 0px;
+}
+.rate_div h2 {
+    font-size: 40px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.rate_div{
+    display: flex;
+    margin-top: 2.5rem;
+}
+.rate_text2 {
+    padding-left: 3rem;
+    border-right: 0px !important;
+}
+.rate_text{
+    padding-right: 3rem;
+    border-right: 1px solid #fff;
+}
+h1.heading {
+    font-size: 60px;
+    line-height: 65px;
+    color: #fff;
+    font-weight: 600;
+}
+p.text_p {
+    font-size: 16px;
+    color: #fff;
+}
+.right_linerow {
+    max-width: 278px;
+    margin-left: auto;
+}
+.layout_5 {
+    padding: 6rem 2rem;
+}
+    .grow_box{
+        background: #25293161;
+        padding: 20px;
+        min-height: 185px;
+        color: #fff;
+        text-align: center;
+        border-radius: 25px;
+        margin-top: 3rem;
+    }
+    .grow_box h1 {
+        font-size: 22px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+    .grow_box img {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 1rem;
+    }
 
+    ////////////////////############ FAQ ############//////////////////
+
+    .faq-section {
+        margin-top: 2rem;
+    }
+    .faq-title h2 {
+      position: relative;
+      margin-bottom: 45px;
+      display: inline-block;
+      font-weight: 600;
+      line-height: 1;
+    }
+    .faq-title h2::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        width: 60px;
+        height: 2px;
+        background: #E91E63;
+        bottom: -25px;
+        margin-left: -30px;
+    }
+    .faq-title p {
+      padding: 0 190px;
+      margin-bottom: 10px;
+    }
+    
+    .faq {
+    //   box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06);
+      border-radius: 4px;
+    }
+    .row_faq {
+        display: flex;
+        align-items: center;
+    }
+    .row_faq i {
+        font-size: 22px;
+        padding-right: 15px;
+    }
+    
+    .faq .card {
+        border: none;
+        background: none;
+        border-bottom: 2px solid #ffffff14;
+        border-radius: 0px;
+    }
+    .card-header h5 {
+        margin-bottom: 0px;
+    }
+    
+    .faq .card .card-header {
+      padding: 0px;
+      border: none;
+      background: none;
+      -webkit-transition: all 0.3s ease 0s;
+      -moz-transition: all 0.3s ease 0s;
+      -o-transition: all 0.3s ease 0s;
+      transition: all 0.3s ease 0s;
+    }
+    
+    .faq .card .card-header:hover {
+        background: rgb(47 192 249 / 8%);
+        padding-left: 10px;
+    }
+    .faq .card .card-header .faq-title {
+      width: 100%;
+      text-align: left;
+      padding: 0px;
+      padding-left: 30px;
+      padding-right: 30px;
+      font-weight: 400;
+      font-size: 18px;
+      letter-spacing: 1px;
+      color: #fff;
+      text-decoration: none !important;
+      -webkit-transition: all 0.3s ease 0s;
+      -moz-transition: all 0.3s ease 0s;
+      -o-transition: all 0.3s ease 0s;
+      transition: all 0.3s ease 0s;
+      cursor: pointer;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    
+    .faq .card .card-header .faq-title .badge {
+        display: inline-block;
+        /* width: 20px; */
+        /* height: 20px; */
+        line-height: 14px;
+        /* float: left; */
+        /* border-radius: 100px; */
+        /* text-align: center; */
+        /* background: #E91E63; */
+        color: #fff;
+        font-size: 18px;
+        margin-right: 6px;
+    }
+    
+    .faq .card .card-body {
+      padding: 30px;
+      padding-left: 35px;
+      padding-bottom: 16px;
+      font-weight: 400;
+      font-size: 16px;
+      color: #6F8BA4;
+      line-height: 28px;
+      letter-spacing: 1px;
+      border-top: 1px solid #F3F8FF;
+    }
+    
+    .faq .card .card-body p {
+      margin-bottom: 14px;
+    }
+    
+    @media (max-width: 991px) {
+      .faq {
+        margin-bottom: 30px;
+      }
+      .faq .card .card-header .faq-title {
+        line-height: 26px;
+        margin-top: 10px;
+      }
+    }
+  ////////////////////############ FAQ ############//////////////////
+
+  .faq_text {
+    color: #fff;
+    padding-right: 4rem;
+    margin-top: 3rem;
+}
+.faq_text h1 {
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 60px;
+}
+.faq_text p {
+ font-size: 16px;
+}
+.faq_img {
+    max-width: 430px;
+    margin: auto;
+}
+.faq_img img {
+    width: 100%;
+    height: 520px;
+}
+.layout_6 {
+    padding: 6rem 0px;
+}
+.main_row {
+    border-left: 2px solid #ffffff36;
+}
 
 
 
