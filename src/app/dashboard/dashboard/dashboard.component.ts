@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorService } from 'src/app/shared/behavior.service';
+import { AuthService } from 'src/app/utils/services/auth.service';
+import { FrontendService } from 'src/app/utils/services/frontend.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +11,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+ ngOnInit(): void {
+   
+ }
 }

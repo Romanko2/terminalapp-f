@@ -17,19 +17,19 @@ export class CardDetailsComponent implements OnInit {
   cardsList: any[] = []
   user_id: any;
   card_id: any;
-  cardId:any;
+  cardId: any;
   id: any;
   submitted: any;
-  selectedPlan:any;
+  selectedPlan: any;
   selectedMonth!: string;
   selectedDate!: number;
-  selectedPlanprice:number=0
-public cardloader:boolean= false;
+  selectedPlanprice: number = 0
+  public cardloader: boolean = false;
   dates: number[] = Array.from({ length: 31 }, (_, i) => i + 1);
 
   years: number[] = [];
   selectedCard: any;
-  constructor(private fb: FormBuilder, private ls:LocalStorageService ,private fs: FrontendService, private _activatedroute: ActivatedRoute, private toastr: ToastrService , private router:Router , private bs:BehaviorService) {
+  constructor(private fb: FormBuilder, private ls: LocalStorageService, private fs: FrontendService, private _activatedroute: ActivatedRoute, private toastr: ToastrService, private router: Router, private bs: BehaviorService) {
     const currentYear = new Date().getFullYear();
     const endYear = currentYear + 100;
 
@@ -66,7 +66,7 @@ public cardloader:boolean= false;
       this.bs.load(true)
       this.fs.addCard(this.cardForm.value).subscribe({
         next: (res) => {
-         
+
           this.card_id = res.data.default_source
           console.log(res, "res")
           this.bs.load(false)
@@ -76,10 +76,10 @@ public cardloader:boolean= false;
           this.submitted = false
           // if (res) {
           //   this.purchasePlan()
-            
+
           // }
           this.toastr.success(res.message)
-         
+
         },
         error: (err) => {
           // this.toastr.error(err)
@@ -95,18 +95,18 @@ public cardloader:boolean= false;
     this.fs.getCards().subscribe({
       next: (res) => {
         this.cardsList = res.data
-        this.selectedCard=this.cardsList.find((card:any)=>{
-          return card.isDefault==true
+        this.selectedCard = this.cardsList.find((card: any) => {
+          return card.isDefault == true
         })
-        if(this.selectedCard){
+        if (this.selectedCard) {
           this.card_id = this.selectedCard.card_id
         }
-        console.log(this.selectedCard,"this.selectedCard")
+        console.log(this.selectedCard, "this.selectedCard")
         this.bs.load(false)
       }
     })
   }
-  isDefault(i:any) {
+  isDefault(i: any) {
     if (this.cardsList[i].isDefault) return 'checked';
     else return ''
   }
@@ -117,84 +117,84 @@ public cardloader:boolean= false;
       card_id: this.card_id,
       id: this.id
     }
-  
-      this.bs.load(true)
-      this.fs.purchasePlan(body).subscribe({
-        next: (res) => {
-          this.bs.load(false)
-          this.getPrimaryCard()
-          console.log(res)
-          this.toastr.success(res.message)
-          this.cardForm.reset();
-          this.submitted = false
-          this.router.navigate(['/feature/plans'])
-          let isPurchased:boolean = true
-          this.ls.saveData("isPurchased" , isPurchased)
-          this.fs.isPurchased$.next(isPurchased)
-        },
-      })
-    
-   
+
+    this.bs.load(true)
+    this.fs.purchasePlan(body).subscribe({
+      next: (res) => {
+        this.bs.load(false)
+        this.getPrimaryCard()
+        console.log(res)
+        this.toastr.success(res.message)
+        this.cardForm.reset();
+        this.submitted = false
+        this.router.navigate(['/feature/plans'])
+        let isPurchased: boolean = true
+        this.ls.saveData("isPurchased", isPurchased)
+        this.fs.isPurchased$.next(isPurchased)
+      },
+    })
+
+
   }
-  cloaseModal(){
+  cloaseModal() {
     document.getElementById('closeModal')?.click()
     this.submitted = false;
   }
 
 
-  markDefault(index:any,$event:any){
-    this.cardloader=true
+  markDefault(index: any, $event: any) {
+    this.cardloader = true
     // this.selectedCard=this.cardsList[index]
     // this.card_id = this.cardsList[index].card_id
     this.cardloader = false
-    let data={
-      card_id:this.cardsList[index].card_id
+    let data = {
+      card_id: this.cardsList[index].card_id
     }
-    this.fs.primaryCard(data).subscribe((res:any) => {
+    this.fs.primaryCard(data).subscribe((res: any) => {
       if (res.success) {
         this.getCards()
       } else {
         $event.stopPropagation();
       }
       setTimeout(() => {
-        this.cardloader=false
+        this.cardloader = false
       }, 500);
-      
-    },error=>{
-      this.cardloader=false
+
+    }, error => {
+      this.cardloader = false
       $event.stopPropagation();
       return false
-      
+
     })
-  
+
   }
 
 
-  getPlanDetail(){
+  getPlanDetail() {
     this.fs.getPlanById(this.id).subscribe({
-      next:(res:any)=>{
+      next: (res: any) => {
         this.selectedPlan = res.data
-        this.selectedPlanprice=res.data.amount
+        this.selectedPlanprice = res.data.amount
       }
     })
   }
 
 
-  delete(card_id:any){
+  delete(card_id: any) {
     this.fs.deleteCards(card_id).subscribe({
-      next:(res:any)=>{
+      next: (res: any) => {
         this.toastr.success(res.message)
         this.getCards()
-      } 
+      }
     })
   }
 
-  getPrimaryCard(){
+  getPrimaryCard() {
     const body = {
-      card_id:this.card_id
+      card_id: this.card_id
     }
     this.fs.primaryCard(body).subscribe({
-      next:(res)=>{
+      next: (res) => {
         console.log(res)
         this.getCards()
       }

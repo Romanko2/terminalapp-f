@@ -73,20 +73,7 @@ export class ViewProfileComponent implements OnInit {
       }
     })
   }
-  getEODgraph(){
-    let data={
-      symbol:'TSLA',
-      limit:10,
-      offset:10
-    }
-    this.frontendService.getgraph('End_of_Day',data).subscribe({
-      next:(res:any)=>{
-      },
-      error:(err:any)=>{
-        // this.toastr.error(err.message)
-      }
-    })
-  }
+
   getIntradaygraph(){
     let data={
       symbol:'AAPL',
