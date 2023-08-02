@@ -1,5 +1,6 @@
 <div class="card_main">
   <div class="container">
+    <div class="card_background">
     <div class="card_laysout">
       <div class="catd_section">
         
@@ -14,10 +15,12 @@
           </button>
         </div>
         <h1>Add a payment method usign our secure payment system.</h1>
-
-        <div class="row">
+<div class="row">
+  <div class="col-md-6">
+         <div class="card_height">
+        <div class="row mx-0">
           <div
-            class="col-md-3 mb-3 position-relative"
+            class="col-md-6 mb-3 position-relative"
             *ngFor="let key of cardsList; let i = index"
           >
             <div class="form-check">
@@ -203,18 +206,21 @@
             </div>
           </div>
           </div>
+          </div>
+          </div>
+          <div class="col-md-6">
           <div class="layout_card">
             <div class="row">
               <!-- <div class="col-md-6 mb-3">
     <label>Plan Price(s)</label>
       <input type="text" class="input card" placeholder="" [(ngModel)]="selectedPlan.price">
     </div> -->
-              <div class="col-md-12 mb-3 px-0">
+              <div class="col-md-6 mb-3 px-0">
                 <label>Plan Price(s)</label>
                 <input
                   type="text"
                   disabled
-                  class="input card"
+                  class="input card input-card"
                   placeholder=""
                   [(ngModel)]="selectedPlanprice"
                   readonly
@@ -230,15 +236,20 @@
                 <p class="mb-0">Selected Card</p>
                 <p class="mb-0">xxxx xxxx xxxx {{ this.selectedCard.last4 }}</p>
               </div>
-              <div class="col-md-12 px-0" *ngIf="selectedCard">
-                <button class="btn btn-primary mt-3" (click)="purchasePlan()" >
-                  Buy Now 
-                </button>
-              </div>
+            
             </div>
+           
+            </div>
+          
           </div>
-      
+          </div>
+          <div class="col-md-12 text-right px-0" *ngIf="selectedCard">
+            <button class="btn btn-primary mt-3" (click)="purchasePlan()" >
+              Pay Now 
+            </button>
+        </div>
       </div>
+    </div>
     </div>
 
     <!-- Modal -->

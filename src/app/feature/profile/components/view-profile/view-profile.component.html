@@ -68,10 +68,11 @@
     <div class="tab-pane fade" id="pills-details" role="tabpanel" aria-labelledby="pills-details-tab">
       <!-- <ng-container *ngIf="userDetails.activPlan == true"> -->
          <ng-container>
-           <div class="row">
-             <div class="col-md-10">
-        <div class="plan_details">
           <h1 class="heading_plan">Plan details</h1>
+           <div class="row align-items-center">
+             <div class="col-md-7">
+        <div class="plan_details">
+        
          <div *ngIf="activPlan">
           <p>Manage of change your plan. View our <a href class="a_tag"routerLink="/feature/terms-and-conditions">terms of service</a> and <a href="#"class="a_tag"routerLink="/feature/privacy-policy">privacy policy</a>.</p>
           <p></p>
@@ -116,7 +117,7 @@
               </div>
               <p>Monthly for ${{ activePlanDetails.amount }} USD.</p>
             </div> -->
-            <div class="plan_part">
+            <div class="plan_part2">
               <div class="plan_flex">
                 <!-- <h1>Payment method</h1> -->
                 <!-- <a href="#" class="a_tag">Change payment method</a> -->
@@ -146,6 +147,11 @@
             {{activPlan ?'Change plan':"Purchase Plan"}}
           </button>
         </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="card_images">
+          <img src="assets/img/student-login.svg">
         </div>
       </div>
       </div>

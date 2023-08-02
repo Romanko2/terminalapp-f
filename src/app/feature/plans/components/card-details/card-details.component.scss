@@ -431,8 +431,36 @@ h1.heading_card:after {
     border-left: 2px solid #ffffff36;
     padding: 30px;
     height: calc(100vh - 100px);
+    background: #091621f2;
 }
 .card_content {
     border-radius: 20px;
     border: 2px solid #2fc0f9;
+}
+.card_background {
+    background: url("/assets/img/payment_background.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: calc(100vh - 100px);
+}
+.input-card{
+    background: #fff0;
+    border: 1px solid #2fc0f9;
+    color: #fff;
+}
+::placeholder.input-card { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder.input-card { /* Internet Explorer 10-11 */
+    color: #fff;
+  }
+  
+  ::-ms-input-placeholder.input-card { /* Microsoft Edge */
+    color: #fff;
+  }
+  .card_height {
+    max-height: 325px;
+    overflow: auto;
 }
