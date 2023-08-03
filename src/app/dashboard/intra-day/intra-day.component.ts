@@ -3,363 +3,204 @@ import * as am5 from '@amcharts/amcharts5';
 import * as am5stock from '@amcharts/amcharts5/stock';
 import * as am5xy from '@amcharts/amcharts5/xy';
 import { FormControl } from '@angular/forms';
-
+import { DatePipe } from '@angular/common';
 import { FrontendService } from 'src/app/utils/services/frontend.service';
+
+import { Chart } from 'chart.js/auto'
+
 @Component({
   selector: 'app-intra-day',
   templateUrl: './intra-day.component.html',
   styleUrls: ['./intra-day.component.scss']
 })
 export class IntraDayComponent implements OnInit {
-  valueSeries: any;
-  alarmSeries: any;
-  chart: any;
-  root: any;
-  valueyAxis: any;
-  dateAxis: any;
-  alarmAxis: any;
-  valueLengend: any;
-  start!: any;
-  end!: any;
-  open = '(';
-  close = ')';
-  allfruits = [];
-  data:any
-  //fruits = ['apple','banna','orange','kiwi'];
-  ngOnInit() {
-    const count = {
-      value: 10,
-      urgency: 1,
-    };
-    console.log('count value ' + count.value);
-    this.createGraph();
-    //this.chart.appear(1000,100);
-  }
-  createGraph() {
-    this.root = am5.Root.new('chartdiv');
-    //this.root.numberFormatter.set('durationFormat', 'hh:mm a');
-    this.root.durationFormatter.setAll({
-      baseUnit: 'second',
-      durationFormat: 'mm:ss',
-      durationFields: ['valueY'],
-    });
-    // this.root.setThemes([am5themes_Animated.new(this.root)]);
-    this.chart = this.root.container.children.push(
-      am5xy.XYChart.new(this.root, {
-        focusable: true,
-        panX: true,
-        panY: true,
-        wheelX: 'panX',
-        wheelY: 'zoomX',
-        // layout: this.root.verticalLayout,
-        // pinchZoomX: true,
-      })
-    );
 
-    // this.chart.rightAxesContainer.set("layout",this.root.horizontalLayout);
-    this.chart.get('colors').set('step', 3);
-    // Alarm
-    const alarmAxisRenderer = am5xy.AxisRendererY.new(this.root, {
-      opposite: false,
-      pan: 'zoom',
-    });
-    alarmAxisRenderer.labels.template.setAll({
-      centerY: am5.percent(100),
-      maxPosition: 0.98,
-    });
-    this.alarmAxis = this.chart.yAxes.push(
-      am5xy.ValueAxis.new(this.root, {
-        renderer: alarmAxisRenderer,
-        height: am5.percent(25),
-        dy: 300,
-        layer: 1,
-      })
-    );
-    this.alarmAxis.axisHeader.set('paddingTop', 0);
-    this.alarmAxis.axisHeader.children.push(
-      am5.Label.new(this.root, {
-        text: 'Alarms',
-        fontWeight: 'bold',
-        paddingTop: 5,
-        paddingBottom: 5,
-        numberFormat: '#,###.00',
-      })
-    );
-    // // lines
-    // const valueAxisRenderer = am5xy.AxisRendererY.new(this.root, {
-    //   opposite: true,
-    // });
-    // valueAxisRenderer.labels.template.setAll({
-    //   centerY: am5.percent(100),
-    //   maxPosition: 0.98,
-    // });
-    // this.valueAxis = this.chart.yAxes.push(
-    //   am5xy.ValueAxis.new(this.root, {
-    //     renderer: valueAxisRenderer,
-    //     height: am5.percent(100),
-    //     maxDeviation: 1,
-    //   })
-    // );
-
-    const dateAxisRenderer = am5xy.AxisRendererX.new(this.root, {
-      pan: 'zoom',
-      minGridDistance: 30,
-    });
-    dateAxisRenderer.labels.template.setAll({
-      rotation: -90,
-      centerY: am5.p50,
-      centerX: am5.p100,
-      paddingRight: 15,
-      dy: 30,
-    });
-    this.dateAxis = this.chart.xAxes.push(
-      am5xy.DateAxis.new(this.root, {
-        groupData: true,
-        maxDeviation: 0.5,
-        tooltipDateFormat: 'hh:mm a',
-        baseInterval: {
-          timeUnit: 'second',
-          count: 1,
-        },
-        renderer: dateAxisRenderer,
-      })
-    );
-    this.dateAxis.get('dateFormats')['minute'] = 'hh:mm a';
-    this.dateAxis.set('tooltip', am5.Tooltip.new(this.root, {}));
-    // this.createLineSeries('Battery Current', 'current', true);
-    this.createLineSeries('Battery Voltage', 'voltage', false);
-    this.createLineSeries('Battery Temperature', 'temp', true);
-
-    this.createLineSeries('Battery Current', 'current', false);
-    this.createLineSeries('Alarm', 'alarm', true);
-    this.createAlarmSeries();
-
-    this.createLegend();
-    this.chart.appear(1000, 100);
-    console.log(this.chart);
-    //this.chart.rightAxesContainer.set('layout', this.root.verticalLayout);
-
-    // this.chart.set('cursor', am5xy.XYCursor.new(this.root, {}));
-
-    // const scrollbar = this.chart.set(
-    //   'scrollbarX',
-    //   am5xy.XYChartScrollbar.new(this.root, {
-    //     orientation: 'horizontal',
-    //     height: 20,
-    //   })
-    // );
+  perDayGraphData:any[]=[]
+  perdayChart: any = []
+  constructor(private fs: FrontendService, private datePipe: DatePipe) {
+   
   }
 
-  createLineSeries(name: string, field: string, opposite: boolean) {
-    // this.chart.rightAxesContainer.set("layout",this.root.horizontalLayout);
-    // yAxes
-    let yRenderer = am5xy.AxisRendererY.new(this.root, {
-      opposite: opposite,
-      x: am5.percent(10),
-      centerX: am5.percent(10),
-    });
-    yRenderer.labels.template.setAll({
-      centerY: am5.percent(100),
-      maxPosition: 0.98,
-    });
-    let valueyAxis = this.chart.yAxes.push(
-      am5xy.ValueAxis.new(this.root, {
-        maxDeviation: 1,
-        renderer: yRenderer,
-        height: am5.percent(70),
-        //x: am5.percent(10),
-        //centerX: am5.percent(100),
-      })
-    );
-    if (this.chart.yAxes.indexOf(valueyAxis) > 0) {
-      valueyAxis.set('syncWithAxis', this.chart.yAxes.getIndex(0));
+
+  ngOnInit(): void {
+    this.getIntradaygraph()
+  }
+
+  getIntradaygraph() {
+    let data = {
+      symbol: 'AAPL',
+      limit: 10,
+      offset: 10
     }
-    let valueSeries = this.chart.series.push(
-      am5xy.LineSeries.new(this.root, {
-        name: name,
-        xAxis: this.dateAxis,
-        yAxis: valueyAxis,
-        valueYField: field,
-        valueXField: 'date',
-        legendValueText: '{valueY}',
-        tooltip: am5.Tooltip.new(this.root, {
-          pointerOrientation: 'horizontal',
-          labelText: '{name}: {valueY}',
-        }),
-      })
-    );
+    this.fs.getgraph('Intraday', data).subscribe({
+      next: (res: any) => {
+        this.perDayGraphData = res.data.data
+        const perDayGraphData = res.data.data
+        let tDate: any;
+        let datess: any[] = []
+        let highs: any[] = []
+        let closee: any[] = []
+        let loww: any[] = []
+        perDayGraphData.forEach((res: any) => {
+          datess.push(res.date)
+          highs.push(res.high)
+          closee.push(res.close)
+          loww.push(res.low)
 
-    valueSeries.strokes.template.setAll({ strokeWidth: 1 });
+        })
+        this.perDayGraphData.forEach((x: any) => {
+          const dateTime = x.date.split('T');
+          x.dateOnly = dateTime[0];
+          let newDate = x.dateOnly
+          console.log(newDate)
+          var ctx = document.getElementById('perDay') as HTMLCanvasElement
+          this.perdayChart = new Chart(ctx, {
+            type: 'line', //this denotes tha type of chart
+            data: {
+              labels: datess,
+              datasets: [
+                {
+                  label: 'High Prices',
+                  data: highs,
+                  borderColor: 'rgba(255, 99, 132, 1)',
+                  backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                  borderWidth: 2,
+                  fill: true
+                },
+                {
+                  label: 'Low Prices',
+                  data: loww,
+                  borderColor: 'rgba(54, 162, 235, 1)',
+                  backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                  borderWidth: 2,
+                  fill: true
+                }
+              ]
+            },
+            options: this.stockChartOptions
+          });
 
-    yRenderer.grid.template.set('strokeOpacity', 0.05);
-    yRenderer.labels.template.set('fill', valueSeries.get('fill'));
-    yRenderer.setAll({
-      stroke: valueSeries.get('fill'),
-      strokeOpacity: 1,
-      opacity: 1,
-    });
-    const cursor = this.chart.set(
-      'cursor',
-      am5xy.XYCursor.new(this.root, {
-        xAxis: this.dateAxis,
-        behavior: 'none',
-        // behavior: 'zoomX',
-        // data: data,
-      })
-    );
-    cursor.lineY.set('visible', false);
-    // add scrollbar
-    // this.chart.set(
-    //   'scrollbarX',
-    //   am5.Scrollbar.new(this.root, {
-    //     orientation: 'horizontal',
-    //     height: 20,
-    //   })
-    // );
+        })
 
-    var scrollbarX = am5.Scrollbar.new(this.root, {
-      orientation: 'horizontal',
-      height: 20,
-    });
+        // console.log(dates)
+      },
+      error: (err: any) => {
 
-    this.chart.set('scrollbarX', scrollbarX);
-    scrollbarX.events.on('dragstart', () => {
-      console.log('drag');
-    });
-    valueSeries.data.setAll(this.data);
-  }
-
-  createAlarmSeries() {
-    const firstColor = this.chart.get('colors').getIndex(0);
-    this.alarmSeries = this.chart.series.push(
-      am5xy.ColumnSeries.new(this.root, {
-        name: 'Alarms',
-        fill: firstColor,
-        stroke: firstColor,
-        valueYField: 'alarm',
-        valueXField: 'date',
-        valueYGrouped: 'sum',
-        xAxis: this.dateAxis,
-        yAxis: this.alarmAxis,
-        legendValueText: '{valueY}',
-        // tooltip: am5.Tooltip.new(this.root, {
-        //   labelText: '[bold]{valueY}',
-        // }),
-      })
-    );
-    // Custom tooltip
-    const tooltip = this.alarmSeries.set(
-      'tooltip',
-      am5.Tooltip.new(this.root, {
-        getFillFromSprite: false,
-        getStrokeFromSprite: true,
-        autoTextColor: false,
-        pointerOrientation: 'vertical',
-      })
-    );
-    tooltip.get('background').setAll({
-      fill: am5.color('#ffffff'),
-    });
-    let test = [];
-    tooltip.label.setAll({
-      //text: `[#b30000]{valueY}: {string.length ? 'true' : 'false'}`,
-      //text: `{fruits}[#b30000]${this.open} {fruits.length}${this.close}:`,
-      fill: am5.color(0x000000),
-      keepTargetHover: true,
-    });
-    tooltip.label.adapters.add('text', (text:any, target:any, key:any) => {
-      //console.log(target.dataItem);
-      let allFruits = [];
-      if (target.dataItem && target.dataItem.dataContext.fruits) {
-        this.allfruits = target.dataItem.dataContext.fruits;
-        text = `[#b30000]${this.open} ${this.allfruits.length}${this.close
-          }: ${this.allfruits.slice(0, 2)}`;
-        console.log(text);
-        return text;
       }
-      return text;
-    });
-    this.alarmSeries.data.setAll(this.data);
+    })
+  }
 
-    // Add cursor
-    const cursor = this.chart.set(
-      'cursor',
-      am5xy.XYCursor.new(this.root, {
-        xAxis: this.dateAxis,
-        data: this.data,
-        behavior: 'zoomX',
-      })
-    );
-    cursor.lineY.set('visible', false);
-    // add scrollbar
-    this.chart.set(
-      'scrollbarX',
-      am5.Scrollbar.new(this.root, {
-        orientation: 'horizontal',
-        //height: 20,
-      })
-    );
-    cursor.events.on('selectstarted', () => {
-      this.start = this.alarmSeries.get('tooltip').dataItem.dataContext.date;
-      console.log('start ' + this.start);
-    });
-    cursor.events.on('cursorhidden', () => {
-      //console.log('out');
-    });
-    this.chart.zoomOutButton.events.on('click', () => {
-      this.start = this.data[0].date;
-      this.end = this.data[this.data.length - 1].date;
+  stockChartOptions = {
+    responsive: true,
+    maintainAspectRation: false,
 
-      console.log('the start ' + this.start);
-      console.log('the end ' + this.end);
-    });
-
-    cursor.events.on('selectended', () => {
-      this.end = this.alarmSeries.get('tooltip').dataItem.dataContext.date;
-      console.log('end ' + this.end);
-    });
-    this.alarmSeries.columns.template.adapters.add('fill', (fill:any, target:any) => {
-      if (target.dataItem.get('valueY') < 10) {
-        return am5.color('#b30000');
-      } else {
-        return am5.color('#ffa500');
+    scales: {
+      x: {
+        grid: {
+          display: false
+        },
+      },
+      y: {
+        grid: {
+          display: false
+        },
+        beginAtZero: false
       }
-    });
+    }
   }
-  test(str: string) {
-    console.log(str);
-    return str.slice(0, 2);
-  }
-  createLegend() {
-    // Add Legend
-    this.valueLengend = this.chart.bottomAxesContainer.children.push(
-      am5.Legend.new(this.root, {
-        paddingLeft: 10,
-        marginTop: 40,
-        centerX: am5.percent(10),
-        x: am5.percent(10),
-        useDefaultMarker: true,
-        layout: am5.GridLayout.new(this.root, {
-          maxColumns: 4,
-          fixedWidthGrid: true,
-        }),
-      })
-    );
-    this.valueLengend.markers.template.setAll({
-      width: 24,
-      height: 24,
-    });
+  // data = [
 
-    // It's is important to set legend data after all the events are set on template, otherwise events won't be copied
-    this.valueLengend.data.setAll(this.chart.series.values);
-    //this.valueLengend.data.setAll([this.alarmSeries]);
+  // ];
+  // lastData:any
+  // constructor(private fs: FrontendService) {
 
-    // this.valueLengend = this.valueAxis.axisHeader.children.push(
-    //   am5.Legend.new(this.root, {
-    //     useDefaultMarker: true,
-    //   })
-    // );
-    // this.valueLengend.data.setAll([this.valueSeries]);
-  }
+  // }
+
+  // ngOnInit(): void {
+  //   let dataa = {
+  //     symbol: 'TSLA',
+  //     limit: 10,
+  //     offset: 10
+  //   }
+  //   this.fs.getgraph('Intraday', dataa).subscribe({
+  //     next: (res: any) => {
+  //       this.data = res.data.data
+  //       let root = am5.Root.new('intra');
+  //       let data = this.data.map((res: any) => {
+  //         return { ...res, Date: new Date(res.date).getTime() };
+  //       });
+
+  //       root._logo?.dispose();
+  //       let stockChart = root.container.children.push(
+  //         am5stock.StockChart.new(root, {})
+  //       );
+  //       let mainPanel = stockChart.panels.push(
+  //         am5stock.StockPanel.new(root, {
+  //           panX: true,
+  //           panY: true,
+  //         })
+  //       );
+  //       let valueAxis = mainPanel.yAxes.push(
+  //         am5xy.ValueAxis.new(root, {
+  //           renderer: am5xy.AxisRendererY.new(root, {}),
+  //         })
+  //       );
+  //       let dateAxis = mainPanel.xAxes.push(
+  //         am5xy.GaplessDateAxis.new(root, {
+  //           baseInterval: {
+  //             timeUnit: 'day',
+  //             count: 1,
+  //           },
+  //           groupData: true,
+  //           renderer: am5xy.AxisRendererX.new(root, {}),
+  //         })
+  //       );
+
+  //       let valueSeries = mainPanel.series.push(
+  //         am5xy.LineSeries.new(root, {
+  //           name: 'last',
+  //           valueXField: 'Date',
+  //           valueYField: 'last',
+  //           xAxis: dateAxis,
+  //           yAxis: valueAxis,
+  //           legendValueText: "{valueY}"
+  //         })
+  //       );
+
+  //       // let valueSeries2 = mainPanel.series.push(
+  //       //   am5xy.LineSeries.new(root, {
+  //       //     name: 'Low',
+  //       //     valueXField: 'Date',
+  //       //     valueYField: 'last',
+  //       //     xAxis: dateAxis,
+  //       //     yAxis: valueAxis,
+  //       //     legendValueText: "{valueY}"
+  //       //   })
+  //       // );
+  //   // Add the tooltip to the series
+          
+  //       let tooltip = am5.Tooltip.new(root, {
+  //         keepTargetHover: true,
+  //         getStrokeFromSprite: true,
+  //         pointerOrientation: "horizontal",
+  //         labelText: "[bold]{name}[/]\n{valueX.formatDate()}: {valueY}",
+  //       });
+
+  //       // valueSeries2.strokes.template.setAll({
+  //       //   strokeWidth: 2
+  //       // });
+
+  //       valueSeries.set("tooltip", tooltip);
+  //       // valueSeries2.set("tooltip", tooltip);
+
+  //       valueSeries.data.setAll(data);
+  //       // valueSeries2.data.setAll(data);
+  //       stockChart.set('stockSeries', valueSeries);
+  //       // stockChart.set('stockSeries', valueSeries2);
+
+
+  //     }
+  //   })
+  // }
 
 }
