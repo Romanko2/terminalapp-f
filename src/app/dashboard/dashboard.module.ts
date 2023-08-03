@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FeatureModule } from '../feature/feature.module';
 import { StockChartComponent } from './stock-chart/stock-chart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IntraDayComponent } from './intra-day/intra-day.component';
 
 
 
@@ -13,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     DashboardComponent,
     StockChartComponent,
+    IntraDayComponent,
 
   ],
   imports: [

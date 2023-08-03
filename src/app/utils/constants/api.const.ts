@@ -10,5 +10,6 @@ export const API_CONSTANTS = {
     card_url : "add/card",
     purchaseplan_url:"purchaseplan",
     purchasePlandetails_url:"purchase/plan?id=",
-    activePlan_url:"activePlan?user_id="
+    activePlan_url:"activePlan?user_id=",
+    autologin_url:"auto/login?id="
 }
