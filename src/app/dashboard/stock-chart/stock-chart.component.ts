@@ -4,6 +4,7 @@ import * as am5stock from '@amcharts/amcharts5/stock';
 import * as am5xy from '@amcharts/amcharts5/xy';
 import { FormControl } from '@angular/forms';
 import { FrontendService } from 'src/app/utils/services/frontend.service';
+import { BehaviorService } from 'src/app/shared/behavior.service';
 
 @Component({
   selector: 'app-stock-chart',
@@ -17,7 +18,7 @@ export class StockChartComponent implements OnInit {
 
   ];
 
-  constructor(private fs: FrontendService) {
+  constructor(private fs: FrontendService,private bs:BehaviorService) {
 
   }
 
@@ -27,8 +28,10 @@ export class StockChartComponent implements OnInit {
       limit: 10,
       offset: 10
     }
+    this.bs.load(true)
     this.fs.getgraph('End_of_Day', dataa).subscribe({
       next: (res: any) => {
+        this.bs.load(false)
         this.data = res.data.data
         console.log(this.data)
         let root = am5.Root.new('chartdiv');

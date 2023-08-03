@@ -7,6 +7,7 @@ import { DatePipe } from '@angular/common';
 import { FrontendService } from 'src/app/utils/services/frontend.service';
 
 import { Chart } from 'chart.js/auto'
+import { BehaviorService } from 'src/app/shared/behavior.service';
 
 @Component({
   selector: 'app-intra-day',
@@ -17,7 +18,7 @@ export class IntraDayComponent implements OnInit {
 
   perDayGraphData:any[]=[]
   perdayChart: any = []
-  constructor(private fs: FrontendService, private datePipe: DatePipe) {
+  constructor(private fs: FrontendService, private datePipe: DatePipe , private bs:BehaviorService) {
    
   }
 
@@ -32,8 +33,10 @@ export class IntraDayComponent implements OnInit {
       limit: 10,
       offset: 10
     }
+    this.bs.load(true)
     this.fs.getgraph('Intraday', data).subscribe({
       next: (res: any) => {
+        this.bs.load(false)
         this.perDayGraphData = res.data.data
         const perDayGraphData = res.data.data
         let tDate: any;
