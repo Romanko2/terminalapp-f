@@ -491,3 +491,38 @@ label.profile-label {
     background: #555;
     border-radius: 30px;
   }
+
+
+
+  /////## Chart css  ///////
+
+  .chart_design {
+    max-width:100% !important;
+    height: 440px !important;
+  }
+  .chart_layout {
+    padding: 20px;
+    box-shadow: 0px 0px 20px -10px #000;
+    max-width: 100%;
+    border-radius: 20px;
+    border: 2px solid #2fc0f9;
+}
+.main_chart {
+    padding: 1rem 0px;
+  }
+  .select_chart select {
+    border: 1px solid #bebebe;
+    padding: 8px 4px;
+    border-radius: 4px;
+    background: #fff;
+    color: #454545;
+  }
+  .select_chart select:focus{
+   outline: none;
+  }
+  .select_chart {
+    text-align: right;
+    margin-bottom: 1rem;
+  }
+
+    /////## Chart css end  ///////

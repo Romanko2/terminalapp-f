@@ -1,15 +1,19 @@
 <app-feature-header></app-feature-header>
-<div class="container-fluid ">
+<div class="container">
+  <div class="main_chart">
+  <div class="select_chart">
   <select [formControl]="timeStamp" width="40%">
     <option value="end">End of the Day</option>
     <option value="intra">Intraday</option>
 </select>
+</div>
 
-<div class="p-5" *ngIf="timeStamp.value == 'end'">
+<div class="chart1" *ngIf="timeStamp.value == 'end'">
     <app-stock-chart></app-stock-chart>
 </div>
 
-<div class="p-5" *ngIf="timeStamp.value == 'intra'">
+<div class="chart2" *ngIf="timeStamp.value == 'intra'">
    <app-intra-day></app-intra-day>
+</div>
 </div>
 </div>

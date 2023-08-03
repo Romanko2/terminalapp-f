@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  timeStamp = new FormControl()
+  timeStamp = new FormControl('end')
   selectVal:any;
  ngOnInit(): void {
    
