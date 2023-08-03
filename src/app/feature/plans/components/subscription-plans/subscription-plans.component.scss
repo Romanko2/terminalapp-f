@@ -51,6 +51,8 @@ span.span_text {
 .btn2:disabled {
     pointer-events: none;
     cursor: default;
+    background-color: #2fc0f9;
+    color: #fff;
 }
 .btn2:hover{
     background: #2fc0f9 !important;
