@@ -5,9 +5,10 @@ import { ProfileModule } from './profile/profile.module';
 import { FeatureMainComponent } from './feature-main/feature-main.component';
 import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { HighchartComponent } from './highchart/highchart.component';
+// import { HighchartComponent } from './highchart/highchart.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
+import { LineChartComponent } from './line-chart/line-chart.component';
 
 const routes: Routes = [
   {
@@ -38,9 +39,13 @@ const routes: Routes = [
         path:'terms-and-conditions',
         component:TermsAndConditionsComponent
       },
+      // {
+      //   path:'highchart',
+      //   component:HighchartComponent
+      // },
       {
-        path:'highchart',
-        component:HighchartComponent
+        path:'line-chart',
+        component:LineChartComponent
       }
     ]
   }

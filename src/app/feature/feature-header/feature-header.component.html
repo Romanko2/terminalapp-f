@@ -49,6 +49,13 @@
             >Profile</a
           >
           <a
+          class="dropdown-item"
+          href="#"
+          routerLink="/feature/dashboard"
+          *ngIf="user"
+          >Dashboard</a
+        >
+          <a
             class="dropdown-item"
             href="#"
             routerLink="/auth/change-password"

@@ -43,6 +43,7 @@ export function highchartsModules() {
    
   ],
   imports: [
+    // NgChartsModule
     BrowserModule,
     HttpClientModule,
     ToastrModule.forRoot(),
@@ -52,9 +53,7 @@ export function highchartsModules() {
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     NgxMaskModule.forRoot(),
-
-    // NgChartsModule
-
+    
 
   ],
   providers: [BehaviorService,
