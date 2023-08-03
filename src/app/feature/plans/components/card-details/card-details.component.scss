@@ -165,8 +165,8 @@ body {
 label {
     padding-bottom: 5px;
     font-size: 13px;
+    color: #232323;
 }
-
 input {
     padding: 8px 15px;
     font-size: 12px;
@@ -463,4 +463,7 @@ h1.heading_card:after {
   .card_height {
     height: 365px;
     overflow: auto;
+}
+.label_text{
+color: #fff;
 }
