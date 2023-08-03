@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AppService } from 'src/app/app.service';
 import { BehaviorService } from 'src/app/shared/behavior.service';
@@ -14,6 +14,7 @@ import { LocalStorageService } from 'src/app/utils/services/local-storage.servic
 })
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
+  id:any
   public submitted: any = false;
   public showPass: any = false;
   public userRole: any;
@@ -26,6 +27,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private toaster: ToastrService,
+    private _activatedRoute:ActivatedRoute,
     private localStorageService: LocalStorageService, private appService: AppService) {
 
     if (_bs.getLocalUser()) {
@@ -39,6 +41,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._activatedRoute.queryParams.subscribe(params=>{
+      this.id = params.id
+      if(this.id){
+        this.autoLogin()
+      }
+    })
     let userDetails = JSON.parse(localStorage.getItem('userSignup:session') as string)
     this.userRole = userDetails?.data.role
     this.rmCheck = document.getElementById("rememberMe"),
@@ -106,5 +114,13 @@ export class LoginComponent implements OnInit {
     //   localStorage.username = "";
     //   localStorage.checkbox = "";
     // }
+  }
+
+  autoLogin(){
+    this.authService.autoLogin(this.id).subscribe({
+      next:(res)=>{
+        console.log(res)
+      }
+    })
   }
 }

@@ -59,7 +59,7 @@ export class AuthService {
 
 
     resetPassword(body: any) {
-      return this.http.put(`${this.baseUrl}${API_CONSTANTS.reset_url}`, body)
+        return this.http.put(`${this.baseUrl}${API_CONSTANTS.reset_url}`, body)
     }
 
     changePassword(body: CHANGEPASSWORD): Observable<any> {
@@ -75,10 +75,13 @@ export class AuthService {
 
     }
 
-    getToken() :void{
+    getToken(): void {
         this.localStorageService.getData('access_token')
     }
 
+    autoLogin(id: any) {
+        return this.http.get(`${this.baseUrl}${API_CONSTANTS.autologin_url}${id}`)
+    }
 
 
 }
