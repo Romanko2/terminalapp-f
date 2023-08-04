@@ -14,11 +14,11 @@ import { BehaviorService } from 'src/app/shared/behavior.service';
   styleUrls: ['./stock-chart.component.scss'],
 })
 export class StockChartComponent implements OnInit {
-  
-  perDayGraphData:any[]=[]
-  perdayChart: any = []
-  constructor(private fs: FrontendService, private datePipe: DatePipe , private bs:BehaviorService) {
-   
+
+  perDayGraphData: any[] = []
+  eodChart: any = []
+  constructor(private fs: FrontendService, private datePipe: DatePipe, private bs: BehaviorService) {
+
   }
 
 
@@ -29,8 +29,9 @@ export class StockChartComponent implements OnInit {
   getIntradaygraph() {
     let data = {
       symbol: 'AAPL',
-      limit: 10,
-      offset: 10
+      // limit: 30,
+      // offset: 30,
+     
     }
     this.bs.load(true)
     this.fs.getgraph('End_of_Day', data).subscribe({
@@ -48,35 +49,29 @@ export class StockChartComponent implements OnInit {
           highs.push(res.high)
           closee.push(res.close)
           loww.push(res.low)
-      
+
         })
         this.perDayGraphData.forEach((x: any) => {
           const dateTime = x.date.split('T');
           x.dateOnly = dateTime[0];
           let newDate = x.dateOnly
           console.log(newDate)
-          var ctx = document.getElementById('perDay') as HTMLCanvasElement
-          this.perdayChart = new Chart(ctx, {
+          var ctx = document.getElementById('eod') as HTMLCanvasElement
+          this.eodChart = new Chart(ctx, {
             type: 'line', //this denotes tha type of chart
             data: {
               labels: datess,
+
               datasets: [
                 {
                   label: 'High Prices',
                   data: highs,
-                  borderColor: 'rgba(255, 99, 132, 1)',
-                  backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                  borderColor: '#80ed99',
+
                   borderWidth: 2,
-                  fill: true
+                  fill: false
                 },
-                {
-                  label: 'Low Prices',
-                  data: loww,
-                  borderColor: 'rgba(54, 162, 235, 1)',
-                  backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                  borderWidth: 2,
-                  fill: true
-                }
+       
               ]
             },
             options: this.stockChartOptions
@@ -84,7 +79,6 @@ export class StockChartComponent implements OnInit {
 
         })
 
-        // console.log(dates)
       },
       error: (err: any) => {
 
@@ -110,103 +104,5 @@ export class StockChartComponent implements OnInit {
       }
     }
   }
-  // timeStamp = new FormControl()
-  // selectVal: any;
-  // data = [
 
-  // ];
-
-  // constructor(private fs: FrontendService,private bs:BehaviorService) {
-
-  // }
-
-  // ngOnInit(): void {
-  //   let dataa = {
-  //     symbol: 'TSLA',
-  //     limit: 10,
-  //     offset: 10
-  //   }
-  //   this.bs.load(true)
-  //   this.fs.getgraph('End_of_Day', dataa).subscribe({
-  //     next: (res: any) => {
-  //       this.bs.load(false)
-  //       this.data = res.data.data
-  //       console.log(this.data)
-  //       let root = am5.Root.new('chartdiv');
-  //       let data = this.data.map((res: any) => {
-  //         return { ...res, Date: new Date(res.date).getTime() };
-  //       });
-
-  //       root._logo?.dispose();
-  //       let stockChart = root.container.children.push(
-  //         am5stock.StockChart.new(root, {})
-  //       );
-  //       let mainPanel = stockChart.panels.push(
-  //         am5stock.StockPanel.new(root, {
-  //           panX: true,
-  //           panY: true,
-  //         })
-  //       );
-  //       let valueAxis = mainPanel.yAxes.push(
-  //         am5xy.ValueAxis.new(root, {
-  //           renderer: am5xy.AxisRendererY.new(root, {}),
-  //         })
-  //       );
-  //       let dateAxis = mainPanel.xAxes.push(
-  //         am5xy.GaplessDateAxis.new(root, {
-  //           baseInterval: {
-  //             timeUnit: 'day',
-  //             count: 1,
-  //           },
-  //           groupData: true,
-  //           renderer: am5xy.AxisRendererX.new(root, {}),
-  //         })
-  //       );
-
-  //       let valueSeries = mainPanel.series.push(
-  //         am5xy.LineSeries.new(root, {
-  //           name: 'High',
-  //           valueXField: 'Date',
-  //           valueYField: 'high',
-  //           xAxis: dateAxis,
-  //           yAxis: valueAxis,
-  //           legendValueText: "{valueY}"
-  //         })
-  //       );
-
-  //       let valueSeries2 = mainPanel.series.push(
-  //         am5xy.LineSeries.new(root, {
-  //           name: 'Low',
-  //           valueXField: 'Date',
-  //           valueYField: 'low',
-  //           xAxis: dateAxis,
-  //           yAxis: valueAxis,
-  //           legendValueText: "{valueY}"
-  //         })
-  //       );
-  //   // Add the tooltip to the series
-          
-  //       let tooltip = am5.Tooltip.new(root, {
-  //         keepTargetHover: true,
-  //         getStrokeFromSprite: true,
-  //         pointerOrientation: "horizontal",
-  //         labelText: "[bold]{name}[/]\n{valueX.formatDate()}: {valueY}",
-  //       });
-
-  //       valueSeries2.strokes.template.setAll({
-  //         strokeWidth: 2
-  //       });
-
-  //       valueSeries.set("tooltip", tooltip);
-  //       valueSeries2.set("tooltip", tooltip);
-
-  //       valueSeries.data.setAll(data);
-  //       valueSeries2.data.setAll(data);
-  //       stockChart.set('stockSeries', valueSeries);
-  //       stockChart.set('stockSeries', valueSeries2);
-
-
-  //     }
-  //   })
-  // }
 }

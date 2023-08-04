@@ -39,6 +39,7 @@ export class SignupComponent implements OnInit {
   public signup() {
     this.submitted = true
     if (this.signupForm.valid) {
+      this._bs.load(true)
       const body = {
         firstName: this.signupForm.value.firstName,
         lastName: this.signupForm.value.lastName,
@@ -47,6 +48,7 @@ export class SignupComponent implements OnInit {
       }
       this.authService.register(body).subscribe({
         next: (res) => {
+          this._bs.load(false)
           localStorage.setItem('user-signup:session', JSON.stringify(res))
           this.toaster.success(res.message)
           this.signupForm.reset()

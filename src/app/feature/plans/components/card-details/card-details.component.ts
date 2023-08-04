@@ -124,7 +124,7 @@ export class CardDetailsComponent implements OnInit {
         this.bs.load(false)
         this.getPrimaryCard()
         console.log(res)
-        this.toastr.success(res.message)
+        this.toastr.success("Plan purchased successfully")
         this.cardForm.reset();
         this.submitted = false
         this.router.navigate(['/feature/plans'])

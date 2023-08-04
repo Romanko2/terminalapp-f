@@ -7,22 +7,23 @@
 <!-- <div class="chart_layout">
   <div id="intra" style=""class="chart_design"></div>
 </div> -->
-
+<div class="row">
+  <div class="col-md-9">
 <div class="chart_layout">
   <canvas id="perDay">{{ perdayChart }}</canvas>
 </div>
- 
-
-<div class="d-flex mt-4">
+</div>
+<div class="col-md-3">
+<div class="graf_text d-flex ">
   <div>
-  <p>  Open &nbsp;  {{lastOpen}}</p>
-  <p>  High &nbsp;  {{high}}</p>
+    <p>Open &nbsp; {{ lastOpen }}</p>
+    <p>High &nbsp; {{ high }}</p>
   </div>
   <div>
-    <p>  Low &nbsp;  {{lastLow}}</p>
-    <p>  Close &nbsp;  {{lastClose}}</p>
-    </div>
+    <p>Low &nbsp; {{ lastLow }}</p>
+    <p>Close &nbsp; {{ lastClose }}</p>
+  </div>
+</div>
 </div>
 <div>
- 
-</div>
+  </div>

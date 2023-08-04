@@ -15,7 +15,7 @@
                 <img [src]="userImg(user?.image)" class="shadow" />
 
                 <i class="fa fa-edit" (click)="uploadPic.click()"></i>
-                <mat-icon class="icon_delete">delete</mat-icon>
+                <mat-icon class="icon_delete" (click)="delPic()">delete</mat-icon>
                 <input #uploadPic type="file" id="uploadPic" [disabled]="imageUploading"
                   (change)="updateImage($event)" />
               </div>
@@ -36,7 +36,7 @@
                     <section>
                       <input type="text" class="form-control" placeholder="First name" formControlName="fullName"
                         required />
-                      <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                      <div *ngIf="submitted && f.fullName.errors && f.fullName.touched && f.fullName.dirty" class="invalid-feedback">
                         <div *ngIf="f.fullName.errors.required">
                           First name is required
                         </div>
@@ -48,7 +48,7 @@
                   <div class="setinput">
                     <label class="required d-block">Contact Number<span class="text-danger">*</span></label>
                     <app-tel-input [control]="f.mobileNo"></app-tel-input>
-                    <div *ngIf="submitted && f.mobileNo.errors" class="invalid-feedback">
+                    <div *ngIf="submitted && f.mobileNo.errors && (f.mobileNo.dirty || f.mobileNo.touched)" class="invalid-feedback">
                       <div *ngIf="f.mobileNo.errors.required">
                         Contact Number is required
                       </div>
@@ -56,6 +56,7 @@
                         Contact Number is invalid
                       </div>
                     </div>
+                    
                   </div>
                 </div>
                 <div class="col-sm-6">

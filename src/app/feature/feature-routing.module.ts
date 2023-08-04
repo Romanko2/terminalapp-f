@@ -9,6 +9,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
+import { MarketActivityComponent } from './market-activity/market-activity.component';
 
 const routes: Routes = [
   {
@@ -39,13 +40,9 @@ const routes: Routes = [
         path:'terms-and-conditions',
         component:TermsAndConditionsComponent
       },
-      // {
-      //   path:'highchart',
-      //   component:HighchartComponent
-      // },
       {
-        path:'line-chart',
-        component:LineChartComponent
+        path:'market-activity',
+        component:MarketActivityComponent
       }
     ]
   }
