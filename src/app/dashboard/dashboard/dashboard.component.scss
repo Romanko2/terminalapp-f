@@ -70,11 +70,23 @@
     width:100%
   }
 
+  .tsb_btn {
+    background: #fff;
+    border: 1px solid #2fc0f9;
+    border-radius: 4px !important;
+    color: #2fc0f9;
+    width: 150px;
+}
 
+// .tsb_btn .active{
+// background-color: #80ed99 !important;
+// border: 1px solid #80ed99 !important;
+// color: #000;
+// }
+.tsb_btn:hover{
+color: #fff;
+}
 
-
-
-
-
-
-
+.activeCls{
+  color: #2fc0f9;
+}

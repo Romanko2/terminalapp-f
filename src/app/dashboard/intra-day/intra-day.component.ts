@@ -3,11 +3,12 @@ import * as am5 from '@amcharts/amcharts5';
 import * as am5stock from '@amcharts/amcharts5/stock';
 import * as am5xy from '@amcharts/amcharts5/xy';
 import { FormControl } from '@angular/forms';
-import { DatePipe } from '@angular/common';
+import { DatePipe, formatDate } from '@angular/common';
 import { FrontendService } from 'src/app/utils/services/frontend.service';
 
 import { Chart } from 'chart.js/auto'
 import { BehaviorService } from 'src/app/shared/behavior.service';
+import { last } from '@amcharts/amcharts5/.internal/core/util/Array';
 
 @Component({
   selector: 'app-intra-day',
@@ -18,6 +19,10 @@ export class IntraDayComponent implements OnInit {
 
   perDayGraphData:any[]=[]
   perdayChart: any = []
+  lastOpen:any;
+  high:any;
+  lastLow:any;
+  lastClose:any;
   constructor(private fs: FrontendService, private datePipe: DatePipe , private bs:BehaviorService) {
    
   }
@@ -45,17 +50,18 @@ export class IntraDayComponent implements OnInit {
         let closee: any[] = []
         let loww: any[] = []
         perDayGraphData.forEach((res: any) => {
-          datess.push(res.date)
+          this.lastOpen = res.open
+          this.high = res.high
+          this.lastLow = res.low
+          this.lastClose = res.close
+          datess.push(formatDate(new Date(res.date), 'HH:MM', 'en-auto'));
+        
           highs.push(res.high)
           closee.push(res.close)
           loww.push(res.low)
-
+      
         })
         this.perDayGraphData.forEach((x: any) => {
-          const dateTime = x.date.split('T');
-          x.dateOnly = dateTime[0];
-          let newDate = x.dateOnly
-          console.log(newDate)
           var ctx = document.getElementById('perDay') as HTMLCanvasElement
           this.perdayChart = new Chart(ctx, {
             type: 'line', //this denotes tha type of chart
@@ -64,7 +70,7 @@ export class IntraDayComponent implements OnInit {
               datasets: [
                 {
                   label: 'High Prices',
-                  data: highs,
+                  data:highs,
                   borderColor: 'rgba(255, 99, 132, 1)',
                   backgroundColor: 'rgba(255, 99, 132, 0.2)',
                   borderWidth: 2,
