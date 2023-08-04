@@ -90,3 +90,30 @@ color: #fff;
 .activeCls{
   color: #2fc0f9;
 }
+
+
+.tab-buttons {
+  display: flex;
+}
+
+.tab-buttons button {
+  background-color: #f1f1f1;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  flex: 1;
+  text-align: center;
+}
+
+.tab-buttons button.active {
+  background-color: #ddd;
+}
+
+.tab-content {
+  margin-top: 20px;
+}
+
+.stive{
+  color:#2fc0f9 !important
+}

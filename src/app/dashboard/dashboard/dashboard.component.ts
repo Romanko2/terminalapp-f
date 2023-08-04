@@ -19,7 +19,11 @@ export class DashboardComponent implements OnInit {
  ngOnInit(): void {
    
  }
+ activeTab = 1;
 
+ setActiveTab(tabNumber: number) {
+   this.activeTab = tabNumber;
+ }
  eod(){
   this.isEodChart = true
   this.isIntra = false
