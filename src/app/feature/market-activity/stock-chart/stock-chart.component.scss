@@ -1,9 +1,21 @@
 .offmonth {
     color: #8b8b8b;
-    cursor: pointer
+    cursor: pointer;
+    border: 1px solid #373737;
+    width: fit-content;
+    padding: 4px 8px;
 }
 
 .month{
   color: #2fc0f9;
-  cursor: pointer
+  cursor: pointer;
+  border: 1px solid #373737;
+  width: fit-content;
+  padding: 4px 8px;
+  
+}
+p.month {
+  border: 1px solid #373737;
+  width: fit-content;
+  padding: 4px 8px;
 }
