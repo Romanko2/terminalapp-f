@@ -56,7 +56,7 @@ export class StockChartComponent implements OnInit {
     this.isOneMonth = true
     let data = {
       symbol: 'TSLA',
-      // limit: 100,
+      // limit: 0,
       // offset: 100,
       month:1
     }
@@ -119,8 +119,8 @@ export class StockChartComponent implements OnInit {
   getEodgrapgh() {
     let data = {
       symbol: 'AAPL',
-      // limit: 100,
-      // offset: 100,
+      limit: 40,
+      offset: 40,
 
     }
     this.bs.load(true)

@@ -75,8 +75,8 @@ export class IntraDayComponent implements OnInit {
   getIntradaygraph() {
     let data = {
       symbol: 'AAPL',
-      limit: 20,
-      offset: 20,
+      limit: 100,
+      offset: 100,
       date: this.subtractedDate
     }
     this.bs.load(true)
