@@ -10,6 +10,7 @@ import { Chart } from 'chart.js/auto'
 import { BehaviorService } from 'src/app/shared/behavior.service';
 import { last } from '@amcharts/amcharts5/.internal/core/util/Array';
 
+
 @Component({
   selector: 'app-intra-day',
   templateUrl: './intra-day.component.html',
@@ -17,6 +18,7 @@ import { last } from '@amcharts/amcharts5/.internal/core/util/Array';
 })
 export class IntraDayComponent implements OnInit {
   public todayDate: any;
+  array:any = []
   public perDayGraphData: any[] = []
   public perdayChart: any = []
   public lastOpen: any;
@@ -86,7 +88,7 @@ export class IntraDayComponent implements OnInit {
       next: (res: any) => {
         this.bs.load(false)
         this.perDayGraphData = res.data.data
-        const perDayGraphData = res.data.data
+        const perDayGraphData= res.data.data
         let tDate: any;
         let datess: any[] = []
         let highs: any[] = []
@@ -113,6 +115,7 @@ export class IntraDayComponent implements OnInit {
           var ctx = document.getElementById('perDay') as HTMLCanvasElement
           this.perdayChart = new Chart(ctx, {
             type: 'line', //this denotes tha type of chart
+            // data: reversedData.map(item => item.value),
             data: {
               labels: datess,
               datasets: [
@@ -120,7 +123,6 @@ export class IntraDayComponent implements OnInit {
                   label: 'High Prices',
                   data: highs,
                   borderColor: '#80ed99',
-
                   borderWidth: 2,
                   fill: false
                 },
@@ -140,12 +142,18 @@ export class IntraDayComponent implements OnInit {
   stockChartOptions = {
     responsive: true,
     maintainAspectRation: false,
-
+    plugins: {
+      legend: {
+        display: false // Hide the legend
+      }
+    },
     scales: {
+
       x: {
         grid: {
           display: false
         },
+
       },
       y: {
         grid: {
