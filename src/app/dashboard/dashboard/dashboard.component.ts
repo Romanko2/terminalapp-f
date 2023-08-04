@@ -14,7 +14,19 @@ import { environment } from 'src/environments/environment';
 export class DashboardComponent implements OnInit {
   timeStamp = new FormControl('end')
   selectVal:any;
+  isEodChart:boolean = true
+  isIntra:boolean = false
  ngOnInit(): void {
    
+ }
+
+ eod(){
+  this.isEodChart = true
+  this.isIntra = false
+ }
+
+ intra(){
+  this.isIntra = true
+  this.isEodChart = false
  }
 }
