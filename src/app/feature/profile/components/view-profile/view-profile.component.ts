@@ -25,15 +25,6 @@ export class ViewProfileComponent implements OnInit {
   ngOnInit(): void {
     this.getUserData()
     this.id = localStorage.getItem('id')
-    // this.getExchangegraph()
-    // this.getEODgraph()
-    // this.getIntradaygraph()
-    // this.getTickersgraph()
-    // this.getCurrenciesgraph()
-    // this.getTimezonesgraph()
-    // if(this.id){
-    //   this.getActivePlan()
-    // }
   }
 
   getUserData(){
@@ -74,60 +65,7 @@ export class ViewProfileComponent implements OnInit {
     })
   }
 
-  getIntradaygraph(){
-    let data={
-      symbol:'AAPL',
-      limit:10,
-      offset:10
-    }
-    this.frontendService.getgraph('Intraday',data).subscribe({
-      next:(res:any)=>{
-      },
-      error:(err:any)=>{
-        // this.toastr.error(err.message)
-      }
-    })
-  }
-  getTickersgraph(){
-    let data={
-      symbol:'AAPL',
-      limit:10,
-      offset:10
-    }
-    this.frontendService.getgraph('Tickers',data).subscribe({
-      next:(res:any)=>{
-      },
-      error:(err:any)=>{
-        // this.toastr.error(err.message)
-      }
-    })
-  }
-  getCurrenciesgraph(){
-    let data={
-      limit:10,
-      offset:10
-    }
-    this.frontendService.getgraph('Currencies',data).subscribe({
-      next:(res:any)=>{
-      },
-      error:(err:any)=>{
-        // this.toastr.error(err.message)
-      }
-    })
-  }
-  getTimezonesgraph(){
-    let data={
-      limit:10,
-      offset:10
-    }
-    this.frontendService.getgraph('Timezones',data).subscribe({
-      next:(res:any)=>{
-      },
-      error:(err:any)=>{
-        // this.toastr.error(err.message)
-      }
-    })
-  }
+
 
   // getActivePlan(){
   //   this.frontendService.activePlan(this.id).subscribe({
