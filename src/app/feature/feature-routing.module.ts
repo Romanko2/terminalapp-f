@@ -9,7 +9,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
-import { MarketActivityComponent } from './market-activity/market-activity.component';
+import { MarketActivityModule } from './market-activity/market-activity.module';
+
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
         loadChildren:()=>ProfileModule
       },
       {
+        path:'market-activity',
+        loadChildren:()=>MarketActivityModule
+      },
+      {
         path:'about-us',
         component:AboutUsComponent
       },
@@ -39,10 +44,6 @@ const routes: Routes = [
       {
         path:'terms-and-conditions',
         component:TermsAndConditionsComponent
-      },
-      {
-        path:'market-activity',
-        component:MarketActivityComponent
       }
     ]
   }

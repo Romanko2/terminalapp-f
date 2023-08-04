@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import * as am5 from '@amcharts/amcharts5';
-import * as am5stock from '@amcharts/amcharts5/stock';
-import * as am5xy from '@amcharts/amcharts5/xy';
-import { FormControl } from '@angular/forms';
 import { DatePipe, formatDate } from '@angular/common';
 import { FrontendService } from 'src/app/utils/services/frontend.service';
 
 import { Chart } from 'chart.js/auto'
 import { BehaviorService } from 'src/app/shared/behavior.service';
-import { last } from '@amcharts/amcharts5/.internal/core/util/Array';
+
 
 
 @Component({
@@ -87,14 +83,14 @@ export class IntraDayComponent implements OnInit {
     this.fs.getgraph('Intraday', data).subscribe({
       next: (res: any) => {
         this.bs.load(false)
-        this.perDayGraphData = res.data.data
-        const perDayGraphData= res.data.data
+        let data = res.data.data
+        this.perDayGraphData = data.reverse()
         let tDate: any;
         let datess: any[] = []
         let highs: any[] = []
         let closee: any[] = []
         let loww: any[] = []
-        perDayGraphData.forEach((res: any) => {
+        this.perDayGraphData.forEach((res: any) => {
           this.lastOpen = res.open
           this.high = res.open
           this.lastLow = res.low
@@ -115,7 +111,6 @@ export class IntraDayComponent implements OnInit {
           var ctx = document.getElementById('perDay') as HTMLCanvasElement
           this.perdayChart = new Chart(ctx, {
             type: 'line', //this denotes tha type of chart
-            // data: reversedData.map(item => item.value),
             data: {
               labels: datess,
               datasets: [

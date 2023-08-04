@@ -14,7 +14,7 @@ import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-co
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PerDayComponent } from './per-day/per-day.component';
-import { MarketActivityComponent } from './market-activity/market-activity.component';
+
 
 
 
@@ -29,7 +29,7 @@ import { MarketActivityComponent } from './market-activity/market-activity.compo
     TermsAndConditionsComponent,
     LineChartComponent,
     PerDayComponent,
-    MarketActivityComponent,
+
 
   ],
   imports: [

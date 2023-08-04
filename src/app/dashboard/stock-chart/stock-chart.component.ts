@@ -48,6 +48,7 @@ export class StockChartComponent implements OnInit {
   formatDateToCustomFormat(dateString: any): any {
     const date = new Date(dateString);
     const options: any = { day: '2-digit', month: 'short' };
+
     return date.toLocaleDateString('en', options);
   }
 
@@ -63,7 +64,8 @@ export class StockChartComponent implements OnInit {
     this.fs.getgraph('End_of_Day', data).subscribe({
       next: (res: any) => {
         this.bs.load(false)
-        this.perDayGraphData = res.data.data
+        let data = res.data.data
+        this.perDayGraphData = data.reverse()
         let tDate: any;
         let datess: any[] = []
         let highs: any[] = []
@@ -126,12 +128,12 @@ export class StockChartComponent implements OnInit {
     scales: {
       x: {
         grid: {
-          display: false
+          display: true
         },
       },
       y: {
         grid: {
-          display: false
+          display: true
         },
         beginAtZero: false
       }
