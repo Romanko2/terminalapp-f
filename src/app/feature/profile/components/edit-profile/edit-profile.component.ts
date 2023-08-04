@@ -20,6 +20,7 @@ export class EditProfileComponent implements OnInit {
   baseImage: any
   submitted: any
   public id: any
+  imagename:any
   constructor(private formBuilder: FormBuilder,
     private appService: AppService,
     private fs: FrontendService,
@@ -44,14 +45,15 @@ export class EditProfileComponent implements OnInit {
         console.log(res)
         this._bs.load(false)
         this.user = res.data
-        console
+        this.imagename = this.user.image
+        console.log(this.imagename)
         console.log(this.user)
         this.userForm.patchValue({
           fullName: this.user.fullName ,
           email: this.user.email ,
           mobileNo: {
             countryCode: this.user.country,
-            dialCode: this.user.dialCode,
+            dialode: this.user.dialCode,
             number: this.user.mobileNo,
           },
           
@@ -168,5 +170,13 @@ export class EditProfileComponent implements OnInit {
         this.updating = false
       })
     }
+  }
+
+  delPic(){
+    this.fs.deleteImage(this.imagename).subscribe({
+      next:(res)=>{
+        console.log(res)
+      }
+    })
   }
 }

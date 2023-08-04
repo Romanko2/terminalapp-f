@@ -62,7 +62,7 @@
             *ngIf="user"
             >Change Password</a
           >
-          <a class="dropdown-item" (click)="logout()" *ngIf="user">Logout</a>
+          <a class="dropdown-item" (click)="logout()" *ngIf="user" style="cursor:pointer">Logout</a>
           <a class="dropdown-item" routerLink="/auth/login" *ngIf="!user"
             >Login</a
           >
