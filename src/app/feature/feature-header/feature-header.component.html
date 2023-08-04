@@ -18,7 +18,7 @@
           >
             Home
           </li>
-          <li>Market activity</li>
+          <li routerLink="/feature/market-activity" routerLinkActive="active">Market activity</li>
           <li>Solutions</li>
           <li routerLink="/feature/plans" routerLinkActive="active">Plan</li>
           <li routerLink="/feature/about-us" routerLinkActive="active">About</li>
@@ -48,13 +48,13 @@
             *ngIf="user"
             >Profile</a
           >
-          <a
+          <!-- <a
           class="dropdown-item"
           href="#"
           routerLink="/dashboard"
           *ngIf="user"
           >Dashboard</a
-        >
+        > -->
           <a
             class="dropdown-item"
             href="#"

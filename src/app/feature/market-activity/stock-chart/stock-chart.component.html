@@ -1,0 +1,5 @@
+<div class="chart_layout">
+  <p (click)="getEodByMonth()" [ngClass]="isOneMonth ? 'month' : 'offmonth'">1 month</p>
+  <canvas *ngIf="!isOneMonth" id="eod">{{ perDayGraphData }}</canvas>
+  <canvas *ngIf="isOneMonth" id="eod">{{ perDayGraphData }}</canvas>
+</div>
