@@ -4,12 +4,16 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
     border-radius: 10px;
+    background: linear-gradient(
+153deg
+, #091621 16%, #08151f 62%);
 }
 .heading-main {
     text-align: center;
     position: relative;
     font-weight: 600;
     font-size: 22px;
+    color: #2fc0f9;
 }
 .heading-main:after {
     content: '';
@@ -26,6 +30,6 @@
     margin-top: 2rem;
 }
 .text_p p {
-    color: #6b6b6b;
+    color: #fff;
     font-size: 14px;
 }
